@@ -1,0 +1,5 @@
+policy_scheme,start_date,end_date,incentive_rate_per_kwh_inr,max_cap_per_vehicle_inr,max_ex_showroom_cap_inr,total_budget_outlay_cr,key_objectives,data_source
+FAME-II (Phase II),2019-04-01,2024-03-31,10000,15000,150000,10000,"Demand incentive, fast charging infrastructure, phased manufacturing plan (PMP)",Ministry of Heavy Industries Gazette Notification S.O. 1300(E)
+EMPS 2024 (Electric Mobility Promotion Scheme),2024-04-01,2024-09-30,5000,10000,150000,778,Transition bridge scheme supporting e2W and e3W with reduced cap per vehicle,Ministry of Heavy Industries Gazette Notification S.O. 1215(E)
+PM E-DRIVE (Phase 1 - FY 2024-25),2024-10-01,2025-03-31,5000,10000,150000,3679,"National framework, e-vouchers via Aadhaar, charging infrastructure, test agency approval",Ministry of Heavy Industries Official Notification S.O. 4194(E)
+PM E-DRIVE (Phase 2 - FY 2025-26),2025-04-01,2026-03-31,2500,5000,150000,3679,Tapered subsidy phase leading to complete market self-sustainability and PLI cell integration,Ministry of Heavy Industries Official Notification S.O. 4194(E)

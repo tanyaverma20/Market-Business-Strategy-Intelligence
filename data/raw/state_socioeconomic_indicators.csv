@@ -1,0 +1,21 @@
+state,state_code,population_2024_est_millions,urbanization_pct,per_capita_nsdp_inr,est_annual_total_2w_volume,public_charging_stations_count,state_ev_policy_active,road_tax_exemption_pct,subsidy_capital_support_score,data_source
+Maharashtra,MH,126.5,45.2,242247,2100000,3079,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE
+Karnataka,KA,67.8,38.6,301673,1850000,5765,Yes,100,90,MoSPI / RBI Handbook 2024 / BEE
+Tamil Nadu,TN,76.8,48.4,275583,1900000,1833,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE
+Gujarat,GJ,71.5,42.6,250100,1400000,4749,Yes,100,80,MoSPI / RBI Handbook 2024 / BEE
+Uttar Pradesh,UP,235.0,22.3,83636,2800000,1923,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE
+Rajasthan,RJ,81.0,24.9,156149,1250000,1144,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE
+Kerala,KL,35.8,47.7,264702,750000,960,Yes,50,80,MoSPI / RBI Handbook 2024 / BEE
+Delhi,DL,20.8,97.5,444768,550000,1886,Yes,100,95,MoSPI / RBI Handbook 2024 / BEE
+Madhya Pradesh,MP,86.5,26.8,140152,1100000,920,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE
+Andhra Pradesh,AP,53.2,29.6,219518,900000,680,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE
+Telangana,TS,38.0,38.9,312398,850000,1120,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE
+West Bengal,WB,99.0,31.9,141392,1050000,710,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE
+Bihar,BR,126.7,11.3,54111,1150000,340,Yes,100,50,MoSPI / RBI Handbook 2024 / BEE
+Punjab,PB,30.8,37.5,173873,520000,510,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE
+Haryana,HR,30.2,34.9,296685,580000,840,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE
+Odisha,OR,46.2,19.0,150676,500000,420,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE
+Chhattisgarh,CG,30.1,23.2,137329,420000,310,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE
+Assam,AS,35.6,14.1,118500,380000,180,Yes,100,55,MoSPI / RBI Handbook 2024 / BEE
+Goa,GA,1.6,62.2,535092,90000,140,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE
+Uttarakhand,UK,11.6,30.2,233000,210000,260,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE
