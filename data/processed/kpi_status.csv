@@ -1,0 +1,31 @@
+kpi_name,current_status,availability_status,required_columns,source_provenance,calculation_type
+Annual EV registrations,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['year', 'e2w_registrations']",PENDING VERIFIED DATA,pending
+Monthly EV registrations,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['date', 'e2w_registrations']",PENDING VERIFIED DATA,pending
+YoY growth,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['year', 'e2w_registrations']",PENDING VERIFIED DATA,pending
+CAGR,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['year', 'e2w_registrations']",PENDING VERIFIED DATA,pending
+EV penetration,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['e2w_registrations', 'total_2w_registrations']",PENDING VERIFIED DATA,pending
+TAM,PENDING VERIFIED DATA,PENDING VERIFIED DATA,['total_market_units'],PENDING VERIFIED DATA,pending
+SAM,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['target_units', 'target_share']",PENDING VERIFIED DATA,pending
+SOM,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['sam_units', 'target_market_share']",PENDING VERIFIED DATA,pending
+OEM market share,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['oem_name', 'year', 'e2w_registrations']",PENDING VERIFIED DATA,pending
+HHI,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['oem_name', 'year', 'market_share_pct']",PENDING VERIFIED DATA,pending
+Manufacturer count,VERIFIED,AVAILABLE,['manufacturer'],verified_primary_source,verified
+Product count,VERIFIED,AVAILABLE,['model_name'],verified_primary_source,verified
+Average product price,VERIFIED,AVAILABLE,['ex_showroom_price_inr'],verified_primary_source,derived
+Median product price,VERIFIED,AVAILABLE,['ex_showroom_price_inr'],verified_primary_source,derived
+Price per certified km,VERIFIED,AVAILABLE,"['ex_showroom_price_inr', 'certified_range_km']",verified_primary_source,derived
+Price per kWh,VERIFIED,AVAILABLE,"['ex_showroom_price_inr', 'battery_capacity_kwh']",verified_primary_source,derived
+Average battery capacity,VERIFIED,AVAILABLE,['battery_capacity_kwh'],verified_primary_source,derived
+Average certified range,VERIFIED,AVAILABLE,['certified_range_km'],verified_primary_source,derived
+Range realization %,VERIFIED,PENDING VERIFIED DATA,"['real_world_range_km', 'certified_range_km']",verified_primary_source,derived
+Product value score,VERIFIED,AVAILABLE,"['ex_showroom_price_inr', 'certified_range_km', 'battery_capacity_kwh', 'top_speed_kmh']",verified_primary_source,derived
+Gross margin %,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['selling_price', 'cogs']",PENDING_COST_DATA,pending
+Contribution margin,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['selling_price', 'variable_cost', 'units_sold']",PENDING_COST_DATA,pending
+Contribution margin %,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['selling_price', 'variable_cost']",PENDING_COST_DATA,pending
+Break-even units,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['fixed_cost', 'selling_price', 'variable_cost']",PENDING_COST_DATA,pending
+Break-even revenue,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['fixed_cost', 'selling_price', 'variable_cost']",PENDING_COST_DATA,pending
+TCO,PENDING VERIFIED COST DATA,PENDING VERIFIED DATA,"['purchase_price', 'subsidy', 'electricity_cost', 'maintenance_cost', 'insurance_cost']",PENDING_COST_DATA,pending
+Geographic Attractiveness Index (GAI),PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['state', 'market_size', 'ev_penetration', 'growth', 'purchasing_power', 'charging_infrastructure', 'policy_score']",PENDING VERIFIED DATA,pending
+Competitive intensity score,VERIFIED,AVAILABLE,"['manufacturer', 'model_name', 'vehicle_category', 'ex_showroom_price_inr']",verified_primary_source,derived
+Product-market fit score,VERIFIED,AVAILABLE,"['certified_range_km', 'battery_capacity_kwh', 'ex_showroom_price_inr']",verified_primary_source,derived
+Strategic priority score,PENDING VERIFIED DATA,PENDING VERIFIED DATA,"['market_attractiveness', 'competitive_intensity', 'product_market_fit', 'geographic_attractiveness']",PENDING VERIFIED DATA,pending

@@ -1,21 +1,21 @@
-state,state_code,population_2024_est_millions,urbanization_pct,per_capita_nsdp_inr,est_annual_total_2w_volume,public_charging_stations_count,state_ev_policy_active,road_tax_exemption_pct,subsidy_capital_support_score,data_source,charging_stations_per_million_pop
-Goa,GA,1.6,62.2,535092,90000,140,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,87.5
-Delhi,DL,20.8,97.5,444768,550000,1886,Yes,100,95,MoSPI / RBI Handbook 2024 / BEE,90.67
-Telangana,TS,38.0,38.9,312398,850000,1120,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,29.47
-Karnataka,KA,67.8,38.6,301673,1850000,5765,Yes,100,90,MoSPI / RBI Handbook 2024 / BEE,85.03
-Haryana,HR,30.2,34.9,296685,580000,840,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE,27.81
-Tamil Nadu,TN,76.8,48.4,275583,1900000,1833,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,23.87
-Kerala,KL,35.8,47.7,264702,750000,960,Yes,50,80,MoSPI / RBI Handbook 2024 / BEE,26.82
-Gujarat,GJ,71.5,42.6,250100,1400000,4749,Yes,100,80,MoSPI / RBI Handbook 2024 / BEE,66.42
-Maharashtra,MH,126.5,45.2,242247,2100000,3079,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,24.34
-Uttarakhand,UK,11.6,30.2,233000,210000,260,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,22.41
-Andhra Pradesh,AP,53.2,29.6,219518,900000,680,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,12.78
-Punjab,PB,30.8,37.5,173873,520000,510,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,16.56
-Rajasthan,RJ,81.0,24.9,156149,1250000,1144,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE,14.12
-Odisha,OR,46.2,19.0,150676,500000,420,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,9.09
-West Bengal,WB,99.0,31.9,141392,1050000,710,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,7.17
-Madhya Pradesh,MP,86.5,26.8,140152,1100000,920,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE,10.64
-Chhattisgarh,CG,30.1,23.2,137329,420000,310,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,10.3
-Assam,AS,35.6,14.1,118500,380000,180,Yes,100,55,MoSPI / RBI Handbook 2024 / BEE,5.06
-Uttar Pradesh,UP,235.0,22.3,83636,2800000,1923,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE,8.18
-Bihar,BR,126.7,11.3,54111,1150000,340,Yes,100,50,MoSPI / RBI Handbook 2024 / BEE,2.68
+state,state_code,population_2024_est_millions,urbanization_pct,per_capita_nsdp_inr,est_annual_total_2w_volume,public_charging_stations_count,state_ev_policy_active,road_tax_exemption_pct,subsidy_capital_support_score,data_source,source_dataset,provenance_class,eligible_as_observed_analytics
+Andhra Pradesh,AP,53.2,29.6,219518,900000,680,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Assam,AS,35.6,14.1,118500,380000,180,Yes,100,55,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Bihar,BR,126.7,11.3,54111,1150000,340,Yes,100,50,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Chhattisgarh,CG,30.1,23.2,137329,420000,310,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Delhi,DL,20.8,97.5,444768,550000,1886,Yes,100,95,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Goa,GA,1.6,62.2,535092,90000,140,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Gujarat,GJ,71.5,42.6,250100,1400000,4749,Yes,100,80,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Haryana,HR,30.2,34.9,296685,580000,840,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Karnataka,KA,67.8,38.6,301673,1850000,5765,Yes,100,90,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Kerala,KL,35.8,47.7,264702,750000,960,Yes,50,80,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Madhya Pradesh,MP,86.5,26.8,140152,1100000,920,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Maharashtra,MH,126.5,45.2,242247,2100000,3079,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Odisha,OR,46.2,19.0,150676,500000,420,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Punjab,PB,30.8,37.5,173873,520000,510,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Rajasthan,RJ,81.0,24.9,156149,1250000,1144,Yes,100,70,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Tamil Nadu,TN,76.8,48.4,275583,1900000,1833,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Telangana,TS,38.0,38.9,312398,850000,1120,Yes,100,85,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Uttar Pradesh,UP,235.0,22.3,83636,2800000,1923,Yes,100,75,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+Uttarakhand,UK,11.6,30.2,233000,210000,260,Yes,100,65,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No
+West Bengal,WB,99.0,31.9,141392,1050000,710,Yes,100,60,MoSPI / RBI Handbook 2024 / BEE,state_socioeconomic_indicators.csv,generated_proxy,No

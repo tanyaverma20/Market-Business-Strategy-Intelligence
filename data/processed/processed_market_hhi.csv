@@ -1,7 +1,7 @@
-year,hhi_index,total_oems
-2020,2156.04,8
-2021,1867.56,10
-2022,1316.22,10
-2023,1924.96,10
-2024,2113.11,11
-2025,1882.26,10
+year,provenance_class,eligible_as_observed_analytics,hhi_index,total_oems
+2020,generated_proxy,No,2155.92,8
+2021,generated_proxy,No,1866.99,10
+2022,generated_proxy,No,1316.28,10
+2023,generated_proxy,No,1924.67,10
+2024,generated_proxy,No,2113.16,11
+2025,generated_proxy,No,1882.39,10

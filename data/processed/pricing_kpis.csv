@@ -1,0 +1,31 @@
+manufacturer,model_name,ex_showroom_price_inr,certified_range_km,price_per_certified_km_inr,metric_type
+Ampere,Nexus EX,121499.0,100.0,1214.99,derived
+Ampere,Nexus ST,131499.0,100.0,1314.99,derived
+Ather Energy,450 Apex,,157.0,,derived
+Ather Energy,450S 3.7 kWh,,161.0,,derived
+Ather Energy,450X 2.9 kWh,,126.0,,derived
+Ather Energy,450X 3.7 kWh,,161.0,,derived
+Ather Energy,Rizta S 2.9 kWh,108156.0,123.0,879.3170731707318,derived
+Ather Energy,Rizta S 3.7 kWh,137047.0,159.0,861.930817610063,derived
+Ather Energy,Rizta Z 2.9 kWh,129656.0,123.0,1054.1138211382113,derived
+Ather Energy,Rizta Z 3.7 kWh,149647.0,159.0,941.1761006289308,derived
+Bajaj Auto,Chetak 3001,,127.0,,derived
+Bajaj Auto,Chetak 3501,134500.0,153.0,879.0849673202614,derived
+Bajaj Auto,Chetak 3502,122500.0,153.0,800.6535947712418,derived
+Bajaj Auto,Chetak 3503,,151.0,,derived
+Bajaj Auto,Chetak C2501,91504.0,113.0,809.7699115044247,derived
+Ola Electric,S1 Pro Gen 3 3 kWh,114999.0,,,derived
+Ola Electric,S1 Pro Gen 3 4 kWh,134999.0,,,derived
+Ola Electric,S1 Pro Plus Gen 3 4 kWh,154999.0,,,derived
+Ola Electric,S1 Pro Plus Gen 3 5.3 kWh,169999.0,,,derived
+Ola Electric,S1 X Gen 3 2 kWh,84999.0,108.0,787.0277777777778,derived
+Ola Electric,S1 X Gen 3 3 kWh,,176.0,,derived
+Ola Electric,S1 X Gen 3 4 kWh,,242.0,,derived
+Ola Electric,S1 X Plus Gen 3 4 kWh,120999.0,242.0,499.995867768595,derived
+Ola Electric,S1 X Plus Gen 3 5.2 kWh,129999.0,320.0,406.246875,derived
+TVS Motor Company,iQube 2.3 kWh,95124.0,114.0,834.421052631579,derived
+TVS Motor Company,iQube 3.1 kWh,104962.0,123.0,853.349593495935,derived
+TVS Motor Company,iQube 3.5 kWh,110200.0,145.0,760.0,derived
+TVS Motor Company,iQube MillionR Edition,113751.0,145.0,784.4896551724138,derived
+TVS Motor Company,iQube S 4.7 kWh,130340.0,175.0,744.8,derived
+TVS Motor Company,iQube ST 5.3 kWh,146877.0,212.0,692.816037735849,derived

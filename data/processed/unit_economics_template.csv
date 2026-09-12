@@ -1,0 +1,2 @@
+selling_price,variable_cost,fixed_cost,units_sold,bom_cost,manufacturing_cost,distribution_cost,warranty_service_cost,contribution_margin,status,notes
+,,,,,,,,,PENDING VERIFIED DATA,Add verified BOM and operating cost data before calculation.

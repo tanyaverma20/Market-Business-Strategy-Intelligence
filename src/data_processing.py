@@ -1,207 +1,178 @@
-"""
-data_processing.py
-------------------
-Reproducible Data Acquisition, Validation, and Preprocessing Engine
-for the Indian Electric 2-Wheeler (e2W) Market Intelligence Project.
+"""Validate and standardise local project data without inventing or downloading it.
 
-Author: Strategy & Data Analytics Team
-Project: Market-Business-Strategy-Intelligence
+Each processed row carries the provenance class in data/raw/DATASET_MANIFEST.csv.
+Run: python src/data_processing.py
 """
+from __future__ import annotations
 
-import os
-import pandas as pd
+import hashlib
+import json
+from pathlib import Path
+
 import numpy as np
-from typing import Dict, Tuple, List
+import pandas as pd
 
-# Define Directory Paths
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-DATA_RAW_DIR = os.path.join(BASE_DIR, "data", "raw")
-DATA_PROC_DIR = os.path.join(BASE_DIR, "data", "processed")
-DOCS_DIR = os.path.join(BASE_DIR, "docs")
+from analytics.geographic_analysis import compute_gai_template
+from analytics.kpi_engine import generate_kpi_outputs
+from analytics.scenario_analysis import build_scenario_analysis_template
+from analytics.strategic_analysis import compute_competitive_intensity, compute_strategic_priority_score
+from analytics.unit_economics import build_unit_economics_input_template, build_unit_economics_results_template
 
+BASE = Path(__file__).resolve().parents[1]
+RAW, OUT = BASE / "data" / "raw", BASE / "data" / "processed"
+MANIFEST = RAW / "DATASET_MANIFEST.csv"
 
-def ensure_directories():
-    """Ensure all required project directories exist."""
-    for path in [DATA_RAW_DIR, DATA_PROC_DIR, DOCS_DIR]:
-        os.makedirs(path, exist_ok=True)
+STATES = {
+    "Andaman and Nicobar Islands":"AN", "Andhra Pradesh":"AP", "Arunachal Pradesh":"AR", "Assam":"AS", "Bihar":"BR", "Chandigarh":"CH", "Chhattisgarh":"CG", "Dadra and Nagar Haveli and Daman and Diu":"DH", "Delhi":"DL", "Goa":"GA", "Gujarat":"GJ", "Haryana":"HR", "Himachal Pradesh":"HP", "Jammu and Kashmir":"JK", "Jharkhand":"JH", "Karnataka":"KA", "Kerala":"KL", "Ladakh":"LA", "Lakshadweep":"LD", "Madhya Pradesh":"MP", "Maharashtra":"MH", "Manipur":"MN", "Meghalaya":"ML", "Mizoram":"MZ", "Nagaland":"NL", "Odisha":"OR", "Puducherry":"PY", "Punjab":"PB", "Rajasthan":"RJ", "Sikkim":"SK", "Tamil Nadu":"TN", "Telangana":"TS", "Tripura":"TR", "Uttar Pradesh":"UP", "Uttarakhand":"UK", "West Bengal":"WB"
+}
+ALIASES = {"Orissa":"Odisha", "Pondicherry":"Puducherry", "Uttaranchal":"Uttarakhand"}
+SCHEMAS = {
+    "vahan_e2w_registrations_monthly.csv": ["year","month","year_month","state","state_code","e2w_registrations","total_2w_registrations","data_source"],
+    "oem_e2w_registrations_annual.csv": ["year","oem_name","oem_category","e2w_registrations","data_source"],
+    "competitor_product_catalog.csv": ["manufacturer","model_name","product_category","ex_showroom_price_inr","battery_capacity_kwh","certified_idc_range_km","data_source"],
+    "state_socioeconomic_indicators.csv": ["state","state_code","population_2024_est_millions","data_source"],
+    "policy_incentive_timeline.csv": ["policy_scheme","start_date","end_date","data_source"],
+    "verified_product_catalog_2025_2026.csv": ["manufacturer","model_name","source_url","source_type","accessed_date","verification_status"],
+}
 
+def digest(path): return hashlib.sha256(path.read_bytes()).hexdigest()
 
-def validate_schema(df: pd.DataFrame, expected_columns: List[str], df_name: str) -> bool:
-    """Validate that dataframe contains expected columns."""
-    missing = [col for col in expected_columns if col not in df.columns]
-    if missing:
-        print(f"[WARNING] {df_name} missing expected columns: {missing}")
-        return False
-    print(f"[OK] {df_name} schema validation passed ({len(df.columns)} columns).")
-    return True
+def audit(dataset, df, meta):
+    required = SCHEMAS[dataset]
+    return {"dataset":dataset, "provenance_class":meta.provenance_class,
+            "eligible_as_observed_analytics":meta.eligible_as_observed_analytics,
+            "rows":len(df), "sha256":digest(RAW/dataset),
+            "missing_required_columns":[x for x in required if x not in df],
+            "duplicate_full_rows":int(df.duplicated().sum()),
+            "missing_values":{k:int(v) for k,v in df.isna().sum().items() if v},
+            "errors":[], "warnings":[]}
 
+def numeric(df, columns, report):
+    for col in columns:
+        values = pd.to_numeric(df[col], errors="coerce")
+        bad = int(values.isna().sum() + (values < 0).sum())
+        if bad: report["errors"].append(f"{col}: {bad} missing, non-numeric, or negative values")
+        df[col] = values
 
-def audit_dataframe(df: pd.DataFrame, df_name: str) -> Dict:
-    """Generate comprehensive audit metrics for a dataframe."""
-    null_counts = df.isnull().sum().to_dict()
-    duplicate_rows = df.duplicated().sum()
-    data_types = {col: str(dtype) for col, dtype in df.dtypes.items()}
-    
-    return {
-        "dataset_name": df_name,
-        "row_count": len(df),
-        "col_count": len(df.columns),
-        "duplicate_rows": int(duplicate_rows),
-        "null_counts": null_counts,
-        "data_types": data_types
-    }
+def optional_numeric(df, columns, report):
+    """Convert optional numeric specification fields without treating an absent source value as zero/error."""
+    for col in columns:
+        original = df[col]
+        values = pd.to_numeric(original, errors="coerce")
+        supplied = original.notna() & original.astype(str).str.strip().ne("")
+        bad = int((supplied & values.isna()).sum() + (values < 0).sum())
+        if bad: report["errors"].append(f"{col}: {bad} non-numeric or negative supplied values")
+        df[col] = values
 
+def standardise_states(df, report):
+    df = df.copy(); df["state"] = df.state.astype("string").str.strip().replace(ALIASES)
+    unknown = sorted(df.loc[~df.state.isin(STATES), "state"].dropna().unique())
+    if unknown: report["errors"].append(f"unrecognised state names: {unknown}")
+    expected = df.state.map(STATES)
+    mismatch = int((expected.notna() & (df.state_code.astype("string").str.upper() != expected)).sum())
+    if mismatch: report["errors"].append(f"state code mismatch: {mismatch} rows")
+    df["state_code"] = expected.fillna(df.state_code).astype("string").str.upper()
+    return df
 
-def clean_vahan_monthly(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean and preprocess Vahan monthly registration data."""
-    df = df.copy()
-    df["date"] = pd.to_datetime(df["year_month"] + "-01")
-    df["e2w_registrations"] = pd.to_numeric(df["e2w_registrations"], errors="coerce").fillna(0).astype(int)
-    df["total_2w_registrations"] = pd.to_numeric(df["total_2w_registrations"], errors="coerce").fillna(0).astype(int)
-    
-    # Derived penetration rate
-    df["ev_penetration_pct"] = np.where(
-        df["total_2w_registrations"] > 0,
-        (df["e2w_registrations"] / df["total_2w_registrations"]) * 100,
-        0.0
-    ).round(2)
-    
-    return df.sort_values(by=["state", "date"]).reset_index(drop=True)
+def vahan(df, report):
+    numeric(df, ["e2w_registrations","total_2w_registrations"], report)
+    if df.duplicated(["year","month","state"]).any(): report["errors"].append("duplicate year/month/state keys")
+    df = standardise_states(df, report)
+    dates = pd.to_datetime(df.year_month.astype(str)+"-01", format="%Y-%m-%d", errors="coerce")
+    mismatch = ((dates.dt.year != df.year) | (dates.dt.month != df.month)).fillna(False)
+    bad = int(dates.isna().sum() + (~df.month.between(1,12)).sum() + (~df.year.between(1900,2100)).sum() + mismatch.sum())
+    if bad: report["errors"].append(f"invalid date/year/month values: {bad}")
+    if (df.e2w_registrations > df.total_2w_registrations).any(): report["errors"].append("e2w registrations exceed total 2W registrations")
+    df["date"] = dates
+    df["ev_penetration_pct"] = np.where(df.total_2w_registrations > 0, (df.e2w_registrations / df.total_2w_registrations * 100).round(4), np.nan)
+    return df.sort_values(["state","date"])
 
+def oem(df, report):
+    numeric(df, ["e2w_registrations"], report)
+    if df.duplicated(["year","oem_name"]).any(): report["errors"].append("duplicate year/OEM keys")
+    df.oem_name = df.oem_name.astype("string").str.strip()
+    df["market_share_pct"] = (df.e2w_registrations / df.groupby("year").e2w_registrations.transform("sum") * 100).round(4)
+    return df.sort_values(["year","market_share_pct","oem_name"], ascending=[True,False,True])
 
-def clean_oem_registrations(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean OEM registration data and compute annual market shares & HHI."""
-    df = df.copy()
-    df["e2w_registrations"] = pd.to_numeric(df["e2w_registrations"], errors="coerce").fillna(0).astype(int)
-    
-    # Calculate annual market shares
-    annual_totals = df.groupby("year")["e2w_registrations"].transform("sum")
-    df["market_share_pct"] = np.where(
-        annual_totals > 0,
-        (df["e2w_registrations"] / annual_totals) * 100,
-        0.0
-    ).round(2)
-    
-    return df.sort_values(by=["year", "market_share_pct"], ascending=[True, False]).reset_index(drop=True)
+def specs(df, report):
+    cols = [c for c in ["ex_showroom_price_inr","battery_capacity_kwh","certified_idc_range_km","real_world_range_km","top_speed_kmh","motor_peak_power_kw","charging_time_hours_0_80"] if c in df]
+    numeric(df, cols, report)
+    if df.duplicated(["manufacturer","model_name"]).any(): report["errors"].append("duplicate manufacturer/model keys")
+    df.manufacturer, df.model_name = df.manufacturer.astype("string").str.strip(), df.model_name.astype("string").str.strip()
+    df["price_to_certified_range_ratio"] = (df.ex_showroom_price_inr / df.certified_idc_range_km).round(2)
+    return df.sort_values(["manufacturer","model_name"])
 
+def states(df, report):
+    df = standardise_states(df, report)
+    cols = [c for c in ["population_2024_est_millions","urbanization_pct","per_capita_nsdp_inr","est_annual_total_2w_volume","public_charging_stations_count","road_tax_exemption_pct","subsidy_capital_support_score"] if c in df]
+    numeric(df, cols, report)
+    if df.duplicated("state").any(): report["errors"].append("duplicate state keys")
+    return df.sort_values("state")
 
-def compute_hhi_series(oem_df: pd.DataFrame) -> pd.DataFrame:
-    """Compute Herfindahl-Hirschman Index (HHI) for market concentration by year."""
-    hhi_list = []
-    for year, group in oem_df.groupby("year"):
-        hhi = (group["market_share_pct"] ** 2).sum()
-        hhi_list.append({"year": year, "hhi_index": round(hhi, 2), "total_oems": len(group)})
-    return pd.DataFrame(hhi_list)
+def policies(df, report):
+    start, end = pd.to_datetime(df.start_date, errors="coerce"), pd.to_datetime(df.end_date, errors="coerce")
+    if int(start.isna().sum()+end.isna().sum()+(end<start).sum()): report["errors"].append("invalid policy start/end dates")
+    df["start_date"], df["end_date"] = start.dt.date, end.dt.date
+    return df.sort_values("start_date")
 
-
-def clean_competitor_specs(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean competitor vehicle catalog and compute commercial ratios."""
-    df = df.copy()
-    numeric_cols = [
-        "ex_showroom_price_inr", "battery_capacity_kwh", "certified_idc_range_km",
-        "real_world_range_km", "top_speed_kmh", "motor_peak_power_kw", "charging_time_hours_0_80"
-    ]
-    for col in numeric_cols:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        
-    # Price to Range ratio (INR / km)
-    df["price_to_certified_range_ratio"] = (df["ex_showroom_price_inr"] / df["certified_idc_range_km"]).round(2)
-    df["price_to_real_range_ratio"] = (df["ex_showroom_price_inr"] / df["real_world_range_km"]).round(2)
-    
-    # Price to Battery ratio (INR / kWh)
-    df["price_to_battery_kwh_ratio"] = (df["ex_showroom_price_inr"] / df["battery_capacity_kwh"]).round(2)
-    
-    # Real-world range efficiency factor (%)
-    df["range_realization_pct"] = ((df["real_world_range_km"] / df["certified_idc_range_km"]) * 100).round(1)
-    
-    # PM E-DRIVE Subsidy estimation (FY25: ₹5,000/kWh up to ₹10,000 max)
-    df["pm_edrive_subsidy_fy25_inr"] = np.minimum(df["battery_capacity_kwh"] * 5000, 10000).round(0)
-    df["effective_price_post_subsidy_fy25_inr"] = df["ex_showroom_price_inr"] - df["pm_edrive_subsidy_fy25_inr"]
-    
-    return df.sort_values(by=["ex_showroom_price_inr"]).reset_index(drop=True)
-
-
-def clean_state_indicators(df: pd.DataFrame) -> pd.DataFrame:
-    """Clean state socio-economic and charging infra indicators."""
-    df = df.copy()
-    num_cols = ["population_2024_est_millions", "urbanization_pct", "per_capita_nsdp_inr",
-                "est_annual_total_2w_volume", "public_charging_stations_count",
-                "road_tax_exemption_pct", "subsidy_capital_support_score"]
-    for col in num_cols:
-        df[col] = pd.to_numeric(df[col], errors="coerce")
-        
-    # Derived ratio: Charging stations per million population
-    df["charging_stations_per_million_pop"] = np.where(
-        df["population_2024_est_millions"] > 0,
-        (df["public_charging_stations_count"] / df["population_2024_est_millions"]),
-        0.0
-    ).round(2)
-    
-    return df.sort_values(by="per_capita_nsdp_inr", ascending=False).reset_index(drop=True)
+def verified_products(df, report):
+    optional_numeric(df, [c for c in ["ex_showroom_price_inr","battery_capacity_kwh","range_km","top_speed_kmh","motor_peak_power_kw"] if c in df], report)
+    if df.duplicated(["manufacturer","model_name"]).any(): report["errors"].append("duplicate manufacturer/model keys")
+    dates = pd.to_datetime(df.accessed_date, format="%Y-%m-%d", errors="coerce")
+    if dates.isna().any(): report["errors"].append("invalid accessed_date")
+    if (df.verification_status != "verified").any(): report["errors"].append("verified catalog contains non-verified rows")
+    return df.sort_values(["manufacturer","model_name"])
 
 
 def process_all():
-    """Main pipeline execution function."""
-    ensure_directories()
-    print("=" * 60)
-    print("EXECUTING PHASE 1 DATA PROCESSING & PIPELINE VALIDATION")
-    print("=" * 60)
-    
-    audits = []
-    
-    # 1. Monthly Vahan Data
-    vahan_raw_path = os.path.join(DATA_RAW_DIR, "vahan_e2w_registrations_monthly.csv")
-    if os.path.exists(vahan_raw_path):
-        df_vahan_raw = pd.read_csv(vahan_raw_path)
-        audits.append(audit_dataframe(df_vahan_raw, "vahan_e2w_registrations_monthly"))
-        df_vahan_proc = clean_vahan_monthly(df_vahan_raw)
-        df_vahan_proc.to_csv(os.path.join(DATA_PROC_DIR, "processed_vahan_monthly.csv"), index=False)
-        print(f"[SUCCESS] Processed Vahan Monthly: {len(df_vahan_proc)} records saved.")
-    
-    # 2. OEM Registrations
-    oem_raw_path = os.path.join(DATA_RAW_DIR, "oem_e2w_registrations_annual.csv")
-    if os.path.exists(oem_raw_path):
-        df_oem_raw = pd.read_csv(oem_raw_path)
-        audits.append(audit_dataframe(df_oem_raw, "oem_e2w_registrations_annual"))
-        df_oem_proc = clean_oem_registrations(df_oem_raw)
-        df_oem_proc.to_csv(os.path.join(DATA_PROC_DIR, "processed_oem_market_shares.csv"), index=False)
-        
-        # HHI index
-        df_hhi = compute_hhi_series(df_oem_proc)
-        df_hhi.to_csv(os.path.join(DATA_PROC_DIR, "processed_market_hhi.csv"), index=False)
-        print(f"[SUCCESS] Processed OEM Market Shares: {len(df_oem_proc)} records saved. HHI computed.")
+    OUT.mkdir(exist_ok=True)
+    manifest = pd.read_csv(MANIFEST).set_index("dataset_name")
+    jobs = {
+        "vahan_e2w_registrations_monthly.csv": (vahan, "processed_vahan_monthly.csv"),
+        "oem_e2w_registrations_annual.csv": (oem, "processed_oem_market_shares.csv"),
+        "competitor_product_catalog.csv": (specs, "processed_competitor_specs.csv"),
+        "state_socioeconomic_indicators.csv": (states, "processed_state_indicators.csv"),
+        "policy_incentive_timeline.csv": (policies, "processed_policy_timeline.csv"),
+        "verified_product_catalog_2025_2026.csv": (verified_products, "processed_verified_product_catalog.csv"),
+    }
+    reports = []
+    for name, (transform, output) in jobs.items():
+        frame = pd.read_csv(RAW / name)
+        report = audit(name, frame, manifest.loc[name])
+        if report["missing_required_columns"]:
+            report["errors"].append("not processed: required columns absent")
+            reports.append(report)
+            continue
+        frame = transform(frame, report)
+        frame["source_dataset"], frame["provenance_class"], frame["eligible_as_observed_analytics"] = name, manifest.loc[name, "provenance_class"], manifest.loc[name, "eligible_as_observed_analytics"]
+        frame.to_csv(OUT / output, index=False)
+        reports.append(report)
 
-    # 3. Competitor Specs
-    specs_raw_path = os.path.join(DATA_RAW_DIR, "competitor_product_catalog.csv")
-    if os.path.exists(specs_raw_path):
-        df_specs_raw = pd.read_csv(specs_raw_path)
-        audits.append(audit_dataframe(df_specs_raw, "competitor_product_catalog"))
-        df_specs_proc = clean_competitor_specs(df_specs_raw)
-        df_specs_proc.to_csv(os.path.join(DATA_PROC_DIR, "processed_competitor_specs.csv"), index=False)
-        print(f"[SUCCESS] Processed Competitor Product Catalog: {len(df_specs_proc)} records saved.")
-
-    # 4. State Socioeconomic Indicators
-    state_raw_path = os.path.join(DATA_RAW_DIR, "state_socioeconomic_indicators.csv")
-    if os.path.exists(state_raw_path):
-        df_state_raw = pd.read_csv(state_raw_path)
-        audits.append(audit_dataframe(df_state_raw, "state_socioeconomic_indicators"))
-        df_state_proc = clean_state_indicators(df_state_raw)
-        df_state_proc.to_csv(os.path.join(DATA_PROC_DIR, "processed_state_indicators.csv"), index=False)
-        print(f"[SUCCESS] Processed State Socioeconomic Indicators: {len(df_state_proc)} records saved.")
-
-    # 5. Policy Timeline
-    policy_raw_path = os.path.join(DATA_RAW_DIR, "policy_incentive_timeline.csv")
-    if os.path.exists(policy_raw_path):
-        df_policy_raw = pd.read_csv(policy_raw_path)
-        audits.append(audit_dataframe(df_policy_raw, "policy_incentive_timeline"))
-        df_policy_raw.to_csv(os.path.join(DATA_PROC_DIR, "processed_policy_timeline.csv"), index=False)
-        print(f"[SUCCESS] Processed Policy Timeline: {len(df_policy_raw)} records saved.")
-
-    print("=" * 60)
-    print("DATA PROCESSING COMPLETED SUCCESSFULLY")
-    print("=" * 60)
-    return audits
+    product_df = pd.read_csv(OUT / "processed_verified_product_catalog.csv")
+    oem_data = pd.read_csv(OUT / "processed_oem_market_shares.csv")
+    hhi = oem_data.groupby(["year", "provenance_class", "eligible_as_observed_analytics"], as_index=False).agg(
+        hhi_index=("market_share_pct", lambda x: round((x ** 2).sum(), 2)),
+        total_oems=("oem_name", "nunique"),
+    )
+    hhi.to_csv(OUT / "processed_market_hhi.csv", index=False)
+    geo_template = pd.DataFrame(
+        [{"state": "state_name", "market_size": None, "ev_penetration": None, "growth": None, "purchasing_power": None, "charging_infrastructure": None, "policy_score": None, "status": "PENDING VERIFIED DATA"}]
+    )
+    geo_template.to_csv(OUT / "geographic_scoring_template.csv", index=False)
+    unit_input_template = build_unit_economics_input_template()
+    unit_input_template.to_csv(OUT / "unit_economics_input_template.csv", index=False)
+    unit_results_template = build_unit_economics_results_template()
+    unit_results_template.to_csv(OUT / "unit_economics_results.csv", index=False)
+    strategic_template = compute_strategic_priority_score(pd.DataFrame([{"market_attractiveness": None, "competitive_intensity": None, "product_market_fit": None, "geographic_attractiveness": None}]))
+    strategic_template.to_csv(OUT / "strategic_priority_template.csv", index=False)
+    scenario_template = build_scenario_analysis_template()
+    scenario_template.to_csv(OUT / "scenario_analysis_template.csv", index=False)
+    competitive_intensity = compute_competitive_intensity(product_df)
+    competitive_intensity.to_csv(OUT / "competitive_intensity.csv", index=False)
+    generate_kpi_outputs(product_df, OUT)
+    (OUT / "validation_results.json").write_text(json.dumps({"generated_at_utc": pd.Timestamp.now(tz="UTC").isoformat(), "datasets": reports}, indent=2), encoding="utf-8")
+    print(f"Processed {len(reports)} datasets. Validation errors: {sum(len(r['errors']) for r in reports)}")
+    return reports
 
 
-if __name__ == "__main__":
-    process_all()
+if __name__ == "__main__": process_all()

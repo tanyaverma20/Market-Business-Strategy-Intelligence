@@ -1,0 +1,84 @@
+{
+  "generated_at_utc": "2026-09-11T19:43:53.610780+00:00",
+  "datasets": [
+    {
+      "dataset": "vahan_e2w_registrations_monthly.csv",
+      "provenance_class": "generated_proxy",
+      "eligible_as_observed_analytics": "No",
+      "rows": 1368,
+      "sha256": "96e3a03d68c85bb6e3de753c8325408c8f088764c3f76580e901dafc9bb93ef7",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {},
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "dataset": "oem_e2w_registrations_annual.csv",
+      "provenance_class": "generated_proxy",
+      "eligible_as_observed_analytics": "No",
+      "rows": 59,
+      "sha256": "4dcc66921a2a4390233fd290782ddd0ab630f17218d7f1f9dd7cf4d29833ba4b",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {},
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "dataset": "competitor_product_catalog.csv",
+      "provenance_class": "manual_compilation_unverified",
+      "eligible_as_observed_analytics": "No",
+      "rows": 31,
+      "sha256": "9b74611f78af1bffb992202ba9a270fe9681e8da8103f99afaa38313cb507f27",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {},
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "dataset": "state_socioeconomic_indicators.csv",
+      "provenance_class": "generated_proxy",
+      "eligible_as_observed_analytics": "No",
+      "rows": 20,
+      "sha256": "271e3aa6ddd1c7f3697038f307d46840e4d70188285bb7b6ceaa88a8f43e47a9",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {},
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "dataset": "policy_incentive_timeline.csv",
+      "provenance_class": "source_transcription_pending_document",
+      "eligible_as_observed_analytics": "No",
+      "rows": 4,
+      "sha256": "6e0d1017e0a7465e276e31888c21e01c117a529b01e46307c4a0ae51bb3010ab",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {},
+      "errors": [],
+      "warnings": []
+    },
+    {
+      "dataset": "verified_product_catalog_2025_2026.csv",
+      "provenance_class": "verified_primary_source",
+      "eligible_as_observed_analytics": "Yes",
+      "rows": 30,
+      "sha256": "30a74637b8b8b4673e01c7ba3fe85567a58bc46de5ff00b5b5277f08aa242bc8",
+      "missing_required_columns": [],
+      "duplicate_full_rows": 0,
+      "missing_values": {
+        "ex_showroom_price_inr": 8,
+        "price_basis": 8,
+        "range_km": 4,
+        "range_standard": 4,
+        "top_speed_kmh": 12,
+        "motor_peak_power_kw": 23
+      },
+      "errors": [],
+      "warnings": []
+    }
+  ]
+}
