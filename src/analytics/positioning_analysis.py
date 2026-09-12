@@ -100,6 +100,35 @@ def identify_competitive_whitespace(df: pd.DataFrame) -> pd.DataFrame:
     return pd.DataFrame({"status": ["PENDING VERIFIED DATA"], "message": ["Verified product data required for whitespace analysis."]})
 
 
+def build_product_positioning_summary(df: pd.DataFrame) -> pd.DataFrame:
+    required = {"manufacturer", "model_name", "ex_showroom_price_inr", "certified_range_km", "battery_capacity_kwh", "top_speed_kmh"}
+    if not required.issubset(df.columns):
+        return pd.DataFrame({"status": ["PENDING VERIFIED DATA"], "message": ["Verified product data required for positioning summary."]})
+    range_position = generate_price_vs_range_positioning(df)
+    battery_position = generate_price_vs_battery_positioning(df)
+    performance_position = generate_price_vs_performance_positioning(df)
+    whitespace = identify_competitive_whitespace(df)
+    out = df[["manufacturer", "model_name"]].copy()
+    out["product"] = out["model_name"]
+    out["price_vs_range"] = range_position["price_range_position"]
+    out["price_vs_battery"] = battery_position["price_battery_position"]
+    out["price_vs_performance"] = performance_position["price_performance_position"]
+    out["whitespace_areas"] = whitespace["whitespace_areas"]
+    out["segment_summary"] = out.apply(lambda row: classify_product_segment(row.to_dict())["segment"], axis=1)
+    out["reasoning"] = out.apply(
+        lambda row: (
+            f"Price bucket={row['price_vs_range'].split('-')[0]} | "
+            f"range bucket={row['price_vs_range'].split('-')[1]} | "
+            f"battery bucket={row['price_vs_battery']} | performance bucket={row['price_vs_performance']}"
+        )
+        if isinstance(row['price_vs_range'], str) and '-' in row['price_vs_range'] else "insufficient verified data",
+        axis=1,
+    )
+    out["metric_type"] = "derived"
+    out["methodology_version"] = "positioning-v1"
+    return out[["manufacturer", "product", "model_name", "price_vs_range", "price_vs_battery", "price_vs_performance", "whitespace_areas", "segment_summary", "reasoning", "metric_type", "methodology_version"]]
+
+
 def product_segment_classification(df: pd.DataFrame) -> pd.DataFrame:
     if not {"manufacturer", "model_name"}.issubset(df.columns):
         return pd.DataFrame({"status": ["PENDING VERIFIED DATA"], "message": ["Verification required for product classification."]})

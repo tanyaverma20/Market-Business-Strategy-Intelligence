@@ -14,6 +14,7 @@ import pandas as pd
 
 from analytics.geographic_analysis import compute_gai_template
 from analytics.kpi_engine import generate_kpi_outputs
+from analytics.positioning_analysis import build_product_positioning_summary
 from analytics.scenario_analysis import build_scenario_analysis_template
 from analytics.strategic_analysis import compute_competitive_intensity, compute_strategic_priority_score
 from analytics.unit_economics import build_unit_economics_input_template, build_unit_economics_results_template
@@ -169,6 +170,8 @@ def process_all():
     scenario_template.to_csv(OUT / "scenario_analysis_template.csv", index=False)
     competitive_intensity = compute_competitive_intensity(product_df)
     competitive_intensity.to_csv(OUT / "competitive_intensity.csv", index=False)
+    product_positioning = build_product_positioning_summary(product_df)
+    product_positioning.to_csv(OUT / "product_positioning.csv", index=False)
     generate_kpi_outputs(product_df, OUT)
     (OUT / "validation_results.json").write_text(json.dumps({"generated_at_utc": pd.Timestamp.now(tz="UTC").isoformat(), "datasets": reports}, indent=2), encoding="utf-8")
     print(f"Processed {len(reports)} datasets. Validation errors: {sum(len(r['errors']) for r in reports)}")

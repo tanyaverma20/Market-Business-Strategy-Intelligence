@@ -99,6 +99,7 @@ def compute_value_score(df: pd.DataFrame, weights: dict | None = None) -> pd.Dat
     if not required.issubset(df.columns):
         return pd.DataFrame({"status": ["PENDING VERIFIED DATA"], "message": ["Verified product specs required for value score."]})
     out = df[["manufacturer", "model_name", "ex_showroom_price_inr", "certified_range_km", "battery_capacity_kwh", "top_speed_kmh"]].copy()
+    out["product"] = out["model_name"]
     price = _numeric_series(out["ex_showroom_price_inr"])
     range_km = _numeric_series(out["certified_range_km"])
     battery = _numeric_series(out["battery_capacity_kwh"])
@@ -108,6 +109,10 @@ def compute_value_score(df: pd.DataFrame, weights: dict | None = None) -> pd.Dat
     battery_score = (battery - battery.min()) / (battery.max() - battery.min()) * 100 if battery.max() != battery.min() else 100
     price_efficiency_score = (price_efficiency - price_efficiency.min()) / (price_efficiency.max() - price_efficiency.min()) * 100 if price_efficiency.max() != price_efficiency.min() else 100
     performance_score = (speed - speed.min()) / (speed.max() - speed.min()) * 100 if speed.max() != speed.min() else 100
+    out["range_score"] = range_score
+    out["battery_score"] = battery_score
+    out["price_efficiency_score"] = price_efficiency_score
+    out["performance_score"] = performance_score
     out["value_score"] = (
         weights.get("range", 0.40) * range_score
         + weights.get("battery", 0.20) * battery_score
@@ -115,5 +120,7 @@ def compute_value_score(df: pd.DataFrame, weights: dict | None = None) -> pd.Dat
         + weights.get("performance", 0.15) * performance_score
     )
     out["metric_type"] = "derived"
+    out["methodology_version"] = "value-score-v1"
+    out["normalization_method"] = "min-max across verified catalog; price efficiency = 1 / (price_per_km)"
     out["weight_configuration"] = str(weights)
-    return out
+    return out[["manufacturer", "product", "model_name", "value_score", "range_score", "battery_score", "price_efficiency_score", "performance_score", "metric_type", "methodology_version", "normalization_method", "weight_configuration"]]

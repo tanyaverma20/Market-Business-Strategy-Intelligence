@@ -28,7 +28,7 @@ from analytics.pricing_analysis import (
     compute_battery_percentile,
     compute_value_score,
 )
-from analytics.positioning_analysis import classify_product_segment
+from analytics.positioning_analysis import build_product_positioning_summary, classify_product_segment
 from analytics.unit_economics import (
     compute_gross_margin,
     compute_contribution_margin,
@@ -107,6 +107,11 @@ class TestAnalyticalEngine(unittest.TestCase):
     def test_positioning_classification(self):
         classified = classify_product_segment(self.product_df.iloc[0].to_dict())
         self.assertIn("segment", classified)
+
+    def test_product_positioning_summary(self):
+        summary = build_product_positioning_summary(self.product_df)
+        self.assertIn("price_vs_range", summary.columns)
+        self.assertIn("methodology_version", summary.columns)
 
     def test_unit_economics(self):
         revenue = 150000
