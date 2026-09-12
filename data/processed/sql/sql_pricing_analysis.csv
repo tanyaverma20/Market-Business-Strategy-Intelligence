@@ -1,0 +1,43 @@
+product,manufacturer,price,battery_capacity_kwh,range_km,top_speed_kmh,price_per_km,price_per_kwh,price_percentile,price_quartile,product_price_rank,avg_market_price,mfg_avg_price,relative_price_position,price_premium_vs_market_pct
+Nexus EX,Ampere,121499.0,3.0,100.0,93.0,1214.99,40499.67,0.39,2,21,136349.21,126499.0,below market average,-10.9
+Nexus ST,Ampere,131499.0,3.0,100.0,93.0,1314.99,43833.0,0.64,3,13,136349.21,126499.0,below market average,-3.6
+450 Apex,Ather Energy,,3.7,157.0,,,,0.0,1,35,136349.21,131126.5,unpriced / pending,
+450S 3.7 kWh,Ather Energy,,3.7,161.0,,,,0.0,1,35,136349.21,131126.5,unpriced / pending,
+450X 2.9 kWh,Ather Energy,,2.9,126.0,,,,0.0,2,35,136349.21,131126.5,unpriced / pending,
+450X 3.7 kWh,Ather Energy,,3.7,161.0,,,,0.0,2,35,136349.21,131126.5,unpriced / pending,
+Rizta S 2.9 kWh,Ather Energy,108156.0,2.9,123.0,,879.32,37295.17,0.21,1,27,136349.21,131126.5,below market average,-20.7
+Rizta S 3.7 kWh,Ather Energy,137047.0,3.7,159.0,,861.93,37039.73,0.73,3,10,136349.21,131126.5,above market average,0.5
+Rizta Z 2.9 kWh,Ather Energy,129656.0,2.9,123.0,,1054.11,44708.97,0.55,3,16,136349.21,131126.5,below market average,-4.9
+Rizta Z 3.7 kWh,Ather Energy,149647.0,3.7,159.0,,941.18,40445.14,0.85,4,6,136349.21,131126.5,above market average,9.8
+C12i MAX,BGauss,126141.0,3.2,135.0,60.0,934.38,39419.06,0.48,2,18,136349.21,118070.0,below market average,-7.5
+RUV 350,BGauss,109999.0,3.0,135.0,75.0,814.81,36666.33,0.24,1,26,136349.21,118070.0,below market average,-19.3
+Chetak 3001,Bajaj Auto,,3.0,127.0,63.0,,,0.0,3,35,136349.21,116168.0,unpriced / pending,
+Chetak 3501,Bajaj Auto,134500.0,3.5,153.0,73.0,879.08,38428.57,0.67,3,12,136349.21,116168.0,below market average,-1.4
+Chetak 3502,Bajaj Auto,122500.0,3.5,153.0,73.0,800.65,35000.0,0.42,2,20,136349.21,116168.0,below market average,-10.2
+Chetak 3503,Bajaj Auto,,3.5,151.0,63.0,,,0.0,3,35,136349.21,116168.0,unpriced / pending,
+Chetak C2501,Bajaj Auto,91504.0,2.5,113.0,55.0,809.77,36601.6,0.06,1,32,136349.21,116168.0,below market average,-32.9
+VIDA V1 Plus,Hero MotoCorp (VIDA),97800.0,3.44,143.0,80.0,683.92,28430.23,0.15,1,29,136349.21,112000.0,below market average,-28.3
+VIDA V1 Pro,Hero MotoCorp (VIDA),126200.0,3.94,165.0,80.0,764.85,32030.46,0.52,2,17,136349.21,112000.0,below market average,-7.4
+E-Luna,Kinetic Green,74990.0,2.0,110.0,50.0,681.73,37495.0,0.0,1,34,136349.21,84990.0,below market average,-45.0
+Zulu,Kinetic Green,94990.0,2.27,104.0,60.0,913.37,41845.81,0.09,1,31,136349.21,84990.0,below market average,-30.3
+S1 Pro Gen 3 3 kWh,Ola Electric,114999.0,3.0,,,,38333.0,0.33,2,23,136349.21,130141.86,below market average,-15.7
+S1 Pro Gen 3 4 kWh,Ola Electric,134999.0,4.0,,,,33749.75,0.7,3,11,136349.21,130141.86,below market average,-1.0
+S1 Pro Plus Gen 3 4 kWh,Ola Electric,154999.0,4.0,,,,38749.75,0.88,4,5,136349.21,130141.86,above market average,13.7
+S1 Pro Plus Gen 3 5.3 kWh,Ola Electric,169999.0,5.3,,,,32075.28,0.94,4,3,136349.21,130141.86,above market average,24.7
+S1 X Gen 3 2 kWh,Ola Electric,84999.0,2.0,108.0,101.0,787.03,42499.5,0.03,1,33,136349.21,130141.86,below market average,-37.7
+S1 X Gen 3 3 kWh,Ola Electric,,3.0,176.0,115.0,,,0.0,4,35,136349.21,130141.86,unpriced / pending,
+S1 X Gen 3 4 kWh,Ola Electric,,4.0,242.0,123.0,,,0.0,4,35,136349.21,130141.86,unpriced / pending,
+S1 X Plus Gen 3 4 kWh,Ola Electric,120999.0,4.0,242.0,125.0,500.0,30249.75,0.36,2,22,136349.21,130141.86,below market average,-11.3
+S1 X Plus Gen 3 5.2 kWh,Ola Electric,129999.0,5.2,320.0,125.0,406.25,24999.81,0.58,3,15,136349.21,130141.86,below market average,-4.7
+Revolt RV400,Revolt Motors,138000.0,3.24,150.0,85.0,920.0,42592.59,0.76,3,9,136349.21,131499.5,above market average,1.2
+Revolt RV400 BRZ,Revolt Motors,124999.0,3.24,150.0,85.0,833.33,38579.94,0.45,2,19,136349.21,131499.5,below market average,-8.3
+Simple Dot One,Simple Energy,140499.0,3.7,151.0,105.0,930.46,37972.7,0.79,4,8,136349.21,153249.5,above market average,3.0
+Simple One,Simple Energy,166000.0,5.0,212.0,105.0,783.02,33200.0,0.91,4,4,136349.21,153249.5,above market average,21.7
+iQube 2.3 kWh,TVS Motor Company,95124.0,2.3,114.0,68.0,834.42,41358.26,0.12,1,30,136349.21,116875.67,below market average,-30.2
+iQube 3.1 kWh,TVS Motor Company,104962.0,3.1,123.0,82.0,853.35,33858.71,0.18,1,28,136349.21,116875.67,below market average,-23.0
+iQube 3.5 kWh,TVS Motor Company,110200.0,3.5,145.0,82.0,760.0,31485.71,0.27,2,25,136349.21,116875.67,below market average,-19.2
+iQube MillionR Edition,TVS Motor Company,113751.0,3.5,145.0,82.0,784.49,32500.29,0.3,2,24,136349.21,116875.67,below market average,-16.6
+iQube S 4.7 kWh,TVS Motor Company,130340.0,4.7,175.0,82.0,744.8,27731.91,0.61,3,14,136349.21,116875.67,below market average,-4.4
+iQube ST 5.3 kWh,TVS Motor Company,146877.0,5.3,212.0,82.0,692.82,27712.64,0.82,4,7,136349.21,116875.67,above market average,7.7
+Ultraviolette F77 Mach 2,Ultraviolette Automotive,299000.0,7.1,211.0,155.0,1417.06,42112.68,0.97,4,2,136349.21,349000.0,above market average,119.3
+Ultraviolette F77 Mach 2 Recon,Ultraviolette Automotive,399000.0,10.3,323.0,155.0,1235.29,38737.86,1.0,4,1,136349.21,349000.0,above market average,192.6

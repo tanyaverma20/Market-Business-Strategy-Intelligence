@@ -1,0 +1,11 @@
+check_name,issue_count,description
+duplicate_products,0,Duplicate model names across catalog
+duplicate_manufacturer_model,0,Duplicate manufacturer and model_name combinations
+null_required_fields,0,"Null values in required fields: manufacturer, model_name, vehicle_category, verification_status"
+negative_prices,0,Negative ex-showroom prices (< 0)
+invalid_battery_capacities,0,Non-positive battery capacities (<= 0 kWh)
+invalid_ranges,0,Non-positive certified ranges (<= 0 km)
+invalid_speed_values,0,Non-positive top speed values (<= 0 km/h)
+invalid_motor_power,0,Non-positive motor peak power values (<= 0 kW)
+unverified_records,0,Records where verification_status != verified
+missing_provenance,0,"Missing source_url, source_dataset, or accessed_date"

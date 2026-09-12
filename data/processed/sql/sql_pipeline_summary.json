@@ -1,0 +1,18 @@
+{
+  "db_path": "C:\\Users\\Tanya Verma\\AppData\\Local\\Temp\\pytest-of-Tanya Verma\\pytest-13\\sql_test0\\e2w_sql_test.duckdb",
+  "verified_product_rows": 42,
+  "manufacturer_count": 11,
+  "product_count": 42,
+  "quality_issues": 0,
+  "data_quality_checks_run": 10,
+  "pending_market_rows": 0,
+  "pending_market_templates_count": 8,
+  "pending_market_status": "PENDING VERIFIED VAHAN DATA",
+  "outputs": {
+    "competitive_analysis_csv": "C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_competitive_analysis.csv",
+    "pricing_analysis_csv": "C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_pricing_analysis.csv",
+    "product_positioning_csv": "C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_product_positioning.csv",
+    "kpi_results_csv": "C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_kpi_results.csv",
+    "data_quality_csv": "C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_data_quality_results.csv"
+  }
+}

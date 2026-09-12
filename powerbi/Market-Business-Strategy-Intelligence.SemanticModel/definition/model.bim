@@ -1,0 +1,871 @@
+{
+  "compatibilityLevel": 1605,
+  "model": {
+    "annotations": [
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"CompetitiveAnalysis\",\"PricingAnalysis\",\"ProductPositioning\",\"KPIStatus\",\"PendingMarketRegistrations\"]"
+      },
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "1"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.157.1354.0"
+      }
+    ],
+    "culture": "en-US",
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "sourceQueryCulture": "en-IN",
+    "tables": [
+      {
+        "name": "CompetitiveAnalysis",
+        "columns": [
+          {
+            "name": "manufacturer",
+            "dataType": "string",
+            "sourceColumn": "manufacturer"
+          },
+          {
+            "name": "product",
+            "dataType": "string",
+            "sourceColumn": "product"
+          },
+          {
+            "name": "category",
+            "dataType": "string",
+            "sourceColumn": "category"
+          },
+          {
+            "name": "price",
+            "dataType": "double",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "battery_kwh",
+            "dataType": "double",
+            "sourceColumn": "battery_kwh"
+          },
+          {
+            "name": "certified_range_km",
+            "dataType": "double",
+            "sourceColumn": "certified_range_km"
+          },
+          {
+            "name": "top_speed_kmph",
+            "dataType": "double",
+            "sourceColumn": "top_speed_kmph"
+          },
+          {
+            "name": "motor_power_kw",
+            "dataType": "double",
+            "sourceColumn": "motor_power_kw"
+          },
+          {
+            "name": "price_per_km",
+            "dataType": "double",
+            "sourceColumn": "price_per_km"
+          },
+          {
+            "name": "price_per_kwh",
+            "dataType": "double",
+            "sourceColumn": "price_per_kwh"
+          },
+          {
+            "name": "manufacturer_rank",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_rank"
+          },
+          {
+            "name": "product_rank",
+            "dataType": "int64",
+            "sourceColumn": "product_rank"
+          },
+          {
+            "name": "price_efficiency_rank",
+            "dataType": "int64",
+            "sourceColumn": "price_efficiency_rank"
+          },
+          {
+            "name": "range_rank",
+            "dataType": "int64",
+            "sourceColumn": "range_rank"
+          },
+          {
+            "name": "speed_rank",
+            "dataType": "int64",
+            "sourceColumn": "speed_rank"
+          },
+          {
+            "name": "mfg_product_count",
+            "dataType": "int64",
+            "sourceColumn": "mfg_product_count"
+          },
+          {
+            "name": "mfg_portfolio_share_pct",
+            "dataType": "double",
+            "sourceColumn": "mfg_portfolio_share_pct"
+          },
+          {
+            "name": "verification_status",
+            "dataType": "string",
+            "sourceColumn": "verification_status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "CompetitiveAnalysis-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_competitive_analysis.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"manufacturer\", type text}, {\"product\", type text}, {\"category\", type text}, {\"price\", type number}, {\"battery_kwh\", type number}, {\"certified_range_km\", type number}, {\"top_speed_kmph\", type number}, {\"motor_power_kw\", type number}, {\"price_per_km\", type number}, {\"price_per_kwh\", type number}, {\"manufacturer_rank\", Int64.Type}, {\"product_rank\", Int64.Type}, {\"price_efficiency_rank\", Int64.Type}, {\"range_rank\", Int64.Type}, {\"speed_rank\", Int64.Type}, {\"mfg_product_count\", Int64.Type}, {\"mfg_portfolio_share_pct\", type number}, {\"verification_status\", type text}})",
+                "in",
+                "    #\"Changed Types\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "PricingAnalysis",
+        "columns": [
+          {
+            "name": "product",
+            "dataType": "string",
+            "sourceColumn": "product"
+          },
+          {
+            "name": "manufacturer",
+            "dataType": "string",
+            "sourceColumn": "manufacturer"
+          },
+          {
+            "name": "price",
+            "dataType": "double",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "battery_capacity_kwh",
+            "dataType": "double",
+            "sourceColumn": "battery_capacity_kwh"
+          },
+          {
+            "name": "range_km",
+            "dataType": "double",
+            "sourceColumn": "range_km"
+          },
+          {
+            "name": "top_speed_kmh",
+            "dataType": "double",
+            "sourceColumn": "top_speed_kmh"
+          },
+          {
+            "name": "motor_power_kw",
+            "dataType": "double",
+            "sourceColumn": "motor_power_kw"
+          },
+          {
+            "name": "price_per_km",
+            "dataType": "double",
+            "sourceColumn": "price_per_km"
+          },
+          {
+            "name": "price_per_kwh",
+            "dataType": "double",
+            "sourceColumn": "price_per_kwh"
+          },
+          {
+            "name": "price_bucket",
+            "dataType": "string",
+            "sourceColumn": "price_bucket"
+          },
+          {
+            "name": "price_rank",
+            "dataType": "int64",
+            "sourceColumn": "price_rank"
+          },
+          {
+            "name": "value_rank",
+            "dataType": "int64",
+            "sourceColumn": "value_rank"
+          },
+          {
+            "name": "range_rank",
+            "dataType": "int64",
+            "sourceColumn": "range_rank"
+          },
+          {
+            "name": "price_quartile",
+            "dataType": "string",
+            "sourceColumn": "price_quartile"
+          },
+          {
+            "name": "market_avg_price",
+            "dataType": "double",
+            "sourceColumn": "market_avg_price"
+          },
+          {
+            "name": "price_vs_avg",
+            "dataType": "double",
+            "sourceColumn": "price_vs_avg"
+          },
+          {
+            "name": "price_premium_pct",
+            "dataType": "double",
+            "sourceColumn": "price_premium_pct"
+          },
+          {
+            "name": "verification_status",
+            "dataType": "string",
+            "sourceColumn": "verification_status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PricingAnalysis-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_pricing_analysis.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"product\", type text}, {\"manufacturer\", type text}, {\"price\", type number}, {\"battery_capacity_kwh\", type number}, {\"range_km\", type number}, {\"top_speed_kmh\", type number}, {\"motor_power_kw\", type number}, {\"price_per_km\", type number}, {\"price_per_kwh\", type number}, {\"price_bucket\", type text}, {\"price_rank\", Int64.Type}, {\"value_rank\", Int64.Type}, {\"range_rank\", Int64.Type}, {\"price_quartile\", type text}, {\"market_avg_price\", type number}, {\"price_vs_avg\", type number}, {\"price_premium_pct\", type number}, {\"verification_status\", type text}})",
+                "in",
+                "    #\"Changed Types\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "ProductPositioning",
+        "columns": [
+          {
+            "name": "manufacturer",
+            "dataType": "string",
+            "sourceColumn": "manufacturer"
+          },
+          {
+            "name": "model_name",
+            "dataType": "string",
+            "sourceColumn": "model_name"
+          },
+          {
+            "name": "price",
+            "dataType": "double",
+            "sourceColumn": "price"
+          },
+          {
+            "name": "range_km",
+            "dataType": "double",
+            "sourceColumn": "range_km"
+          },
+          {
+            "name": "battery_capacity_kwh",
+            "dataType": "double",
+            "sourceColumn": "battery_capacity_kwh"
+          },
+          {
+            "name": "top_speed_kmh",
+            "dataType": "double",
+            "sourceColumn": "top_speed_kmh"
+          },
+          {
+            "name": "price_bucket",
+            "dataType": "string",
+            "sourceColumn": "price_bucket"
+          },
+          {
+            "name": "range_bucket",
+            "dataType": "string",
+            "sourceColumn": "range_bucket"
+          },
+          {
+            "name": "battery_bucket",
+            "dataType": "string",
+            "sourceColumn": "battery_bucket"
+          },
+          {
+            "name": "performance_bucket",
+            "dataType": "string",
+            "sourceColumn": "performance_bucket"
+          },
+          {
+            "name": "positioning_summary",
+            "dataType": "string",
+            "sourceColumn": "positioning_summary"
+          },
+          {
+            "name": "manufacturer_product_rank",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_product_rank"
+          },
+          {
+            "name": "manufacturer_total_products",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_total_products"
+          },
+          {
+            "name": "manufacturer_budget_count",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_budget_count"
+          },
+          {
+            "name": "manufacturer_midmarket_count",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_midmarket_count"
+          },
+          {
+            "name": "manufacturer_premium_count",
+            "dataType": "int64",
+            "sourceColumn": "manufacturer_premium_count"
+          },
+          {
+            "name": "manufacturer_portfolio_share_pct",
+            "dataType": "double",
+            "sourceColumn": "manufacturer_portfolio_share_pct"
+          },
+          {
+            "name": "verification_status",
+            "dataType": "string",
+            "sourceColumn": "verification_status"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "ProductPositioning-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_product_positioning.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"manufacturer\", type text}, {\"model_name\", type text}, {\"price\", type number}, {\"range_km\", type number}, {\"battery_capacity_kwh\", type number}, {\"top_speed_kmh\", type number}, {\"price_bucket\", type text}, {\"range_bucket\", type text}, {\"battery_bucket\", type text}, {\"performance_bucket\", type text}, {\"positioning_summary\", type text}, {\"manufacturer_product_rank\", Int64.Type}, {\"manufacturer_total_products\", Int64.Type}, {\"manufacturer_budget_count\", Int64.Type}, {\"manufacturer_midmarket_count\", Int64.Type}, {\"manufacturer_premium_count\", Int64.Type}, {\"manufacturer_portfolio_share_pct\", type number}, {\"verification_status\", type text}})",
+                "in",
+                "    #\"Changed Types\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "KPIStatus",
+        "columns": [
+          {
+            "name": "kpi_name",
+            "dataType": "string",
+            "sourceColumn": "kpi_name"
+          },
+          {
+            "name": "value",
+            "dataType": "double",
+            "sourceColumn": "value"
+          },
+          {
+            "name": "unit",
+            "dataType": "string",
+            "sourceColumn": "unit"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source"
+          },
+          {
+            "name": "verification_status",
+            "dataType": "string",
+            "sourceColumn": "verification_status"
+          },
+          {
+            "name": "calculation_date",
+            "dataType": "string",
+            "sourceColumn": "calculation_date"
+          },
+          {
+            "name": "methodology",
+            "dataType": "string",
+            "sourceColumn": "methodology"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "KPIStatus-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_kpi_results.csv\"),[Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
+                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"kpi_name\", type text}, {\"value\", type number}, {\"unit\", type text}, {\"source\", type text}, {\"verification_status\", type text}, {\"calculation_date\", type text}, {\"methodology\", type text}})",
+                "in",
+                "    #\"Changed Types\""
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "PendingMarketRegistrations",
+        "annotations": [
+          {
+            "name": "DATA_STATUS",
+            "value": "PENDING_VERIFIED_VAHAN_DATA"
+          }
+        ],
+        "columns": [
+          {
+            "name": "_placeholder",
+            "dataType": "int64",
+            "sourceColumn": "_placeholder",
+            "isHidden": true
+          }
+        ],
+        "partitions": [
+          {
+            "name": "PendingMarketRegistrations-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(",
+                "        type table [_placeholder = Int64.Type],",
+                "        {}",
+                "    )",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "_Measures",
+        "columns": [
+          {
+            "name": "_placeholder",
+            "dataType": "int64",
+            "sourceColumn": "_placeholder",
+            "isHidden": true
+          }
+        ],
+        "measures": [
+          {
+            "name": "Total Products",
+            "expression": "DISTINCTCOUNT(CompetitiveAnalysis[product])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Total Manufacturers",
+            "expression": "DISTINCTCOUNT(CompetitiveAnalysis[manufacturer])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Priced Products Count",
+            "expression": "COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Product Price",
+            "expression": "AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Median Product Price",
+            "expression": "MEDIANX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Minimum Product Price",
+            "expression": "MINX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Maximum Product Price",
+            "expression": "MAXX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Price Spread",
+            "expression": "[Maximum Product Price] - [Minimum Product Price]",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Market Benchmark Average Price",
+            "expression": "CALCULATE(AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price]), ALL(PricingAnalysis))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Price Variance vs Market Average",
+            "expression": "[Average Product Price] - [Market Benchmark Average Price]",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Price Premium %",
+            "expression": "DIVIDE([Price Variance vs Market Average], [Market Benchmark Average Price], BLANK()) * 100",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Battery Capacity",
+            "expression": "AVERAGEX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[battery_capacity_kwh])",
+            "formatString": "#,##0.00",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Certified Range",
+            "expression": "AVERAGEX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km])), ProductPositioning[range_km])",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Top Speed",
+            "expression": "AVERAGEX(FILTER(CompetitiveAnalysis, NOT ISBLANK(CompetitiveAnalysis[top_speed_kmph])), CompetitiveAnalysis[top_speed_kmph])",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Motor Power",
+            "expression": "AVERAGEX(FILTER(CompetitiveAnalysis, NOT ISBLANK(CompetitiveAnalysis[motor_power_kw])), CompetitiveAnalysis[motor_power_kw])",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Price per KM",
+            "expression": "AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price_per_km])), PricingAnalysis[price_per_km])",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Average Price per KWh",
+            "expression": "AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price_per_kwh])), PricingAnalysis[price_per_kwh])",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Weighted Fleet Energy Efficiency",
+            "expression": "DIVIDE(SUMX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km]) && NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[range_km] * ProductPositioning[battery_capacity_kwh]), SUMX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km]) && NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[battery_capacity_kwh]), BLANK())",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Budget Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = \"Budget (<Rs1L)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Mid-Market Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = \"Mid-Market (Rs1L-Rs1.5L)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Premium Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = \"Premium (>Rs1.5L)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Short-Range Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = \"Short Range (<100km)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Standard-Range Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = \"Standard Range (100-150km)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Long-Range Product Count",
+            "expression": "COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = \"Long Range (>150km)\"))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "High-Performance Product Count",
+            "expression": "COUNTROWS(FILTER(CompetitiveAnalysis, CompetitiveAnalysis[top_speed_kmph] >= 100))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Products Above Market Average",
+            "expression": "COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price]) && PricingAnalysis[price] > [Market Benchmark Average Price]))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Products Below Market Average",
+            "expression": "COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price]) && PricingAnalysis[price] <= [Market Benchmark Average Price]))",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "TRUE"
+              }
+            ]
+          },
+          {
+            "name": "Market Registration Total [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "Top State Market Share [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "YoY Market Growth Rate [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "Market Penetration Rate [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "OEM Market Share [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "State Adoption Index [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0.0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "Cost Per Acquisition [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          },
+          {
+            "name": "Fleet Total Cost of Ownership [PENDING]",
+            "expression": "BLANK()",
+            "formatString": "#,##0",
+            "annotations": [
+              {
+                "name": "VERIFIED",
+                "value": "FALSE"
+              }
+            ]
+          }
+        ],
+        "partitions": [
+          {
+            "name": "_Measures-part1",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = #table(type table [_placeholder = Int64.Type], {})",
+                "in",
+                "    Source"
+              ]
+            }
+          }
+        ]
+      }
+    ],
+    "relationships": [],
+    "roles": []
+  }
+}

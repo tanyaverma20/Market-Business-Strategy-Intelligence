@@ -1,6 +1,12 @@
 manufacturer,product_count,average_price_inr,average_battery_kwh,average_range_km,metric_type
 Ampere,2,126499.0,3.0,100.0,derived
 Ather Energy,8,131126.5,3.4,146.125,derived
+BGauss,2,118070.0,3.1,135.0,derived
 Bajaj Auto,5,116168.0,3.2,139.4,derived
+Hero MotoCorp (VIDA),2,112000.0,3.69,154.0,derived
+Kinetic Green,2,84990.0,2.135,107.0,derived
 Ola Electric,9,130141.85714285714,3.8333333333333335,217.6,derived
+Revolt Motors,2,131499.5,3.24,150.0,derived
+Simple Energy,2,153249.5,4.35,181.5,derived
 TVS Motor Company,6,116875.66666666667,3.733333333333333,152.33333333333334,derived
+Ultraviolette Automotive,2,349000.0,8.7,267.0,derived

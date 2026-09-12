@@ -1,0 +1,43 @@
+manufacturer,product,category,price,battery_kwh,certified_range_km,top_speed_kmph,motor_power_kw,price_per_km,price_per_kwh,manufacturer_rank,product_rank,price_efficiency_rank,range_rank,speed_rank,mfg_product_count,mfg_portfolio_share_pct,verification_status
+Ampere,Nexus EX,electric scooter,121499.0,3.0,100.0,93.0,4.0,1214.99,40499.67,1,14,27,37,10,2,4.8,verified
+Ampere,Nexus ST,electric scooter,131499.0,3.0,100.0,93.0,4.0,1314.99,43833.0,2,22,29,37,10,2,4.8,verified
+Ather Energy,450 Apex,electric scooter,,3.7,157.0,,,,,5,35,31,15,31,8,19.0,verified
+Ather Energy,450S 3.7 kWh,electric scooter,,3.7,161.0,,,,,6,35,31,11,31,8,19.0,verified
+Ather Energy,450X 2.9 kWh,electric scooter,,2.9,126.0,,,,,7,35,31,28,31,8,19.0,verified
+Ather Energy,450X 3.7 kWh,electric scooter,,3.7,161.0,,,,,8,35,31,11,31,8,19.0,verified
+Ather Energy,Rizta S 2.9 kWh,electric scooter,108156.0,2.9,123.0,,,879.32,37295.17,1,8,20,29,31,8,19.0,verified
+Ather Energy,Rizta S 3.7 kWh,electric scooter,137047.0,3.7,159.0,,,861.93,37039.73,3,25,18,13,31,8,19.0,verified
+Ather Energy,Rizta Z 2.9 kWh,electric scooter,129656.0,2.9,123.0,,,1054.11,44708.97,2,19,26,29,31,8,19.0,verified
+Ather Energy,Rizta Z 3.7 kWh,electric scooter,149647.0,3.7,159.0,,,941.18,40445.14,4,29,25,13,31,8,19.0,verified
+BGauss,C12i MAX,electric scooter,126141.0,3.2,135.0,60.0,2.5,934.38,39419.06,2,17,24,25,27,2,4.8,verified
+BGauss,RUV 350,electric scooter,109999.0,3.0,135.0,75.0,3.5,814.81,36666.33,1,9,14,25,21,2,4.8,verified
+Bajaj Auto,Chetak 3001,electric scooter,,3.0,127.0,63.0,,,,4,35,31,27,25,5,11.9,verified
+Bajaj Auto,Chetak 3501,electric scooter,134500.0,3.5,153.0,73.0,,879.08,38428.57,3,23,19,16,22,5,11.9,verified
+Bajaj Auto,Chetak 3502,electric scooter,122500.0,3.5,153.0,73.0,,800.65,35000.0,2,15,12,16,22,5,11.9,verified
+Bajaj Auto,Chetak 3503,electric scooter,,3.5,151.0,63.0,,,,5,35,31,18,25,5,11.9,verified
+Bajaj Auto,Chetak C2501,electric scooter,91504.0,2.5,113.0,55.0,,809.77,36601.6,1,3,13,33,29,5,11.9,verified
+Hero MotoCorp (VIDA),VIDA V1 Plus,electric scooter,97800.0,3.44,143.0,80.0,6.0,683.92,28430.23,1,6,4,24,19,2,4.8,verified
+Hero MotoCorp (VIDA),VIDA V1 Pro,electric scooter,126200.0,3.94,165.0,80.0,6.0,764.85,32030.46,2,18,8,10,19,2,4.8,verified
+Kinetic Green,E-Luna,electric moped,74990.0,2.0,110.0,50.0,1.2,681.73,37495.0,1,1,3,34,30,2,4.8,verified
+Kinetic Green,Zulu,electric scooter,94990.0,2.27,104.0,60.0,2.1,913.37,41845.81,2,4,21,36,27,2,4.8,verified
+Ola Electric,S1 Pro Gen 3 3 kWh,electric scooter,114999.0,3.0,,,,,38333.0,2,12,31,39,31,9,21.4,verified
+Ola Electric,S1 Pro Gen 3 4 kWh,electric scooter,134999.0,4.0,,,,,33749.75,5,24,31,39,31,9,21.4,verified
+Ola Electric,S1 Pro Plus Gen 3 4 kWh,electric scooter,154999.0,4.0,,,,,38749.75,6,30,31,39,31,9,21.4,verified
+Ola Electric,S1 Pro Plus Gen 3 5.3 kWh,electric scooter,169999.0,5.3,,,,,32075.28,7,32,31,39,31,9,21.4,verified
+Ola Electric,S1 X Gen 3 2 kWh,electric scooter,84999.0,2.0,108.0,101.0,7.0,787.03,42499.5,1,2,11,35,9,9,21.4,verified
+Ola Electric,S1 X Gen 3 3 kWh,electric scooter,,3.0,176.0,115.0,7.0,,,8,35,31,8,6,9,21.4,verified
+Ola Electric,S1 X Gen 3 4 kWh,electric scooter,,4.0,242.0,123.0,7.0,,,9,35,31,3,5,9,21.4,verified
+Ola Electric,S1 X Plus Gen 3 4 kWh,electric scooter,120999.0,4.0,242.0,125.0,11.0,500.0,30249.75,3,13,2,3,3,9,21.4,verified
+Ola Electric,S1 X Plus Gen 3 5.2 kWh,electric scooter,129999.0,5.2,320.0,125.0,11.0,406.25,24999.81,4,20,1,2,3,9,21.4,verified
+Revolt Motors,Revolt RV400,electric motorcycle,138000.0,3.24,150.0,85.0,3.0,920.0,42592.59,2,26,22,20,12,2,4.8,verified
+Revolt Motors,Revolt RV400 BRZ,electric motorcycle,124999.0,3.24,150.0,85.0,3.0,833.33,38579.94,1,16,15,20,12,2,4.8,verified
+Simple Energy,Simple Dot One,electric scooter,140499.0,3.7,151.0,105.0,8.5,930.46,37972.7,1,27,23,18,7,2,4.8,verified
+Simple Energy,Simple One,electric scooter,166000.0,5.0,212.0,105.0,8.5,783.02,33200.0,2,31,9,5,7,2,4.8,verified
+TVS Motor Company,iQube 2.3 kWh,electric scooter,95124.0,2.3,114.0,68.0,,834.42,41358.26,1,5,16,32,24,6,14.3,verified
+TVS Motor Company,iQube 3.1 kWh,electric scooter,104962.0,3.1,123.0,82.0,,853.35,33858.71,2,7,17,29,14,6,14.3,verified
+TVS Motor Company,iQube 3.5 kWh,electric scooter,110200.0,3.5,145.0,82.0,,760.0,31485.71,3,10,7,22,14,6,14.3,verified
+TVS Motor Company,iQube MillionR Edition,electric scooter,113751.0,3.5,145.0,82.0,,784.49,32500.29,4,11,10,22,14,6,14.3,verified
+TVS Motor Company,iQube S 4.7 kWh,electric scooter,130340.0,4.7,175.0,82.0,,744.8,27731.91,5,21,6,9,14,6,14.3,verified
+TVS Motor Company,iQube ST 5.3 kWh,electric scooter,146877.0,5.3,212.0,82.0,,692.82,27712.64,6,28,5,5,14,6,14.3,verified
+Ultraviolette Automotive,Ultraviolette F77 Mach 2,electric motorcycle,299000.0,7.1,211.0,155.0,27.0,1417.06,42112.68,1,33,30,7,1,2,4.8,verified
+Ultraviolette Automotive,Ultraviolette F77 Mach 2 Recon,electric motorcycle,399000.0,10.3,323.0,155.0,30.0,1235.29,38737.86,2,34,28,1,1,2,4.8,verified

@@ -1,0 +1,13 @@
+{
+  "version": "1.0",
+  "artifacts": [
+    {
+      "report": {
+        "path": "Market-Business-Strategy-Intelligence.Report"
+      }
+    }
+  ],
+  "settings": {
+    "enableTmdlSchemaChange": true
+  }
+}

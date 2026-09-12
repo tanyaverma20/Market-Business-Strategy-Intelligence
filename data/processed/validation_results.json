@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-12T06:22:48.927022+00:00",
+  "generated_at_utc": "2026-09-12T07:54:55.718615+00:00",
   "datasets": [
     {
       "dataset": "vahan_e2w_registrations_monthly.csv",
@@ -65,8 +65,8 @@
       "dataset": "verified_product_catalog_2025_2026.csv",
       "provenance_class": "verified_primary_source",
       "eligible_as_observed_analytics": "Yes",
-      "rows": 30,
-      "sha256": "30a74637b8b8b4673e01c7ba3fe85567a58bc46de5ff00b5b5277f08aa242bc8",
+      "rows": 42,
+      "sha256": "736dc1b00d2618a33e0e4d2dc987c9c5487277524728ef75102c2eb3cf1a22cf",
       "missing_required_columns": [],
       "duplicate_full_rows": 0,
       "missing_values": {

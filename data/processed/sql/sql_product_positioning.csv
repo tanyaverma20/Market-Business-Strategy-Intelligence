@@ -1,0 +1,43 @@
+manufacturer,model_name,price,range_km,battery_capacity_kwh,top_speed_kmh,price_bucket,range_bucket,battery_bucket,performance_bucket,positioning_summary,manufacturer_product_rank,manufacturer_total_products,manufacturer_budget_count,manufacturer_midmarket_count,manufacturer_premium_count,manufacturer_portfolio_share_pct,verification_status
+Ampere,Nexus EX,121499.0,100.0,3.0,93.0,mid-market,short-range,standard-battery,high-performance,mid-market / short-range,1,2,0.0,2.0,0.0,4.8,verified
+Ampere,Nexus ST,131499.0,100.0,3.0,93.0,mid-market,short-range,standard-battery,high-performance,mid-market / short-range,2,2,0.0,2.0,0.0,4.8,verified
+Ather Energy,450 Apex,,157.0,3.7,,unpriced,standard-range,standard-battery,unspecified,unpriced / standard-range,5,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,450S 3.7 kWh,,161.0,3.7,,unpriced,standard-range,standard-battery,unspecified,unpriced / standard-range,6,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,450X 2.9 kWh,,126.0,2.9,,unpriced,standard-range,compact-battery,unspecified,unpriced / standard-range,7,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,450X 3.7 kWh,,161.0,3.7,,unpriced,standard-range,standard-battery,unspecified,unpriced / standard-range,8,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,Rizta S 2.9 kWh,108156.0,123.0,2.9,,mid-market,standard-range,compact-battery,unspecified,mid-market / standard-range,1,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,Rizta S 3.7 kWh,137047.0,159.0,3.7,,mid-market,standard-range,standard-battery,unspecified,mid-market / standard-range,3,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,Rizta Z 2.9 kWh,129656.0,123.0,2.9,,mid-market,standard-range,compact-battery,unspecified,mid-market / standard-range,2,8,0.0,4.0,0.0,19.0,verified
+Ather Energy,Rizta Z 3.7 kWh,149647.0,159.0,3.7,,mid-market,standard-range,standard-battery,unspecified,mid-market / standard-range,4,8,0.0,4.0,0.0,19.0,verified
+BGauss,C12i MAX,126141.0,135.0,3.2,60.0,mid-market,standard-range,standard-battery,entry,mid-market / standard-range,2,2,0.0,2.0,0.0,4.8,verified
+BGauss,RUV 350,109999.0,135.0,3.0,75.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,1,2,0.0,2.0,0.0,4.8,verified
+Bajaj Auto,Chetak 3001,,127.0,3.0,63.0,unpriced,standard-range,standard-battery,entry,unpriced / standard-range,4,5,1.0,2.0,0.0,11.9,verified
+Bajaj Auto,Chetak 3501,134500.0,153.0,3.5,73.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,3,5,1.0,2.0,0.0,11.9,verified
+Bajaj Auto,Chetak 3502,122500.0,153.0,3.5,73.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,2,5,1.0,2.0,0.0,11.9,verified
+Bajaj Auto,Chetak 3503,,151.0,3.5,63.0,unpriced,standard-range,standard-battery,entry,unpriced / standard-range,5,5,1.0,2.0,0.0,11.9,verified
+Bajaj Auto,Chetak C2501,91504.0,113.0,2.5,55.0,budget,short-range,compact-battery,entry,budget / short-range,1,5,1.0,2.0,0.0,11.9,verified
+Hero MotoCorp (VIDA),VIDA V1 Plus,97800.0,143.0,3.44,80.0,budget,standard-range,standard-battery,balanced,budget / standard-range,1,2,1.0,1.0,0.0,4.8,verified
+Hero MotoCorp (VIDA),VIDA V1 Pro,126200.0,165.0,3.94,80.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,2,2,1.0,1.0,0.0,4.8,verified
+Kinetic Green,E-Luna,74990.0,110.0,2.0,50.0,budget,short-range,compact-battery,entry,budget / short-range,1,2,2.0,0.0,0.0,4.8,verified
+Kinetic Green,Zulu,94990.0,104.0,2.27,60.0,budget,short-range,compact-battery,entry,budget / short-range,2,2,2.0,0.0,0.0,4.8,verified
+Ola Electric,S1 Pro Gen 3 3 kWh,114999.0,,3.0,,mid-market,unspecified,standard-battery,unspecified,mid-market / unspecified,2,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 Pro Gen 3 4 kWh,134999.0,,4.0,,mid-market,unspecified,standard-battery,unspecified,mid-market / unspecified,5,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 Pro Plus Gen 3 4 kWh,154999.0,,4.0,,mid-market,unspecified,standard-battery,unspecified,mid-market / unspecified,6,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 Pro Plus Gen 3 5.3 kWh,169999.0,,5.3,,mid-market,unspecified,high-battery,unspecified,mid-market / unspecified,7,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 X Gen 3 2 kWh,84999.0,108.0,2.0,101.0,budget,short-range,compact-battery,high-performance,budget / short-range,1,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 X Gen 3 3 kWh,,176.0,3.0,115.0,unpriced,standard-range,standard-battery,high-performance,unpriced / standard-range,8,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 X Gen 3 4 kWh,,242.0,4.0,123.0,unpriced,long-range,standard-battery,high-performance,unpriced / long-range,9,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 X Plus Gen 3 4 kWh,120999.0,242.0,4.0,125.0,mid-market,long-range,standard-battery,high-performance,mid-market / long-range,3,9,1.0,6.0,0.0,21.4,verified
+Ola Electric,S1 X Plus Gen 3 5.2 kWh,129999.0,320.0,5.2,125.0,mid-market,long-range,high-battery,high-performance,mid-market / long-range,4,9,1.0,6.0,0.0,21.4,verified
+Revolt Motors,Revolt RV400,138000.0,150.0,3.24,85.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,2,2,0.0,2.0,0.0,4.8,verified
+Revolt Motors,Revolt RV400 BRZ,124999.0,150.0,3.24,85.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,1,2,0.0,2.0,0.0,4.8,verified
+Simple Energy,Simple Dot One,140499.0,151.0,3.7,105.0,mid-market,standard-range,standard-battery,high-performance,mid-market / standard-range,1,2,0.0,2.0,0.0,4.8,verified
+Simple Energy,Simple One,166000.0,212.0,5.0,105.0,mid-market,long-range,high-battery,high-performance,mid-market / long-range,2,2,0.0,2.0,0.0,4.8,verified
+TVS Motor Company,iQube 2.3 kWh,95124.0,114.0,2.3,68.0,budget,short-range,compact-battery,entry,budget / short-range,1,6,1.0,5.0,0.0,14.3,verified
+TVS Motor Company,iQube 3.1 kWh,104962.0,123.0,3.1,82.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,2,6,1.0,5.0,0.0,14.3,verified
+TVS Motor Company,iQube 3.5 kWh,110200.0,145.0,3.5,82.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,3,6,1.0,5.0,0.0,14.3,verified
+TVS Motor Company,iQube MillionR Edition,113751.0,145.0,3.5,82.0,mid-market,standard-range,standard-battery,balanced,mid-market / standard-range,4,6,1.0,5.0,0.0,14.3,verified
+TVS Motor Company,iQube S 4.7 kWh,130340.0,175.0,4.7,82.0,mid-market,standard-range,high-battery,balanced,mid-market / standard-range,5,6,1.0,5.0,0.0,14.3,verified
+TVS Motor Company,iQube ST 5.3 kWh,146877.0,212.0,5.3,82.0,mid-market,long-range,high-battery,balanced,mid-market / long-range,6,6,1.0,5.0,0.0,14.3,verified
+Ultraviolette Automotive,Ultraviolette F77 Mach 2,299000.0,211.0,7.1,155.0,premium,long-range,high-battery,high-performance,premium / long-range,1,2,0.0,0.0,2.0,4.8,verified
+Ultraviolette Automotive,Ultraviolette F77 Mach 2 Recon,399000.0,323.0,10.3,155.0,premium,long-range,high-battery,high-performance,premium / long-range,2,2,0.0,0.0,2.0,4.8,verified

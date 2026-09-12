@@ -1,0 +1,256 @@
+// =============================================================================
+// DAX Measure Library
+// Project: Market & Business Strategy Intelligence — Indian Electric 2W Market
+// Target Tool: Microsoft Power BI Desktop
+// Model Structure: Star Schema (DimManufacturer, DimProduct, FactProductMetrics)
+// =============================================================================
+
+// =============================================================================
+// SECTION 1: CORE PORTFOLIO & VOLUME MEASURES (VERIFIED DATA)
+// =============================================================================
+
+Total Products = 
+DISTINCTCOUNT(FactProductMetrics[product])
+/* Total distinct EV two-wheeler models verified in the active catalog (30 models) */
+
+Total Manufacturers = 
+DISTINCTCOUNT(DimManufacturer[manufacturer])
+/* Total distinct verified automotive OEMs in the catalog (5 OEMs) */
+
+Priced Products Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    NOT(ISBLANK(FactProductMetrics[price]))
+)
+/* Total verified models with official ex-showroom pricing captured (22 models) */
+
+Average Manufacturer Portfolio Size = 
+DIVIDE([Total Products], [Total Manufacturers], 0)
+/* Average number of models offered per verified OEM */
+
+
+// =============================================================================
+// SECTION 2: PRICING & VALUE METRICS (VERIFIED DATA)
+// =============================================================================
+
+Average Product Price = 
+AVERAGE(FactProductMetrics[price])
+/* Arithmetic mean of ex-showroom prices across priced models */
+
+Median Product Price = 
+MEDIAN(FactProductMetrics[price])
+/* 50th percentile price across priced models */
+
+Minimum Product Price = 
+MIN(FactProductMetrics[price])
+/* Lowest ex-showroom price in the verified catalog (₹84,999 - Ola S1 X Gen 3 2 kWh) */
+
+Maximum Product Price = 
+MAX(FactProductMetrics[price])
+/* Highest ex-showroom price in the verified catalog (₹169,999 - Ola S1 Pro Plus Gen 3 5.3 kWh) */
+
+Price Spread INR = 
+[Maximum Product Price] - [Minimum Product Price]
+/* Absolute price span across the verified EV catalog */
+
+Market Benchmark Average Price = 
+CALCULATE(
+    [Average Product Price],
+    ALL(FactProductMetrics)
+)
+/* Unfiltered catalog price benchmark for relative comparison */
+
+Price Variance vs Market Avg = 
+[Average Product Price] - [Market Benchmark Average Price]
+/* Absolute deviation of filtered selection from overall market average price */
+
+Price Premium vs Market Pct = 
+DIVIDE(
+    [Price Variance vs Market Avg],
+    [Market Benchmark Average Price],
+    BLANK()
+)
+/* Percentage premium or discount compared to the overall market average price */
+
+
+// =============================================================================
+// SECTION 3: TECHNICAL PERFORMANCE & EFFICIENCY MEASURES (VERIFIED DATA)
+// =============================================================================
+
+Average Battery Capacity = 
+AVERAGE(FactProductMetrics[battery_kwh])
+/* Mean battery pack capacity in kilowatt-hours (kWh) */
+
+Average Certified Range = 
+AVERAGE(FactProductMetrics[certified_range_km])
+/* Mean certified range in kilometers (IDC / ARAI) */
+
+Average Top Speed = 
+AVERAGE(FactProductMetrics[top_speed_kmph])
+/* Mean top speed in kilometers per hour (km/h) */
+
+Average Motor Power = 
+AVERAGE(FactProductMetrics[motor_power_kw])
+/* Mean motor peak power in kilowatts (kW) */
+
+Average Price per KM = 
+AVERAGE(FactProductMetrics[price_per_km])
+/* Mean ex-showroom price per kilometer of certified range (INR/km) */
+
+Average Price per KWh = 
+AVERAGE(FactProductMetrics[price_per_kwh])
+/* Mean ex-showroom price per kilowatt-hour of battery capacity (INR/kWh) */
+
+Weighted Fleet Energy Efficiency = 
+DIVIDE(
+    SUM(FactProductMetrics[battery_kwh]) * 1000.0,
+    SUM(FactProductMetrics[certified_range_km]),
+    BLANK()
+)
+/* Fleet-wide average energy consumption in Wh per kilometer */
+
+
+// =============================================================================
+// SECTION 4: MARKET POSITIONING & SEGMENTATION MEASURES (VERIFIED DATA)
+// =============================================================================
+
+Budget Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[price_bucket] = "budget"
+    )
+)
+/* Count of models priced below ₹100,000 (entry commuter segment) */
+
+Mid-Market Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[price_bucket] = "mid-market"
+    )
+)
+/* Count of models priced between ₹100,000 and ₹180,000 (core adoption segment) */
+
+Premium Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[price_bucket] = "premium"
+    )
+)
+/* Count of models priced above ₹180,000 (flagship / premium performance) */
+
+Short-Range Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[range_bucket] = "short-range"
+    )
+)
+/* Count of models with certified range < 120 km */
+
+Standard-Range Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[range_bucket] = "standard-range"
+    )
+)
+/* Count of models with certified range between 120 km and 180 km */
+
+Long-Range Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[range_bucket] = "long-range"
+    )
+)
+/* Count of models with certified range > 180 km */
+
+High-Performance Product Count = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        ProductPositioning,
+        ProductPositioning[performance_bucket] = "high-performance"
+    )
+)
+/* Count of models with top speed > 90 km/h */
+
+Products Above Market Average = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        PricingAnalysis,
+        PricingAnalysis[relative_price_position] = "above market average"
+    )
+)
+/* Number of models priced higher than the catalog benchmark average */
+
+Products Below Market Average = 
+CALCULATE(
+    COUNTROWS(FactProductMetrics),
+    FILTER(
+        PricingAnalysis,
+        PricingAnalysis[relative_price_position] = "below market average"
+    )
+)
+/* Number of models priced lower than the catalog benchmark average */
+
+Product Portfolio HHI = 
+VAR TotalCount = CALCULATE(COUNTROWS(FactProductMetrics), ALL(DimManufacturer))
+RETURN
+SUMX(
+    DimManufacturer,
+    POWER(
+        DIVIDE(CALCULATE(COUNTROWS(FactProductMetrics)), TotalCount, 0) * 100.0,
+        2
+    )
+)
+/* Herfindahl-Hirschman Index measuring OEM catalog concentration across verified models */
+
+
+// =============================================================================
+// SECTION 5: PENDING MARKET DAX MEASURES (FAIL-CLOSED SAFEGUARDS)
+// NOTE: Official Vahan registration exports are pending verification.
+// These measures return BLANK() with explicit comments and must not show fake data.
+// =============================================================================
+
+Total EV Registrations (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: Registration volumes will be populated upon official Vahan export verification */
+
+YoY Market Growth Pct (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: Annual registration growth requires consecutive verified calendar year volumes */
+
+Market CAGR Pct (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: Multi-year CAGR requires verified historical registration series */
+
+EV Penetration Pct (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: EV penetration requires total 2W registrations alongside EV registration aggregates */
+
+OEM Registration Market Share Pct (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: Market share requires verified volume registrations per OEM */
+
+Market Volume HHI (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: Market concentration HHI requires verified registration shares */
+
+State Registration Rank (Pending) = 
+BLANK()
+/* PENDING VERIFIED VAHAN DATA: State-level rankings require verified state registration series */
+
+Market Intelligence Data Status = 
+"PENDING VERIFIED VAHAN DATA"
+/* Status indicator for executive dashboard headers */
