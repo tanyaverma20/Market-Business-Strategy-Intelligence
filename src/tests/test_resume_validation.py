@@ -75,3 +75,35 @@ def test_no_proxy_data_relabeled_as_verified(project_root):
     proxy_rows = manifest_df[manifest_df["provenance_class"] == "generated_proxy"]
     assert not proxy_rows.empty
     assert (proxy_rows["eligible_as_observed_analytics"] == "No").all(), "Found proxy data marked as eligible for observed analytics"
+
+
+def test_product_portfolio_hhi_regression(project_root):
+    """Regression test: Product Portfolio HHI must equal 1,326.53 (±0.5 tolerance).
+
+    Calculation (verified 2026-09-13):
+      - 42 verified models across 11 manufacturers in verified_product_catalog_2025_2026.csv
+      - Each manufacturer share = (model_count / 42) * 100
+      - HHI = SUM(share^2) across all 11 manufacturers
+    Expected: 1326.53
+
+    The previously documented value of 2,333.3 was INCORRECT.
+    Do NOT adjust this constant to match a broken result — investigate root cause.
+    """
+    catalog_path = project_root / "data" / "processed" / "processed_verified_product_catalog.csv"
+    assert catalog_path.exists(), "Verified product catalog not found"
+
+    df = pd.read_csv(catalog_path)
+    verified_df = df[df["verification_status"] == "verified"]
+
+    total_products = len(verified_df)
+    assert total_products == 42, f"Expected 42 verified products, got {total_products}"
+
+    mfg_counts = verified_df.groupby("manufacturer").size()
+    shares = (mfg_counts / total_products * 100)
+    hhi = float((shares ** 2).sum())
+
+    # HHI must be 1326.53 ± 0.5 tolerance for floating-point safety
+    assert abs(hhi - 1326.53) < 0.5, (
+        f"Product Portfolio HHI regression: computed {hhi:.2f}, expected ~1326.53. "
+        f"Check manufacturer grouping, product count, or HHI formula."
+    )
