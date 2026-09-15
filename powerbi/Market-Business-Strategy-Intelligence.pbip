@@ -7,7 +7,5 @@
       }
     }
   ],
-  "settings": {
-    "enableTmdlSchemaChange": true
-  }
+  "settings":{}
 }
