@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_oem_price_bar",
+  "position": {
+    "x": 612,
+    "y": 205,
+    "z": 9000,
+    "height": 300,
+    "width": 638
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "PricingAnalysis.manufacturer",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Product Price"
+                }
+              },
+              "queryRef": "_Measures.Average Product Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Market Benchmark Average Price"
+                }
+              },
+              "queryRef": "_Measures.Market Benchmark Average Price"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

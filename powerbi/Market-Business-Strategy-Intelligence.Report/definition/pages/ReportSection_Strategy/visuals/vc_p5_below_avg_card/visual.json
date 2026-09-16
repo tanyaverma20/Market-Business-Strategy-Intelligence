@@ -1,0 +1,35 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p5_below_avg_card",
+  "position": {
+    "x": 570,
+    "y": 596,
+    "z": 9000,
+    "height": 90,
+    "width": 240
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Products Below Market Average"
+                }
+              },
+              "queryRef": "_Measures.Products Below Market Average"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

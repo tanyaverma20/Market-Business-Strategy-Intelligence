@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p5_unit_economics",
+  "position": {
+    "x": 430,
+    "y": 362,
+    "z": 5000,
+    "height": 220,
+    "width": 400
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "product"
+                }
+              },
+              "queryRef": "PricingAnalysis.product"
+            }
+          ]
+        },
+        "Legend": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "price_bucket"
+                }
+              },
+              "queryRef": "PricingAnalysis.price_bucket"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "price_per_km"
+                }
+              },
+              "queryRef": "PricingAnalysis.price_per_km",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "price_per_kwh"
+                }
+              },
+              "queryRef": "PricingAnalysis.price_per_kwh"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

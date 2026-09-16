@@ -50,19 +50,28 @@ def patch_model(data_path: str, model_path: str) -> None:
     print(f"[OK] model.bim patched successfully.")
     print(f"  Data path: {normalized}")
     print(f"  Files found: {[f for f in required_files if os.path.exists(os.path.join(data_path, f))]}")
+
+    # Also sync non-definition model.bim if it exists
+    alt_model = os.path.join(REPO_ROOT, "powerbi",
+                             "Market-Business-Strategy-Intelligence.SemanticModel",
+                             "model.bim")
+    if os.path.exists(alt_model):
+        with open(alt_model, "w", encoding="utf-8") as f:
+            f.write(patched)
+
     print()
     print("NEXT STEPS:")
     print("1. Open Power BI Desktop")
-    print(f"2. File → Open → {os.path.join(REPO_ROOT, 'powerbi', 'Market-Business-Strategy-Intelligence.pbip')}")
+    print(f"2. File -> Open -> {os.path.join(REPO_ROOT, 'powerbi', 'Market-Business-Strategy-Intelligence.pbip')}")
     print("3. Allow data source connection (local files, no credentials needed)")
     print("4. Click 'Refresh' to load all tables")
     print("5. Verify all 5 pages render correctly")
-    print("6. File → Save As → Market-Business-Strategy-Intelligence.pbix")
+    print("6. File -> Save As -> Market-Business-Strategy-Intelligence.pbix")
     print(f"7. Save to: {REPO_ROOT}")
     print()
     print("SCREENSHOT EXPORT (after saving .pbix):")
-    print("  In Power BI Desktop: File → Export → Export to PDF, or")
-    print("  For each page: right-click page tab → 'Export page as image'")
+    print("  In Power BI Desktop: File -> Export -> Export to PDF, or")
+    print("  For each page: right-click page tab -> 'Export page as image'")
     print(f"  Save screenshots to: {os.path.join(REPO_ROOT, 'docs', 'powerbi', 'screenshots')}")
     print("  Filenames: page1_executive_overview.png through page5_strategy.png")
 

@@ -1,0 +1,23 @@
+model Model
+	culture: en-US
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-IN
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation PBI_QueryOrder = ["CompetitiveAnalysis","PricingAnalysis","ProductPositioning","KPIStatus","PendingMarketRegistrations","_Measures"]
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table CompetitiveAnalysis
+ref table PricingAnalysis
+ref table ProductPositioning
+ref table KPIStatus
+ref table PendingMarketRegistrations
+ref table _Measures
+
+ref cultureInfo en-US
+

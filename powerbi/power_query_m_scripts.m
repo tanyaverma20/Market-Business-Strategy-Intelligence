@@ -130,21 +130,32 @@ in
 // Purpose: Pricing percentiles, quartiles, market benchmarks, and premium positioning.
 // =============================================================================
 let
-    Source = Csv.Document(File.Contents(DataFolderPath & "sql_pricing_analysis.csv"), [Delimiter=",", Columns=15, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+    Source = Csv.Document(File.Contents(DataFolderPath & "sql_pricing_analysis.csv"), [Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),
     PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
     SelectedColumns = Table.SelectColumns(PromotedHeaders, {
-        "product", "manufacturer", "price", "price_percentile", "price_quartile",
-        "product_price_rank", "avg_market_price", "mfg_avg_price",
-        "relative_price_position", "price_premium_vs_market_pct"
+        "product", "manufacturer", "price", "battery_capacity_kwh", "range_km",
+        "top_speed_kmh", "price_per_km", "price_per_kwh", "price_bucket",
+        "value_rank", "price_percentile", "price_quartile", "product_price_rank",
+        "avg_market_price", "mfg_avg_price", "relative_price_position",
+        "price_premium_vs_market_pct"
     }),
     ReplacedBlanks = Table.ReplaceValue(SelectedColumns, "", null, Replacer.ReplaceValue, {
-        "price", "price_percentile", "price_quartile", "product_price_rank",
-        "avg_market_price", "mfg_avg_price", "price_premium_vs_market_pct"
+        "price", "battery_capacity_kwh", "range_km", "top_speed_kmh", "price_per_km",
+        "price_per_kwh", "value_rank", "price_percentile", "price_quartile",
+        "product_price_rank", "avg_market_price", "mfg_avg_price",
+        "price_premium_vs_market_pct"
     }),
     ChangedTypes = Table.TransformColumnTypes(ReplacedBlanks, {
         {"product", type text},
         {"manufacturer", type text},
         {"price", Currency.Type},
+        {"battery_capacity_kwh", type number},
+        {"range_km", type number},
+        {"top_speed_kmh", type number},
+        {"price_per_km", Currency.Type},
+        {"price_per_kwh", Currency.Type},
+        {"price_bucket", type text},
+        {"value_rank", Int64.Type},
         {"price_percentile", type number},
         {"price_quartile", Int64.Type},
         {"product_price_rank", Int64.Type},

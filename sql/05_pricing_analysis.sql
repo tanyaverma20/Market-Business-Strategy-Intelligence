@@ -24,6 +24,10 @@ WITH ranked AS (
         ) AS price_quartile,
         -- Window function: Product price rank descending
         RANK() OVER (ORDER BY ex_showroom_price_inr DESC NULLS LAST) AS product_price_rank,
+        -- Window function: Value rank (lowest price per km)
+        RANK() OVER (
+            ORDER BY ROUND(ex_showroom_price_inr / NULLIF(range_km, 0), 2) ASC NULLS LAST
+        ) AS value_rank,
         -- Window function: Overall catalog average price
         ROUND(AVG(ex_showroom_price_inr) OVER (), 2) AS avg_market_price,
         -- Window function: Manufacturer average price
@@ -40,6 +44,13 @@ SELECT
     top_speed_kmh,
     price_per_km,
     price_per_kwh,
+    CASE
+        WHEN price IS NULL THEN 'unpriced'
+        WHEN price < 100000 THEN 'budget'
+        WHEN price <= 180000 THEN 'mid-market'
+        ELSE 'premium'
+    END AS price_bucket,
+    value_rank,
     price_percentile,
     price_quartile,
     product_price_rank,

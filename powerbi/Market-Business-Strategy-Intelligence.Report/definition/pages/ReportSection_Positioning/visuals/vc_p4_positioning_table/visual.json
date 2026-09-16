@@ -1,0 +1,126 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p4_positioning_table",
+  "position": {
+    "x": 16,
+    "y": 474,
+    "z": 5000,
+    "height": 220,
+    "width": 1234
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "ProductPositioning.manufacturer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "model_name"
+                }
+              },
+              "queryRef": "ProductPositioning.model_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "price"
+                }
+              },
+              "queryRef": "ProductPositioning.price"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "range_km"
+                }
+              },
+              "queryRef": "ProductPositioning.range_km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "price_bucket"
+                }
+              },
+              "queryRef": "ProductPositioning.price_bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "range_bucket"
+                }
+              },
+              "queryRef": "ProductPositioning.range_bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "performance_bucket"
+                }
+              },
+              "queryRef": "ProductPositioning.performance_bucket"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "positioning_summary"
+                }
+              },
+              "queryRef": "ProductPositioning.positioning_summary"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

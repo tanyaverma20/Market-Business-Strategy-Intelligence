@@ -1,0 +1,100 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p2_ranking_table",
+  "position": {
+    "x": 744,
+    "y": 414,
+    "z": 5000,
+    "height": 280,
+    "width": 516
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "product_rank"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.product_rank"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "product"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.manufacturer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "price"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.price"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "certified_range_km"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.certified_range_km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "price_per_km"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.price_per_km"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

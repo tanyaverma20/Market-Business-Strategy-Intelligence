@@ -113,10 +113,17 @@ The model segregates dimensional attributes from core numerical performance fact
   - `product` (PK, FK, Text)
   - `manufacturer` (Text)
   - `price` (Currency / Decimal)
+  - `battery_capacity_kwh` (Decimal): Battery pack rating in kWh.
+  - `range_km` (Decimal): Certified IDC range in km.
+  - `top_speed_kmh` (Decimal): Top speed in km/h.
+  - `price_per_km` (Currency / Decimal): Price per certified km (₹/km).
+  - `price_per_kwh` (Currency / Decimal): Price per kWh battery capacity (₹/kWh).
+  - `price_bucket` (Text): `budget` (< ₹100k), `mid-market` (₹100k–₹180k), `premium` (> ₹180k), `unpriced`.
+  - `value_rank` (Integer): Range-cost efficiency rank (1 = lowest ₹/km).
   - `price_percentile` (Decimal): 0.0 to 1.0 distribution percentile.
   - `price_quartile` (Integer): 1 to 4 quartile indicator.
   - `product_price_rank` (Integer): Price rank descending.
-  - `avg_market_price` (Currency / Decimal): Overall market benchmark average (₹124,466.14).
+  - `avg_market_price` (Currency / Decimal): Overall market benchmark average.
   - `mfg_avg_price` (Currency / Decimal): OEM average price benchmark.
   - `relative_price_position` (Text): Classification (`below market average`, `above market average`, `unpriced / pending`).
   - `price_premium_vs_market_pct` (Decimal): Percentage variance from catalog benchmark average.

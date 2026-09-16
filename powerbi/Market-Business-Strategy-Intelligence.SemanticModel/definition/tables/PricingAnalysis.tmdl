@@ -1,0 +1,157 @@
+table PricingAnalysis
+	lineageTag: 36ca5e1a-9c33-4be2-9f0b-087f06d2d6ec
+
+	column product
+		dataType: string
+		lineageTag: c308486c-28da-49b3-a7b2-0deb8348b9e9
+		sourceColumn: product
+
+	column manufacturer
+		dataType: string
+		lineageTag: 6b9d79fb-50ae-4672-9f39-5c72590ecdfd
+		sourceColumn: manufacturer
+
+	column price
+		dataType: double
+		lineageTag: dfa3ce4d-d5a1-4ae9-a867-a32aee0f1d46
+		sourceColumn: price
+
+	column battery_capacity_kwh
+		dataType: double
+		lineageTag: d4cd1479-36eb-44f3-9042-d24113232df0
+		sourceColumn: battery_capacity_kwh
+
+	column range_km
+		dataType: double
+		lineageTag: 0d2dc353-e5f4-431a-a368-2e3fa6a1348c
+		sourceColumn: range_km
+
+	column top_speed_kmh
+		dataType: double
+		lineageTag: 4c158478-a374-4bae-b9d6-9adab94bcb04
+		sourceColumn: top_speed_kmh
+
+	column price_per_km
+		dataType: double
+		lineageTag: 25492c38-a349-493c-8639-80313b79f880
+		sourceColumn: price_per_km
+
+	column price_per_kwh
+		dataType: double
+		lineageTag: 85cafa28-5acb-4ade-824a-80122f9e98f5
+		sourceColumn: price_per_kwh
+
+	column price_bucket
+		dataType: string
+		lineageTag: 14c6effb-efeb-476d-b222-50919bfd270b
+		sourceColumn: price_bucket
+
+	column value_rank
+		dataType: int64
+		lineageTag: 566767de-4260-48fc-a427-0ade22a1fc85
+		sourceColumn: value_rank
+
+	column price_quartile
+		dataType: int64
+		formatString: 0
+		lineageTag: a67a28c8-3680-4ce3-871b-8058eabdff51
+		summarizeBy: sum
+		sourceColumn: price_quartile
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_percentile
+		dataType: double
+		lineageTag: 5d9f9610-9929-43ac-9df0-2e7b8a28b48f
+		summarizeBy: sum
+		sourceColumn: price_percentile
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column product_price_rank
+		dataType: int64
+		formatString: 0
+		lineageTag: 40b0cb72-dad6-4f1c-a1eb-be0c983bc5cc
+		summarizeBy: sum
+		sourceColumn: product_price_rank
+
+		annotation SummarizationSetBy = Automatic
+
+	column avg_market_price
+		dataType: double
+		lineageTag: 0c9e4b15-6a8e-434f-97e2-9db4df4880aa
+		summarizeBy: sum
+		sourceColumn: avg_market_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column mfg_avg_price
+		dataType: double
+		lineageTag: 8e5658b6-04db-4310-8e31-a1fbff1be7ea
+		summarizeBy: sum
+		sourceColumn: mfg_avg_price
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column relative_price_position
+		dataType: string
+		lineageTag: 9e78df8b-df7e-4da3-8165-9b3a21ae7025
+		summarizeBy: none
+		sourceColumn: relative_price_position
+
+		annotation SummarizationSetBy = Automatic
+
+	column price_premium_vs_market_pct
+		dataType: double
+		lineageTag: 4b2cb0ad-03ad-4355-84de-ce395f9cbdc8
+		summarizeBy: sum
+		sourceColumn: price_premium_vs_market_pct
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition PricingAnalysis-part1 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(
+				        File.Contents("C:\BI\Market-Business-Strategy-Intelligence\data\processed\sql\sql_pricing_analysis.csv"),
+				        [Delimiter=",", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]
+				    ),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Types" = Table.TransformColumnTypes(
+				        #"Promoted Headers",
+				        {
+				            {"product", type text},
+				            {"manufacturer", type text},
+				            {"price", type number},
+				            {"battery_capacity_kwh", type number},
+				            {"range_km", type number},
+				            {"top_speed_kmh", type number},
+				            {"price_per_km", type number},
+				            {"price_per_kwh", type number},
+				            {"price_bucket", type text},
+				            {"value_rank", Int64.Type},
+				            {"price_percentile", type number},
+				            {"price_quartile", Int64.Type},
+				            {"product_price_rank", Int64.Type},
+				            {"avg_market_price", type number},
+				            {"mfg_avg_price", type number},
+				            {"relative_price_position", type text},
+				            {"price_premium_vs_market_pct", type number}
+				        }
+				    )
+				in
+				    #"Changed Types"
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

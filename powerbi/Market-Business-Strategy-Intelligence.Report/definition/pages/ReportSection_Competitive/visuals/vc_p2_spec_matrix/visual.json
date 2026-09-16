@@ -1,0 +1,152 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p2_spec_matrix",
+  "position": {
+    "x": 230,
+    "y": 60,
+    "z": 3000,
+    "height": 340,
+    "width": 1030
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.manufacturer"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "product"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.product"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "category"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.category"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "price"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.price"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "battery_kwh"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.battery_kwh"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "certified_range_km"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.certified_range_km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "top_speed_kmph"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.top_speed_kmph"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "motor_power_kw"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.motor_power_kw"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "price_per_km"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.price_per_km"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "product_rank"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.product_rank"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

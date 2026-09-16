@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p5_sweet_spot",
+  "position": {
+    "x": 632,
+    "y": 88,
+    "z": 3000,
+    "height": 260,
+    "width": 628
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPIStatus"
+                    }
+                  },
+                  "Property": "kpi_name"
+                }
+              },
+              "queryRef": "KPIStatus.kpi_name"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPIStatus"
+                    }
+                  },
+                  "Property": "value"
+                }
+              },
+              "queryRef": "KPIStatus.value"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPIStatus"
+                    }
+                  },
+                  "Property": "unit"
+                }
+              },
+              "queryRef": "KPIStatus.unit"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPIStatus"
+                    }
+                  },
+                  "Property": "verification_status"
+                }
+              },
+              "queryRef": "KPIStatus.verification_status"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KPIStatus"
+                    }
+                  },
+                  "Property": "methodology"
+                }
+              },
+              "queryRef": "KPIStatus.methodology"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

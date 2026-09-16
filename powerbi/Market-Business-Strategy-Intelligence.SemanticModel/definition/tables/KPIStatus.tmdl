@@ -1,0 +1,48 @@
+table KPIStatus
+	lineageTag: c32db4ba-4fbe-4b85-83d0-f40b16e160e1
+
+	column kpi_name
+		dataType: string
+		lineageTag: a60777af-5cce-4794-940a-e19a339e69c7
+		sourceColumn: kpi_name
+
+	column value
+		dataType: double
+		lineageTag: 0a1437e2-77cb-4621-bd8d-f82f5bd9f6fc
+		sourceColumn: value
+
+	column unit
+		dataType: string
+		lineageTag: 3b46ec2b-8c42-4e15-b6cf-f9123512817e
+		sourceColumn: unit
+
+	column source
+		dataType: string
+		lineageTag: 80b8efde-3541-4905-870a-9911cceb3b7f
+		sourceColumn: source
+
+	column verification_status
+		dataType: string
+		lineageTag: 6fb4a00d-5666-45b9-9ac6-abac9eb50fb9
+		sourceColumn: verification_status
+
+	column calculation_date
+		dataType: string
+		lineageTag: 5bd9e184-ad8e-4d85-a3d5-24bb780b88bd
+		sourceColumn: calculation_date
+
+	column methodology
+		dataType: string
+		lineageTag: 66026a07-7989-4224-9d1f-cc8000f943fa
+		sourceColumn: methodology
+
+	partition KPIStatus-part1 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_kpi_results.csv"),[Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Types" = Table.TransformColumnTypes(#"Promoted Headers",{{"kpi_name", type text}, {"value", type number}, {"unit", type text}, {"source", type text}, {"verification_status", type text}, {"calculation_date", type text}, {"methodology", type text}})
+				in
+				    #"Changed Types"
+

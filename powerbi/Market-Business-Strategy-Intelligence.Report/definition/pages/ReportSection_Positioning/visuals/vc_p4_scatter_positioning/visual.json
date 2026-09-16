@@ -1,0 +1,104 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p4_scatter_positioning",
+  "position": {
+    "x": 16,
+    "y": 60,
+    "z": 1000,
+    "height": 400,
+    "width": 700
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "model_name"
+                }
+              },
+              "queryRef": "ProductPositioning.model_name"
+            }
+          ]
+        },
+        "Legend": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "price_bucket"
+                }
+              },
+              "queryRef": "ProductPositioning.price_bucket"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "battery_capacity_kwh"
+                }
+              },
+              "queryRef": "ProductPositioning.battery_capacity_kwh"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "range_km"
+                }
+              },
+              "queryRef": "ProductPositioning.range_km",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "price"
+                }
+              },
+              "queryRef": "ProductPositioning.price"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

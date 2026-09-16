@@ -63,12 +63,12 @@ def build_model():
         ("product", "type text"), ("manufacturer", "type text"),
         ("price", "type number"), ("battery_capacity_kwh", "type number"),
         ("range_km", "type number"), ("top_speed_kmh", "type number"),
-        ("motor_power_kw", "type number"), ("price_per_km", "type number"),
-        ("price_per_kwh", "type number"), ("price_bucket", "type text"),
-        ("price_rank", "Int64.Type"), ("value_rank", "Int64.Type"),
-        ("range_rank", "Int64.Type"), ("price_quartile", "type text"),
-        ("market_avg_price", "type number"), ("price_vs_avg", "type number"),
-        ("price_premium_pct", "type number"), ("verification_status", "type text"),
+        ("price_per_km", "type number"), ("price_per_kwh", "type number"),
+        ("price_bucket", "type text"), ("value_rank", "Int64.Type"),
+        ("price_percentile", "type number"), ("price_quartile", "Int64.Type"),
+        ("product_price_rank", "Int64.Type"), ("avg_market_price", "type number"),
+        ("mfg_avg_price", "type number"), ("relative_price_position", "type text"),
+        ("price_premium_vs_market_pct", "type number"),
     ]
 
     pos_cols = [
@@ -220,7 +220,7 @@ def build_model():
                         make_csv_partition(
                             "PricingAnalysis-part1",
                             "sql_pricing_analysis.csv",
-                            pricing_cols, 18
+                            pricing_cols, 17
                         )
                     ],
                 },
@@ -324,6 +324,13 @@ if __name__ == "__main__":
         json.dump(model, f, indent=2, ensure_ascii=False)
     print("model.bim generated successfully at:")
     print(" ", OUTPUT)
+    # Also write to non-definition path for root-level PBIP compatibility
+    root_output = os.path.join(REPO_ROOT, "powerbi",
+                               "Market-Business-Strategy-Intelligence.SemanticModel",
+                               "model.bim")
+    with open(root_output, "w", encoding="utf-8") as f:
+        json.dump(model, f, indent=2, ensure_ascii=False)
+    print(" ", root_output)
     # Validate it can be parsed back
     with open(OUTPUT, "r", encoding="utf-8") as f:
         check = json.load(f)

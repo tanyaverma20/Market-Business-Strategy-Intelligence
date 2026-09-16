@@ -1,0 +1,87 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p3_scatter_price_range",
+  "position": {
+    "x": 16,
+    "y": 148,
+    "z": 2000,
+    "height": 300,
+    "width": 600
+  },
+  "visual": {
+    "visualType": "scatterChart",
+    "query": {
+      "queryState": {
+        "Details": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "product"
+                }
+              },
+              "queryRef": "PricingAnalysis.product"
+            }
+          ]
+        },
+        "Size": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "battery_capacity_kwh"
+                }
+              },
+              "queryRef": "PricingAnalysis.battery_capacity_kwh"
+            }
+          ]
+        },
+        "X": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "range_km"
+                }
+              },
+              "queryRef": "PricingAnalysis.range_km",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "price"
+                }
+              },
+              "queryRef": "PricingAnalysis.price"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

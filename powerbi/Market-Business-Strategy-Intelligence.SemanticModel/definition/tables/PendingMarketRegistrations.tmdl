@@ -1,0 +1,22 @@
+table PendingMarketRegistrations
+	lineageTag: e9429865-7adb-4509-a3f6-09dbf6875d87
+
+	column _placeholder
+		dataType: int64
+		isHidden
+		lineageTag: ea9933f2-5049-4811-ba47-147f219ae14c
+		sourceColumn: _placeholder
+
+	partition PendingMarketRegistrations-part1 = m
+		mode: import
+		source =
+				let
+				    Source = #table(
+				        type table [_placeholder = Int64.Type],
+				        {}
+				    )
+				in
+				    Source
+
+	annotation DATA_STATUS = PENDING_VERIFIED_VAHAN_DATA
+

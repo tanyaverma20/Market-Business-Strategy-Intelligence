@@ -1,0 +1,66 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p5_competitive_bar",
+  "position": {
+    "x": 16,
+    "y": 88,
+    "z": 2000,
+    "height": 260,
+    "width": 600
+  },
+  "visual": {
+    "visualType": "clusteredBarChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "manufacturer"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.manufacturer",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "CompetitiveAnalysis"
+                    }
+                  },
+                  "Property": "mfg_portfolio_share_pct"
+                }
+              },
+              "queryRef": "CompetitiveAnalysis.mfg_portfolio_share_pct"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Product Price"
+                }
+              },
+              "queryRef": "_Measures.Average Product Price"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

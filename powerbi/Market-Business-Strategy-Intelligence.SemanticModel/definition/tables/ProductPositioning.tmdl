@@ -1,0 +1,103 @@
+table ProductPositioning
+	lineageTag: 56e090b8-22de-42e7-afaf-8e76f1cfd0c7
+
+	column manufacturer
+		dataType: string
+		lineageTag: e8499c82-2620-4642-b1cd-e2121d8e18bc
+		sourceColumn: manufacturer
+
+	column model_name
+		dataType: string
+		lineageTag: 4fcadc11-6979-4d3f-bd7d-dc951f09654a
+		sourceColumn: model_name
+
+	column price
+		dataType: double
+		lineageTag: 2678bf05-d8c5-44d1-a85b-d339318e2690
+		sourceColumn: price
+
+	column range_km
+		dataType: double
+		lineageTag: 3727bdd7-91f5-431a-8fc1-1debed98676c
+		sourceColumn: range_km
+
+	column battery_capacity_kwh
+		dataType: double
+		lineageTag: 11656869-af7a-478d-a151-a119b2a4417a
+		sourceColumn: battery_capacity_kwh
+
+	column top_speed_kmh
+		dataType: double
+		lineageTag: 9ea64b32-73f4-47f7-8be4-ebc76fb548e8
+		sourceColumn: top_speed_kmh
+
+	column price_bucket
+		dataType: string
+		lineageTag: 64147f04-4655-4c1a-a99c-b95f93661cfe
+		sourceColumn: price_bucket
+
+	column range_bucket
+		dataType: string
+		lineageTag: d178aea2-540b-48df-a404-3c2ba52c3d5b
+		sourceColumn: range_bucket
+
+	column battery_bucket
+		dataType: string
+		lineageTag: 4d24baf8-263c-4ff5-a4ae-4adb4e148b6d
+		sourceColumn: battery_bucket
+
+	column performance_bucket
+		dataType: string
+		lineageTag: 2cde3ba2-bc2d-40a8-a7ba-9ae31d3156d9
+		sourceColumn: performance_bucket
+
+	column positioning_summary
+		dataType: string
+		lineageTag: a03127fa-b1c7-4030-99d0-30f922d6b00d
+		sourceColumn: positioning_summary
+
+	column manufacturer_product_rank
+		dataType: int64
+		lineageTag: 49d84c1e-5f1f-4e05-b2a3-d110025e4cc8
+		sourceColumn: manufacturer_product_rank
+
+	column manufacturer_total_products
+		dataType: int64
+		lineageTag: 47aeffaa-1bf0-4c0c-a970-65a4e1ea7878
+		sourceColumn: manufacturer_total_products
+
+	column manufacturer_budget_count
+		dataType: int64
+		lineageTag: 442b1d78-843e-4b51-8e86-859a95dd23c5
+		sourceColumn: manufacturer_budget_count
+
+	column manufacturer_midmarket_count
+		dataType: int64
+		lineageTag: 2ee2234c-204a-430c-9067-8d1e0149e427
+		sourceColumn: manufacturer_midmarket_count
+
+	column manufacturer_premium_count
+		dataType: int64
+		lineageTag: e872a991-b00a-4d49-ad7f-0f85d53bb0a5
+		sourceColumn: manufacturer_premium_count
+
+	column manufacturer_portfolio_share_pct
+		dataType: double
+		lineageTag: d322b8f0-96ff-4ad1-930e-db0326b5f687
+		sourceColumn: manufacturer_portfolio_share_pct
+
+	column verification_status
+		dataType: string
+		lineageTag: ea130abd-e6e7-416c-938a-b75ad3414fe6
+		sourceColumn: verification_status
+
+	partition ProductPositioning-part1 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_product_positioning.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Types" = Table.TransformColumnTypes(#"Promoted Headers",{{"manufacturer", type text}, {"model_name", type text}, {"price", type number}, {"range_km", type number}, {"battery_capacity_kwh", type number}, {"top_speed_kmh", type number}, {"price_bucket", type text}, {"range_bucket", type text}, {"battery_bucket", type text}, {"performance_bucket", type text}, {"positioning_summary", type text}, {"manufacturer_product_rank", Int64.Type}, {"manufacturer_total_products", Int64.Type}, {"manufacturer_budget_count", Int64.Type}, {"manufacturer_midmarket_count", Int64.Type}, {"manufacturer_premium_count", Int64.Type}, {"manufacturer_portfolio_share_pct", type number}, {"verification_status", type text}})
+				in
+				    #"Changed Types"
+

@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p4_price_tier_donut",
+  "position": {
+    "x": 730,
+    "y": 60,
+    "z": 2000,
+    "height": 200,
+    "width": 260
+  },
+  "visual": {
+    "visualType": "donutChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "ProductPositioning"
+                    }
+                  },
+                  "Property": "price_bucket"
+                }
+              },
+              "queryRef": "ProductPositioning.price_bucket",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Products"
+                }
+              },
+              "queryRef": "_Measures.Total Products"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

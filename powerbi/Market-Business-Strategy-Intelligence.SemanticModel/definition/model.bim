@@ -125,7 +125,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_competitive_analysis.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\BI\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_competitive_analysis.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
                 "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"manufacturer\", type text}, {\"product\", type text}, {\"category\", type text}, {\"price\", type number}, {\"battery_kwh\", type number}, {\"certified_range_km\", type number}, {\"top_speed_kmph\", type number}, {\"motor_power_kw\", type number}, {\"price_per_km\", type number}, {\"price_per_kwh\", type number}, {\"manufacturer_rank\", Int64.Type}, {\"product_rank\", Int64.Type}, {\"price_efficiency_rank\", Int64.Type}, {\"range_rank\", Int64.Type}, {\"speed_rank\", Int64.Type}, {\"mfg_product_count\", Int64.Type}, {\"mfg_portfolio_share_pct\", type number}, {\"verification_status\", type text}})",
                 "in",
@@ -169,11 +169,6 @@
             "sourceColumn": "top_speed_kmh"
           },
           {
-            "name": "motor_power_kw",
-            "dataType": "double",
-            "sourceColumn": "motor_power_kw"
-          },
-          {
             "name": "price_per_km",
             "dataType": "double",
             "sourceColumn": "price_per_km"
@@ -189,44 +184,44 @@
             "sourceColumn": "price_bucket"
           },
           {
-            "name": "price_rank",
-            "dataType": "int64",
-            "sourceColumn": "price_rank"
-          },
-          {
             "name": "value_rank",
             "dataType": "int64",
             "sourceColumn": "value_rank"
           },
           {
-            "name": "range_rank",
-            "dataType": "int64",
-            "sourceColumn": "range_rank"
+            "name": "price_percentile",
+            "dataType": "double",
+            "sourceColumn": "price_percentile"
           },
           {
             "name": "price_quartile",
-            "dataType": "string",
+            "dataType": "int64",
             "sourceColumn": "price_quartile"
           },
           {
-            "name": "market_avg_price",
-            "dataType": "double",
-            "sourceColumn": "market_avg_price"
+            "name": "product_price_rank",
+            "dataType": "int64",
+            "sourceColumn": "product_price_rank"
           },
           {
-            "name": "price_vs_avg",
+            "name": "avg_market_price",
             "dataType": "double",
-            "sourceColumn": "price_vs_avg"
+            "sourceColumn": "avg_market_price"
           },
           {
-            "name": "price_premium_pct",
+            "name": "mfg_avg_price",
             "dataType": "double",
-            "sourceColumn": "price_premium_pct"
+            "sourceColumn": "mfg_avg_price"
           },
           {
-            "name": "verification_status",
+            "name": "relative_price_position",
             "dataType": "string",
-            "sourceColumn": "verification_status"
+            "sourceColumn": "relative_price_position"
+          },
+          {
+            "name": "price_premium_vs_market_pct",
+            "dataType": "double",
+            "sourceColumn": "price_premium_vs_market_pct"
           }
         ],
         "partitions": [
@@ -237,9 +232,9 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_pricing_analysis.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\BI\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_pricing_analysis.csv\"),[Delimiter=\",\", Columns=17, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
-                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"product\", type text}, {\"manufacturer\", type text}, {\"price\", type number}, {\"battery_capacity_kwh\", type number}, {\"range_km\", type number}, {\"top_speed_kmh\", type number}, {\"motor_power_kw\", type number}, {\"price_per_km\", type number}, {\"price_per_kwh\", type number}, {\"price_bucket\", type text}, {\"price_rank\", Int64.Type}, {\"value_rank\", Int64.Type}, {\"range_rank\", Int64.Type}, {\"price_quartile\", type text}, {\"market_avg_price\", type number}, {\"price_vs_avg\", type number}, {\"price_premium_pct\", type number}, {\"verification_status\", type text}})",
+                "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"product\", type text}, {\"manufacturer\", type text}, {\"price\", type number}, {\"battery_capacity_kwh\", type number}, {\"range_km\", type number}, {\"top_speed_kmh\", type number}, {\"price_per_km\", type number}, {\"price_per_kwh\", type number}, {\"price_bucket\", type text}, {\"value_rank\", Int64.Type}, {\"price_percentile\", type number}, {\"price_quartile\", Int64.Type}, {\"product_price_rank\", Int64.Type}, {\"avg_market_price\", type number}, {\"mfg_avg_price\", type number}, {\"relative_price_position\", type text}, {\"price_premium_vs_market_pct\", type number}})",
                 "in",
                 "    #\"Changed Types\""
               ]
@@ -349,7 +344,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_product_positioning.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\BI\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_product_positioning.csv\"),[Delimiter=\",\", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
                 "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"manufacturer\", type text}, {\"model_name\", type text}, {\"price\", type number}, {\"range_km\", type number}, {\"battery_capacity_kwh\", type number}, {\"top_speed_kmh\", type number}, {\"price_bucket\", type text}, {\"range_bucket\", type text}, {\"battery_bucket\", type text}, {\"performance_bucket\", type text}, {\"positioning_summary\", type text}, {\"manufacturer_product_rank\", Int64.Type}, {\"manufacturer_total_products\", Int64.Type}, {\"manufacturer_budget_count\", Int64.Type}, {\"manufacturer_midmarket_count\", Int64.Type}, {\"manufacturer_premium_count\", Int64.Type}, {\"manufacturer_portfolio_share_pct\", type number}, {\"verification_status\", type text}})",
                 "in",
@@ -406,7 +401,7 @@
               "type": "m",
               "expression": [
                 "let",
-                "    Source = Csv.Document(File.Contents(\"C:\\\\Users\\\\Tanya Verma\\\\OneDrive\\\\Desktop\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_kpi_results.csv\"),[Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
+                "    Source = Csv.Document(File.Contents(\"C:\\\\BI\\\\Market-Business-Strategy-Intelligence\\\\data\\\\processed\\\\sql\\\\sql_kpi_results.csv\"),[Delimiter=\",\", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.None]),",
                 "    #\"Promoted Headers\" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),",
                 "    #\"Changed Types\" = Table.TransformColumnTypes(#\"Promoted Headers\",{{\"kpi_name\", type text}, {\"value\", type number}, {\"unit\", type text}, {\"source\", type text}, {\"verification_status\", type text}, {\"calculation_date\", type text}, {\"methodology\", type text}})",
                 "in",

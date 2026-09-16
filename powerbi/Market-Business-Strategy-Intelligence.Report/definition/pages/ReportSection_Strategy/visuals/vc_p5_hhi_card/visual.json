@@ -1,0 +1,54 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p5_hhi_card",
+  "position": {
+    "x": 16,
+    "y": 596,
+    "z": 7000,
+    "height": 90,
+    "width": 280
+  },
+  "visual": {
+    "visualType": "card",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Product Portfolio HHI"
+                }
+              },
+              "queryRef": "_Measures.Product Portfolio HHI",
+              "nativeQueryRef": "Product Portfolio HHI"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "429f79fc0e0a8d16c46d",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Product Portfolio HHI"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

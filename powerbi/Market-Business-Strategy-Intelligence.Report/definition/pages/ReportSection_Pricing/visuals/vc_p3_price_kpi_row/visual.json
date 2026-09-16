@@ -1,0 +1,113 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p3_price_kpi_row",
+  "position": {
+    "x": 16,
+    "y": 60,
+    "z": 1000,
+    "height": 75,
+    "width": 1234
+  },
+  "visual": {
+    "visualType": "multiRowCard",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Minimum Product Price"
+                }
+              },
+              "queryRef": "_Measures.Minimum Product Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Median Product Price"
+                }
+              },
+              "queryRef": "_Measures.Median Product Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Product Price"
+                }
+              },
+              "queryRef": "_Measures.Average Product Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Maximum Product Price"
+                }
+              },
+              "queryRef": "_Measures.Maximum Product Price"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Price Spread"
+                }
+              },
+              "queryRef": "_Measures.Price Spread"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Price per KM"
+                }
+              },
+              "queryRef": "_Measures.Average Price per KM"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Average Price per KWh"
+                }
+              },
+              "queryRef": "_Measures.Average Price per KWh"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

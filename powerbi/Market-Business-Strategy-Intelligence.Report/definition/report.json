@@ -1,334 +1,56 @@
 {
-  "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
-  "resourcePackages": [],
-  "sections": [
-    {
-      "id": "ReportSection_Executive",
-      "name": "ReportSection_Executive",
-      "displayName": "Executive Market & Business Overview",
-      "ordinal": 0,
-      "filters": "[]",
-      "config": "{\"defaultFilterActionType\":1,\"filterConfig\":{\"type\":\"FilterPaneConfig\",\"isOpen\":false},\"type\":\"ReportSection\"}",
-      "width": 1280,
-      "height": 720,
-      "visualContainers": [
-        {
-          "id": "vc_header_banner",
-          "x": 0, "y": 0, "z": 1,
-          "width": 1280, "height": 56,
-          "config": "{\"name\":\"vc_header_banner\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"height\":56,\"width\":1280},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"projections\":{},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Indian EV Market & Business Strategy Intelligence — Executive Overview\",\"textStyle\":{\"bold\":true,\"fontSize\":\"20pt\",\"color\":\"#FFFFFF\"}}],\"horizontalTextAlignment\":\"Left\"}]}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_provenance_banner",
-          "x": 0, "y": 58, "z": 2,
-          "width": 1280, "height": 30,
-          "config": "{\"name\":\"vc_provenance_banner\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":58,\"z\":2,\"height\":30,\"width\":1280},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"textbox\",\"projections\":{},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#D4720A\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"⚠ DATA STATUS: 42 Verified Products | 11 Manufacturers | PENDING VERIFIED VAHAN MARKET DATA — Market registration volume is not available as verified data\",\"textStyle\":{\"bold\":true,\"fontSize\":\"9pt\",\"color\":\"#FFFFFF\"}}],\"horizontalTextAlignment\":\"Left\"}]}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_manufacturers",
-          "x": 16, "y": 100, "z": 3,
-          "width": 180, "height": 90,
-          "config": "{\"name\":\"vc_kpi_manufacturers\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":100,\"z\":3,\"height\":90,\"width\":180},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Manufacturers\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Manufacturers\"},\"Name\":\"_Measures.Total Manufacturers\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"labelDisplayUnits\":{\"expr\":{\"Literal\":{\"Value\":\"0\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"28pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}],\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"11pt\"}}},\"color\":{\"solid\":{\"color\":\"#555555\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_products",
-          "x": 210, "y": 100, "z": 4,
-          "width": 180, "height": 90,
-          "config": "{\"name\":\"vc_kpi_products\",\"layouts\":[{\"id\":0,\"position\":{\"x\":210,\"y\":100,\"z\":4,\"height\":90,\"width\":180},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Total Products\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"28pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_priced",
-          "x": 404, "y": 100, "z": 5,
-          "width": 180, "height": 90,
-          "config": "{\"name\":\"vc_kpi_priced\",\"layouts\":[{\"id\":0,\"position\":{\"x\":404,\"y\":100,\"z\":5,\"height\":90,\"width\":180},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Priced Products Count\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Priced Products Count\"},\"Name\":\"_Measures.Priced Products Count\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"28pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_avgprice",
-          "x": 598, "y": 100, "z": 6,
-          "width": 200, "height": 90,
-          "config": "{\"name\":\"vc_kpi_avgprice\",\"layouts\":[{\"id\":0,\"position\":{\"x\":598,\"y\":100,\"z\":6,\"height\":90,\"width\":200},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Average Product Price\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"24pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_avgrange",
-          "x": 812, "y": 100, "z": 7,
-          "width": 200, "height": 90,
-          "config": "{\"name\":\"vc_kpi_avgrange\",\"layouts\":[{\"id\":0,\"position\":{\"x\":812,\"y\":100,\"z\":7,\"height\":90,\"width\":200},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Average Certified Range\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Certified Range\"},\"Name\":\"_Measures.Average Certified Range\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"24pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_kpi_avgbattery",
-          "x": 1026, "y": 100, "z": 8,
-          "width": 200, "height": 90,
-          "config": "{\"name\":\"vc_kpi_avgbattery\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1026,\"y\":100,\"z\":8,\"height\":90,\"width\":200},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Average Battery Capacity\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Battery Capacity\"},\"Name\":\"_Measures.Average Battery Capacity\"}]},\"objects\":{\"labels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"24pt\"}}},\"bold\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#F0F4F8\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_portfolio_bar",
-          "x": 16, "y": 205, "z": 9,
-          "width": 580, "height": 300,
-          "config": "{\"name\":\"vc_portfolio_bar\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":205,\"z\":9,\"height\":300,\"width\":580},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Products\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"}}}]},\"objects\":{\"categoryAxis\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Manufacturer Portfolio Breadth (Product Count by OEM)\"}}}}}],\"dataColors\":[{\"properties\":{\"defaultColor\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_oem_price_bar",
-          "x": 612, "y": 205, "z": 10,
-          "width": 638, "height": 300,
-          "config": "{\"name\":\"vc_oem_price_bar\",\"layouts\":[{\"id\":0,\"position\":{\"x\":612,\"y\":205,\"z\":10,\"height\":300,\"width\":638},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"PricingAnalysis.manufacturer\"}],\"Y\":[{\"queryRef\":\"_Measures.Average Product Price\"},{\"queryRef\":\"_Measures.Market Benchmark Average Price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"manufacturer\"},\"Name\":\"PricingAnalysis.manufacturer\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Market Benchmark Average Price\"},\"Name\":\"_Measures.Market Benchmark Average Price\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"OEM Average Price vs. Market Benchmark (Catalog Pricing, INR)\"}}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
-        },
-        {
-          "id": "vc_portfolio_summary_table",
-          "x": 16, "y": 520, "z": 11,
-          "width": 1234, "height": 180,
-          "config": "{\"name\":\"vc_portfolio_summary_table\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":520,\"z\":11,\"height\":180,\"width\":1234},\"displayState\":{\"mode\":0}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"},{\"queryRef\":\"_Measures.Total Products\"},{\"queryRef\":\"_Measures.Average Product Price\"},{\"queryRef\":\"_Measures.Average Certified Range\"},{\"queryRef\":\"_Measures.Average Battery Capacity\"},{\"queryRef\":\"_Measures.Budget Product Count\"},{\"queryRef\":\"_Measures.Mid-Market Product Count\"},{\"queryRef\":\"_Measures.Premium Product Count\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Certified Range\"},\"Name\":\"_Measures.Average Certified Range\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Battery Capacity\"},\"Name\":\"_Measures.Average Battery Capacity\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Budget Product Count\"},\"Name\":\"_Measures.Budget Product Count\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Mid-Market Product Count\"},\"Name\":\"_Measures.Mid-Market Product Count\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Premium Product Count\"},\"Name\":\"_Measures.Premium Product Count\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Portfolio Summary by Manufacturer — Verified Catalog Data\"}}}}}]}}}",
-          "filters": "[]",
-          "query": "{}",
-          "dataTransforms": "{}"
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
+  "themeCollection": {
+    "baseTheme": {
+      "name": "CY24SU09",
+      "reportVersionAtImport": {
+        "visual": "1.8.83",
+        "report": "2.0.83",
+        "page": "1.3.83"
+      },
+      "type": "SharedResources"
+    }
+  },
+  "objects": {
+    "outspacePane": [
+      {
+        "properties": {
+          "expanded": {
+            "expr": {
+              "Literal": {
+                "Value": "false"
+              }
+            }
+          }
         }
-      ]
-    },
+      }
+    ]
+  },
+  "resourcePackages": [
     {
-      "id": "ReportSection_Competitive",
-      "name": "ReportSection_Competitive",
-      "displayName": "Product & Competitive Intelligence",
-      "ordinal": 1,
-      "filters": "[]",
-      "config": "{\"defaultFilterActionType\":1,\"type\":\"ReportSection\"}",
-      "width": 1280,
-      "height": 720,
-      "visualContainers": [
+      "name": "SharedResources",
+      "type": "SharedResources",
+      "items": [
         {
-          "id": "vc_p2_header",
-          "x": 0, "y": 0, "z": 1,
-          "width": 1280, "height": 48,
-          "config": "{\"name\":\"vc_p2_header\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"height\":48,\"width\":1280}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#1B3A4B\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Product & Competitive Intelligence — Cross-OEM Specification Benchmarking\",\"textStyle\":{\"bold\":true,\"fontSize\":\"18pt\",\"color\":\"#FFFFFF\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p2_mfg_slicer",
-          "x": 16, "y": 60, "z": 2,
-          "width": 200, "height": 280,
-          "config": "{\"name\":\"vc_p2_mfg_slicer\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":60,\"z\":2,\"height\":280,\"width\":200}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Filter: Manufacturer\"}}}}}],\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'List'\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p2_product_slicer",
-          "x": 16, "y": 355, "z": 3,
-          "width": 200, "height": 280,
-          "config": "{\"name\":\"vc_p2_product_slicer\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":355,\"z\":3,\"height\":280,\"width\":200}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"CompetitiveAnalysis.product\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"product\"},\"Name\":\"CompetitiveAnalysis.product\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Filter: Product\"}}}}}],\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'List'\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p2_spec_matrix",
-          "x": 230, "y": 60, "z": 4,
-          "width": 1030, "height": 340,
-          "config": "{\"name\":\"vc_p2_spec_matrix\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230,\"y\":60,\"z\":4,\"height\":340,\"width\":1030}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"},{\"queryRef\":\"CompetitiveAnalysis.product\"},{\"queryRef\":\"CompetitiveAnalysis.category\"},{\"queryRef\":\"CompetitiveAnalysis.price\"},{\"queryRef\":\"CompetitiveAnalysis.battery_kwh\"},{\"queryRef\":\"CompetitiveAnalysis.certified_range_km\"},{\"queryRef\":\"CompetitiveAnalysis.top_speed_kmph\"},{\"queryRef\":\"CompetitiveAnalysis.motor_power_kw\"},{\"queryRef\":\"CompetitiveAnalysis.price_per_km\"},{\"queryRef\":\"CompetitiveAnalysis.product_rank\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"product\"},\"Name\":\"CompetitiveAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"category\"},\"Name\":\"CompetitiveAnalysis.category\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price\"},\"Name\":\"CompetitiveAnalysis.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"battery_kwh\"},\"Name\":\"CompetitiveAnalysis.battery_kwh\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"certified_range_km\"},\"Name\":\"CompetitiveAnalysis.certified_range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"top_speed_kmph\"},\"Name\":\"CompetitiveAnalysis.top_speed_kmph\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"motor_power_kw\"},\"Name\":\"CompetitiveAnalysis.motor_power_kw\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price_per_km\"},\"Name\":\"CompetitiveAnalysis.price_per_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"product_rank\"},\"Name\":\"CompetitiveAnalysis.product_rank\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Cross-OEM Specification Comparison Matrix (42 Verified Products)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p2_price_range_chart",
-          "x": 230, "y": 414, "z": 5,
-          "width": 500, "height": 280,
-          "config": "{\"name\":\"vc_p2_price_range_chart\",\"layouts\":[{\"id\":0,\"position\":{\"x\":230,\"y\":414,\"z\":5,\"height\":280,\"width\":500}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"}],\"Y\":[{\"queryRef\":\"CompetitiveAnalysis.price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price\"}},\"Function\":4},\"Name\":\"Min of CompetitiveAnalysis.price\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price\"}},\"Function\":3},\"Name\":\"Max of CompetitiveAnalysis.price\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price Range by Manufacturer (Min–Max, INR)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p2_ranking_table",
-          "x": 744, "y": 414, "z": 6,
-          "width": 516, "height": 280,
-          "config": "{\"name\":\"vc_p2_ranking_table\",\"layouts\":[{\"id\":0,\"position\":{\"x\":744,\"y\":414,\"z\":6,\"height\":280,\"width\":516}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"CompetitiveAnalysis.product_rank\"},{\"queryRef\":\"CompetitiveAnalysis.product\"},{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"},{\"queryRef\":\"CompetitiveAnalysis.price\"},{\"queryRef\":\"CompetitiveAnalysis.certified_range_km\"},{\"queryRef\":\"CompetitiveAnalysis.price_per_km\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"product_rank\"},\"Name\":\"CompetitiveAnalysis.product_rank\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"product\"},\"Name\":\"CompetitiveAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price\"},\"Name\":\"CompetitiveAnalysis.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"certified_range_km\"},\"Name\":\"CompetitiveAnalysis.certified_range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"price_per_km\"},\"Name\":\"CompetitiveAnalysis.price_per_km\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Product Ranking Table (by Price Rank)\"}}}}}]}}}"
-        }
-      ]
-    },
-    {
-      "id": "ReportSection_Pricing",
-      "name": "ReportSection_Pricing",
-      "displayName": "Pricing & Value Analysis",
-      "ordinal": 2,
-      "filters": "[]",
-      "config": "{\"defaultFilterActionType\":1,\"type\":\"ReportSection\"}",
-      "width": 1280,
-      "height": 720,
-      "visualContainers": [
-        {
-          "id": "vc_p3_header",
-          "x": 0, "y": 0, "z": 1,
-          "width": 1280, "height": 48,
-          "config": "{\"name\":\"vc_p3_header\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"height\":48,\"width\":1280}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#0D4A6E\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Pricing & Value Analysis — Catalog Price Benchmarking (NOT market transaction prices)\",\"textStyle\":{\"bold\":true,\"fontSize\":\"16pt\",\"color\":\"#FFFFFF\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p3_price_kpi_row",
-          "x": 16, "y": 60, "z": 2,
-          "width": 1234, "height": 75,
-          "config": "{\"name\":\"vc_p3_price_kpi_row\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":60,\"z\":2,\"height\":75,\"width\":1234}}],\"singleVisual\":{\"visualType\":\"multiRowCard\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Minimum Product Price\"},{\"queryRef\":\"_Measures.Median Product Price\"},{\"queryRef\":\"_Measures.Average Product Price\"},{\"queryRef\":\"_Measures.Maximum Product Price\"},{\"queryRef\":\"_Measures.Price Spread\"},{\"queryRef\":\"_Measures.Average Price per KM\"},{\"queryRef\":\"_Measures.Average Price per KWh\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Minimum Product Price\"},\"Name\":\"_Measures.Minimum Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Median Product Price\"},\"Name\":\"_Measures.Median Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Maximum Product Price\"},\"Name\":\"_Measures.Maximum Product Price\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Price Spread\"},\"Name\":\"_Measures.Price Spread\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Price per KM\"},\"Name\":\"_Measures.Average Price per KM\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Price per KWh\"},\"Name\":\"_Measures.Average Price per KWh\"}]}}}"
-        },
-        {
-          "id": "vc_p3_scatter_price_range",
-          "x": 16, "y": 148, "z": 3,
-          "width": 600, "height": 300,
-          "config": "{\"name\":\"vc_p3_scatter_price_range\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":148,\"z\":3,\"height\":300,\"width\":600}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"PricingAnalysis.range_km\"}],\"Y\":[{\"queryRef\":\"PricingAnalysis.price\"}],\"Details\":[{\"queryRef\":\"PricingAnalysis.product\"}],\"Size\":[{\"queryRef\":\"PricingAnalysis.battery_capacity_kwh\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"range_km\"},\"Name\":\"PricingAnalysis.range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price\"},\"Name\":\"PricingAnalysis.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"product\"},\"Name\":\"PricingAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"battery_capacity_kwh\"},\"Name\":\"PricingAnalysis.battery_capacity_kwh\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price vs. Range — Value Map (bubble = battery size)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p3_price_per_km",
-          "x": 632, "y": 148, "z": 4,
-          "width": 618, "height": 300,
-          "config": "{\"name\":\"vc_p3_price_per_km\",\"layouts\":[{\"id\":0,\"position\":{\"x\":632,\"y\":148,\"z\":4,\"height\":300,\"width\":618}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"PricingAnalysis.product\"}],\"Y\":[{\"queryRef\":\"PricingAnalysis.price_per_km\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"product\"},\"Name\":\"PricingAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_km\"},\"Name\":\"PricingAnalysis.price_per_km\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_km\"}}}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price per KM by Product (INR/km — lower is better value)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p3_quartile_dist",
-          "x": 16, "y": 462, "z": 5,
-          "width": 430, "height": 230,
-          "config": "{\"name\":\"vc_p3_quartile_dist\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":462,\"z\":5,\"height\":230,\"width\":430}}],\"singleVisual\":{\"visualType\":\"pieChart\",\"projections\":{\"Category\":[{\"queryRef\":\"PricingAnalysis.price_quartile\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Products\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_quartile\"},\"Name\":\"PricingAnalysis.price_quartile\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price Quartile Distribution\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p3_value_leaderboard",
-          "x": 462, "y": 462, "z": 6,
-          "width": 788, "height": 230,
-          "config": "{\"name\":\"vc_p3_value_leaderboard\",\"layouts\":[{\"id\":0,\"position\":{\"x\":462,\"y\":462,\"z\":6,\"height\":230,\"width\":788}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"PricingAnalysis.value_rank\"},{\"queryRef\":\"PricingAnalysis.product\"},{\"queryRef\":\"PricingAnalysis.manufacturer\"},{\"queryRef\":\"PricingAnalysis.price\"},{\"queryRef\":\"PricingAnalysis.range_km\"},{\"queryRef\":\"PricingAnalysis.price_per_km\"},{\"queryRef\":\"PricingAnalysis.price_per_kwh\"},{\"queryRef\":\"PricingAnalysis.price_bucket\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"value_rank\"},\"Name\":\"PricingAnalysis.value_rank\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"product\"},\"Name\":\"PricingAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"manufacturer\"},\"Name\":\"PricingAnalysis.manufacturer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price\"},\"Name\":\"PricingAnalysis.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"range_km\"},\"Name\":\"PricingAnalysis.range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_km\"},\"Name\":\"PricingAnalysis.price_per_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_kwh\"},\"Name\":\"PricingAnalysis.price_per_kwh\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_bucket\"},\"Name\":\"PricingAnalysis.price_bucket\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Top Value Leaderboard (sorted by value_rank — Price/KM efficiency)\"}}}}}]}}}"
-        }
-      ]
-    },
-    {
-      "id": "ReportSection_Positioning",
-      "name": "ReportSection_Positioning",
-      "displayName": "Product Positioning & Whitespace Analysis",
-      "ordinal": 3,
-      "filters": "[]",
-      "config": "{\"defaultFilterActionType\":1,\"type\":\"ReportSection\"}",
-      "width": 1280,
-      "height": 720,
-      "visualContainers": [
-        {
-          "id": "vc_p4_header",
-          "x": 0, "y": 0, "z": 1,
-          "width": 1280, "height": 48,
-          "config": "{\"name\":\"vc_p4_header\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"height\":48,\"width\":1280}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#0A3D52\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Product Positioning & Whitespace Analysis — Catalog Segments (not market-volume weighted)\",\"textStyle\":{\"bold\":true,\"fontSize\":\"16pt\",\"color\":\"#FFFFFF\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p4_scatter_positioning",
-          "x": 16, "y": 60, "z": 2,
-          "width": 700, "height": 400,
-          "config": "{\"name\":\"vc_p4_scatter_positioning\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":60,\"z\":2,\"height\":400,\"width\":700}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"ProductPositioning.range_km\"}],\"Y\":[{\"queryRef\":\"ProductPositioning.price\"}],\"Details\":[{\"queryRef\":\"ProductPositioning.model_name\"}],\"Legend\":[{\"queryRef\":\"ProductPositioning.price_bucket\"}],\"Size\":[{\"queryRef\":\"ProductPositioning.battery_capacity_kwh\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pp\",\"Entity\":\"ProductPositioning\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"range_km\"},\"Name\":\"ProductPositioning.range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"price\"},\"Name\":\"ProductPositioning.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"model_name\"},\"Name\":\"ProductPositioning.model_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"price_bucket\"},\"Name\":\"ProductPositioning.price_bucket\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"battery_capacity_kwh\"},\"Name\":\"ProductPositioning.battery_capacity_kwh\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price vs. Certified Range — Product Positioning Map (color = price tier)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p4_price_tier_donut",
-          "x": 730, "y": 60, "z": 3,
-          "width": 260, "height": 200,
-          "config": "{\"name\":\"vc_p4_price_tier_donut\",\"layouts\":[{\"id\":0,\"position\":{\"x\":730,\"y\":60,\"z\":3,\"height\":200,\"width\":260}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"ProductPositioning.price_bucket\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Products\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pp\",\"Entity\":\"ProductPositioning\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"price_bucket\"},\"Name\":\"ProductPositioning.price_bucket\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Price Tier Distribution\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p4_range_bracket_donut",
-          "x": 1002, "y": 60, "z": 4,
-          "width": 262, "height": 200,
-          "config": "{\"name\":\"vc_p4_range_bracket_donut\",\"layouts\":[{\"id\":0,\"position\":{\"x\":1002,\"y\":60,\"z\":4,\"height\":200,\"width\":262}}],\"singleVisual\":{\"visualType\":\"donutChart\",\"projections\":{\"Category\":[{\"queryRef\":\"ProductPositioning.range_bucket\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Products\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pp\",\"Entity\":\"ProductPositioning\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"range_bucket\"},\"Name\":\"ProductPositioning.range_bucket\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Range Bracket Distribution\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p4_whitespace_callout",
-          "x": 730, "y": 274, "z": 5,
-          "width": 534, "height": 186,
-          "config": "{\"name\":\"vc_p4_whitespace_callout\",\"layouts\":[{\"id\":0,\"position\":{\"x\":730,\"y\":274,\"z\":5,\"height\":186,\"width\":534}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#FFF3CD\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"CATALOG WHITESPACE OBSERVATION\\n\",\"textStyle\":{\"bold\":true,\"fontSize\":\"11pt\",\"color\":\"#856404\"}}]},{\"textRuns\":[{\"value\":\"Based on verified catalog positioning, the long-range (>200km) budget-to-mid-market segment (₹90K–₹1.3L) has limited current representation. Most long-range products are Premium-priced (>₹1.5L), while budget products cluster in the 100–130km range. This represents a catalog gap — not a confirmed market-volume gap (market registration data is PENDING).\",\"textStyle\":{\"fontSize\":\"9pt\",\"color\":\"#533F03\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p4_positioning_table",
-          "x": 16, "y": 474, "z": 6,
-          "width": 1234, "height": 220,
-          "config": "{\"name\":\"vc_p4_positioning_table\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":474,\"z\":6,\"height\":220,\"width\":1234}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"ProductPositioning.manufacturer\"},{\"queryRef\":\"ProductPositioning.model_name\"},{\"queryRef\":\"ProductPositioning.price\"},{\"queryRef\":\"ProductPositioning.range_km\"},{\"queryRef\":\"ProductPositioning.price_bucket\"},{\"queryRef\":\"ProductPositioning.range_bucket\"},{\"queryRef\":\"ProductPositioning.performance_bucket\"},{\"queryRef\":\"ProductPositioning.positioning_summary\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pp\",\"Entity\":\"ProductPositioning\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"manufacturer\"},\"Name\":\"ProductPositioning.manufacturer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"model_name\"},\"Name\":\"ProductPositioning.model_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"price\"},\"Name\":\"ProductPositioning.price\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"range_km\"},\"Name\":\"ProductPositioning.range_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"price_bucket\"},\"Name\":\"ProductPositioning.price_bucket\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"range_bucket\"},\"Name\":\"ProductPositioning.range_bucket\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"performance_bucket\"},\"Name\":\"ProductPositioning.performance_bucket\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pp\"}},\"Property\":\"positioning_summary\"},\"Name\":\"ProductPositioning.positioning_summary\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Full Product Segmentation Detail (42 Verified Products)\"}}}}}]}}}"
-        }
-      ]
-    },
-    {
-      "id": "ReportSection_Strategy",
-      "name": "ReportSection_Strategy",
-      "displayName": "Strategy & Opportunity Framework",
-      "ordinal": 4,
-      "filters": "[]",
-      "config": "{\"defaultFilterActionType\":1,\"type\":\"ReportSection\"}",
-      "width": 1280,
-      "height": 720,
-      "visualContainers": [
-        {
-          "id": "vc_p5_header",
-          "x": 0, "y": 0, "z": 1,
-          "width": 1280, "height": 48,
-          "config": "{\"name\":\"vc_p5_header\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"height\":48,\"width\":1280}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#0B2D3B\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Strategy & Opportunity Framework — Evidence-Based Recommendations (GAI Framework)\",\"textStyle\":{\"bold\":true,\"fontSize\":\"16pt\",\"color\":\"#FFFFFF\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p5_pending_geo",
-          "x": 0, "y": 50, "z": 2,
-          "width": 1280, "height": 28,
-          "config": "{\"name\":\"vc_p5_pending_geo\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":50,\"z\":2,\"height\":28,\"width\":1280}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#C0392B\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"⚠ GEOGRAPHIC OPPORTUNITY: PENDING VERIFIED STATE REGISTRATION DATA — State-level rankings cannot be displayed without verified Vahan/SIAM registration data\",\"textStyle\":{\"bold\":true,\"fontSize\":\"9pt\",\"color\":\"#FFFFFF\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p5_competitive_bar",
-          "x": 16, "y": 88, "z": 3,
-          "width": 600, "height": 260,
-          "config": "{\"name\":\"vc_p5_competitive_bar\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":88,\"z\":3,\"height\":260,\"width\":600}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"CompetitiveAnalysis.manufacturer\"}],\"Y\":[{\"queryRef\":\"CompetitiveAnalysis.mfg_portfolio_share_pct\"},{\"queryRef\":\"_Measures.Average Product Price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ca\",\"Entity\":\"CompetitiveAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"manufacturer\"},\"Name\":\"CompetitiveAnalysis.manufacturer\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ca\"}},\"Property\":\"mfg_portfolio_share_pct\"},\"Name\":\"CompetitiveAnalysis.mfg_portfolio_share_pct\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Competitive Positioning — Portfolio Share vs. Average Price by OEM\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_sweet_spot",
-          "x": 632, "y": 88, "z": 4,
-          "width": 628, "height": 260,
-          "config": "{\"name\":\"vc_p5_sweet_spot\",\"layouts\":[{\"id\":0,\"position\":{\"x\":632,\"y\":88,\"z\":4,\"height\":260,\"width\":628}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"KPIStatus.kpi_name\"},{\"queryRef\":\"KPIStatus.value\"},{\"queryRef\":\"KPIStatus.unit\"},{\"queryRef\":\"KPIStatus.verification_status\"},{\"queryRef\":\"KPIStatus.methodology\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"ks\",\"Entity\":\"KPIStatus\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ks\"}},\"Property\":\"kpi_name\"},\"Name\":\"KPIStatus.kpi_name\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ks\"}},\"Property\":\"value\"},\"Name\":\"KPIStatus.value\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ks\"}},\"Property\":\"unit\"},\"Name\":\"KPIStatus.unit\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ks\"}},\"Property\":\"verification_status\"},\"Name\":\"KPIStatus.verification_status\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"ks\"}},\"Property\":\"methodology\"},\"Name\":\"KPIStatus.methodology\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Verified KPI Registry — Product Sweet-Spot Framework\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_pricing_opportunity",
-          "x": 16, "y": 362, "z": 5,
-          "width": 400, "height": 220,
-          "config": "{\"name\":\"vc_p5_pricing_opportunity\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":362,\"z\":5,\"height\":220,\"width\":400}}],\"singleVisual\":{\"visualType\":\"barChart\",\"projections\":{\"Category\":[{\"queryRef\":\"PricingAnalysis.price_bucket\"}],\"Y\":[{\"queryRef\":\"_Measures.Total Products\"},{\"queryRef\":\"_Measures.Average Product Price\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0},{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_bucket\"},\"Name\":\"PricingAnalysis.price_bucket\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Total Products\"},\"Name\":\"_Measures.Total Products\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Average Product Price\"},\"Name\":\"_Measures.Average Product Price\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Pricing Opportunity Framework — Segment Density & Avg Price\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_unit_economics",
-          "x": 430, "y": 362, "z": 6,
-          "width": 400, "height": 220,
-          "config": "{\"name\":\"vc_p5_unit_economics\",\"layouts\":[{\"id\":0,\"position\":{\"x\":430,\"y\":362,\"z\":6,\"height\":220,\"width\":400}}],\"singleVisual\":{\"visualType\":\"scatterChart\",\"projections\":{\"X\":[{\"queryRef\":\"PricingAnalysis.price_per_km\"}],\"Y\":[{\"queryRef\":\"PricingAnalysis.price_per_kwh\"}],\"Details\":[{\"queryRef\":\"PricingAnalysis.product\"}],\"Legend\":[{\"queryRef\":\"PricingAnalysis.price_bucket\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"pa\",\"Entity\":\"PricingAnalysis\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_km\"},\"Name\":\"PricingAnalysis.price_per_km\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_per_kwh\"},\"Name\":\"PricingAnalysis.price_per_kwh\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"product\"},\"Name\":\"PricingAnalysis.product\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"pa\"}},\"Property\":\"price_bucket\"},\"Name\":\"PricingAnalysis.price_bucket\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Unit Economics Sensitivity — Price/KM vs. Price/KWh\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_geo_framework",
-          "x": 844, "y": 362, "z": 7,
-          "width": 420, "height": 220,
-          "config": "{\"name\":\"vc_p5_geo_framework\",\"layouts\":[{\"id\":0,\"position\":{\"x\":844,\"y\":362,\"z\":7,\"height\":220,\"width\":420}}],\"singleVisual\":{\"visualType\":\"textbox\",\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":\"#EBF5FB\"}}}}]},\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"GEOGRAPHIC OPPORTUNITY FRAMEWORK\\n\",\"textStyle\":{\"bold\":true,\"fontSize\":\"11pt\",\"color\":\"#0B2D3B\"}}]},{\"textRuns\":[{\"value\":\"GAI Evaluation Criteria (pending verified state data):\\n• EV Infrastructure Density\\n• State FAME-II / PM e-DRIVE Incentives\\n• Urban-Rural ratio & fleet demand\\n• Competitive OEM presence\\n• Disposable income proxies\\n\\nPENDING VERIFIED STATE REGISTRATION DATA\",\"textStyle\":{\"fontSize\":\"9pt\",\"color\":\"#1A5276\"}}]}]}}]}}}"
-        },
-        {
-          "id": "vc_p5_hhi_card",
-          "x": 16, "y": 596, "z": 8,
-          "width": 280, "height": 90,
-          "config": "{\"name\":\"vc_p5_hhi_card\",\"layouts\":[{\"id\":0,\"position\":{\"x\":16,\"y\":596,\"z\":8,\"height\":90,\"width\":280}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Product Portfolio HHI\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Product Portfolio HHI\"},\"Name\":\"_Measures.Product Portfolio HHI\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Portfolio HHI (Concentration Index)\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_above_avg_card",
-          "x": 316, "y": 596, "z": 9,
-          "width": 240, "height": 90,
-          "config": "{\"name\":\"vc_p5_above_avg_card\",\"layouts\":[{\"id\":0,\"position\":{\"x\":316,\"y\":596,\"z\":9,\"height\":90,\"width\":240}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Products Above Market Average\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Products Above Market Average\"},\"Name\":\"_Measures.Products Above Market Average\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Products Above Market Avg\"}}}}}]}}}"
-        },
-        {
-          "id": "vc_p5_below_avg_card",
-          "x": 570, "y": 596, "z": 10,
-          "width": 240, "height": 90,
-          "config": "{\"name\":\"vc_p5_below_avg_card\",\"layouts\":[{\"id\":0,\"position\":{\"x\":570,\"y\":596,\"z\":10,\"height\":90,\"width\":240}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"_Measures.Products Below Market Average\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"m\",\"Entity\":\"_Measures\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"m\"}},\"Property\":\"Products Below Market Average\"},\"Name\":\"_Measures.Products Below Market Average\"}]},\"objects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"Products Below Market Avg\"}}}}}]}}}"
+          "name": "CY24SU09",
+          "path": "BaseThemes/CY24SU09.json",
+          "type": "BaseTheme"
         }
       ]
     }
   ],
-  "config": "{\"version\":\"5.47\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU09\",\"version\":\"5.47\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"useTransparentReportBackground\":true,\"exportDataMode\":1,\"isNewSortFeatureEnabled\":true},\"slowDataSourceSettings\":{\"isCrossHighlightingDisabled\":false,\"isSlicerSelectionsButtonEnabled\":false,\"isFilterSelectionsButtonEnabled\":false,\"isFieldWellButtonEnabled\":false,\"isApplyAllButtonEnabled\":false},\"filterPaneWidth\":300,\"objects\":{}}"
+  "settings": {
+    "useStylableVisualContainerHeader": true,
+    "exportDataMode": "AllowSummarized",
+    "defaultDrillFilterOtherVisuals": true,
+    "allowChangeFilterTypes": true,
+    "useEnhancedTooltips": false
+  },
+  "slowDataSourceSettings": {
+    "isCrossHighlightingDisabled": false,
+    "isSlicerSelectionsButtonEnabled": false,
+    "isFilterSelectionsButtonEnabled": false,
+    "isFieldWellButtonEnabled": false,
+    "isApplyAllButtonEnabled": false
+  }
 }

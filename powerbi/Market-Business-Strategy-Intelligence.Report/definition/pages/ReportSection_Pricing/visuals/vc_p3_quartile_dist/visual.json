@@ -1,0 +1,53 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "vc_p3_quartile_dist",
+  "position": {
+    "x": 16,
+    "y": 462,
+    "z": 4000,
+    "height": 230,
+    "width": 430
+  },
+  "visual": {
+    "visualType": "pieChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "PricingAnalysis"
+                    }
+                  },
+                  "Property": "price_quartile"
+                }
+              },
+              "queryRef": "PricingAnalysis.price_quartile",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Total Products"
+                }
+              },
+              "queryRef": "_Measures.Total Products"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

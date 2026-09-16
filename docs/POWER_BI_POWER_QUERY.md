@@ -79,11 +79,11 @@ in
 - **Source File**: `sql_pricing_analysis.csv`
 - **Transformation Steps**:
   1. Load CSV and promote headers.
-  2. Select `product`, `manufacturer`, `price`, `price_percentile`, `price_quartile`, `product_price_rank`, `avg_market_price`, `mfg_avg_price`, `relative_price_position`, `price_premium_vs_market_pct`.
+  2. Select all 17 canonical columns: `product`, `manufacturer`, `price`, `battery_capacity_kwh`, `range_km`, `top_speed_kmh`, `price_per_km`, `price_per_kwh`, `price_bucket`, `value_rank`, `price_percentile`, `price_quartile`, `product_price_rank`, `avg_market_price`, `mfg_avg_price`, `relative_price_position`, `price_premium_vs_market_pct`.
   3. Replace empty strings with `null`.
-  4. Cast `price_quartile` and `product_price_rank` to `Int64.Type`.
-  5. Cast `price`, `avg_market_price`, and `mfg_avg_price` to `Currency.Type`.
-  6. Cast `price_percentile` and `price_premium_vs_market_pct` to `type number`.
+  4. Cast `price_quartile`, `product_price_rank`, and `value_rank` to `Int64.Type`.
+  5. Cast `price`, `price_per_km`, `price_per_kwh`, `avg_market_price`, and `mfg_avg_price` to `Currency.Type`.
+  6. Cast `battery_capacity_kwh`, `range_km`, `top_speed_kmh`, `price_percentile`, and `price_premium_vs_market_pct` to `type number`.
 
 ### 3.6 `ProductPositioning` (Positioning Mart)
 - **Source File**: `sql_product_positioning.csv`

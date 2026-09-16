@@ -1,0 +1,237 @@
+table _Measures
+	lineageTag: dc88c606-b5fc-4649-8c47-3c2397012a2e
+
+	measure 'Total Products' = DISTINCTCOUNT(CompetitiveAnalysis[product])
+		formatString: #,##0
+		lineageTag: fa5480ce-bd1a-451a-ba54-b21cc1569d2e
+
+		annotation VERIFIED = TRUE
+
+	measure 'Total Manufacturers' = DISTINCTCOUNT(CompetitiveAnalysis[manufacturer])
+		formatString: #,##0
+		lineageTag: 1681b5db-3c1d-4828-9384-4e75070bbc7b
+
+		annotation VERIFIED = TRUE
+
+	measure 'Priced Products Count' = COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])))
+		formatString: #,##0
+		lineageTag: 7244a199-391b-47dd-b4f9-322575941c99
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Product Price' = AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])
+		formatString: #,##0
+		lineageTag: 2ba584fa-35cf-4919-b81b-1e051f6c1b97
+
+		annotation VERIFIED = TRUE
+
+	measure 'Median Product Price' = MEDIANX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])
+		formatString: #,##0
+		lineageTag: a274aaaf-02a5-46b6-9065-6ccdc114ee49
+
+		annotation VERIFIED = TRUE
+
+	measure 'Minimum Product Price' = MINX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])
+		formatString: #,##0
+		lineageTag: 7cd8db7b-2789-45ba-9025-ac1c5a933544
+
+		annotation VERIFIED = TRUE
+
+	measure 'Maximum Product Price' = MAXX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price])
+		formatString: #,##0
+		lineageTag: ea05b500-2c2e-4fc7-b557-0ba5077657ad
+
+		annotation VERIFIED = TRUE
+
+	measure 'Price Spread' = [Maximum Product Price] - [Minimum Product Price]
+		formatString: #,##0
+		lineageTag: 4320fd3f-c8c7-49ed-a6ef-edf61a5c91ea
+
+		annotation VERIFIED = TRUE
+
+	measure 'Market Benchmark Average Price' = CALCULATE(AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price])), PricingAnalysis[price]), ALL(PricingAnalysis))
+		formatString: #,##0
+		lineageTag: cab7d13f-d3d6-43b9-b767-38e96357da5d
+
+		annotation VERIFIED = TRUE
+
+	measure 'Price Variance vs Market Average' = [Average Product Price] - [Market Benchmark Average Price]
+		formatString: #,##0
+		lineageTag: 5d32ff95-6c6e-45da-8d4d-57d5f7c9b8dd
+
+		annotation VERIFIED = TRUE
+
+	measure 'Price Premium %' = DIVIDE([Price Variance vs Market Average], [Market Benchmark Average Price], BLANK()) * 100
+		formatString: #,##0.0
+		lineageTag: 06568ab8-b475-4fcf-85a8-41a755a7a9cd
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Battery Capacity' = AVERAGEX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[battery_capacity_kwh])
+		formatString: #,##0.00
+		lineageTag: 2215bc70-d170-4815-ab4a-078a5e641f8e
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Certified Range' = AVERAGEX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km])), ProductPositioning[range_km])
+		formatString: #,##0.0
+		lineageTag: ea250af0-af30-47af-9d13-e14e39bb65b5
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Top Speed' = AVERAGEX(FILTER(CompetitiveAnalysis, NOT ISBLANK(CompetitiveAnalysis[top_speed_kmph])), CompetitiveAnalysis[top_speed_kmph])
+		formatString: #,##0.0
+		lineageTag: c0533b21-4e1a-45fe-a04d-f6cff33a2601
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Motor Power' = AVERAGEX(FILTER(CompetitiveAnalysis, NOT ISBLANK(CompetitiveAnalysis[motor_power_kw])), CompetitiveAnalysis[motor_power_kw])
+		formatString: #,##0.0
+		lineageTag: c2db6759-85c1-4932-a5ad-c709de5f9103
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Price per KM' = AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price_per_km])), PricingAnalysis[price_per_km])
+		formatString: #,##0.0
+		lineageTag: adf3a713-08ee-457b-9718-b05a3a93849a
+
+		annotation VERIFIED = TRUE
+
+	measure 'Average Price per KWh' = AVERAGEX(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price_per_kwh])), PricingAnalysis[price_per_kwh])
+		formatString: #,##0
+		lineageTag: fc48a5b4-69ea-4310-b4cc-a7a4d703159f
+
+		annotation VERIFIED = TRUE
+
+	measure 'Weighted Fleet Energy Efficiency' = DIVIDE(SUMX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km]) && NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[range_km] * ProductPositioning[battery_capacity_kwh]), SUMX(FILTER(ProductPositioning, NOT ISBLANK(ProductPositioning[range_km]) && NOT ISBLANK(ProductPositioning[battery_capacity_kwh])), ProductPositioning[battery_capacity_kwh]), BLANK())
+		formatString: #,##0.0
+		lineageTag: 97aa15a9-b4d7-42cb-b962-fb87b1cfae73
+
+		annotation VERIFIED = TRUE
+
+	measure 'Budget Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = "Budget (<Rs1L)"))
+		formatString: #,##0
+		lineageTag: d30d64bc-6f7c-46ad-b54d-1051da2759e6
+
+		annotation VERIFIED = TRUE
+
+	measure 'Mid-Market Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = "Mid-Market (Rs1L-Rs1.5L)"))
+		formatString: #,##0
+		lineageTag: da1a036c-dbd9-44bb-9bce-ac9b37dbc70d
+
+		annotation VERIFIED = TRUE
+
+	measure 'Premium Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[price_bucket] = "Premium (>Rs1.5L)"))
+		formatString: #,##0
+		lineageTag: fd1a4716-cde7-42a7-83e2-c9c1b420a99c
+
+		annotation VERIFIED = TRUE
+
+	measure 'Short-Range Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = "Short Range (<100km)"))
+		formatString: #,##0
+		lineageTag: 29f6e9ad-00d3-42c4-878f-02bc15f0a890
+
+		annotation VERIFIED = TRUE
+
+	measure 'Standard-Range Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = "Standard Range (100-150km)"))
+		formatString: #,##0
+		lineageTag: 9e345b49-2c75-4cfa-b5b5-995bfc5890bd
+
+		annotation VERIFIED = TRUE
+
+	measure 'Long-Range Product Count' = COUNTROWS(FILTER(ProductPositioning, ProductPositioning[range_bucket] = "Long Range (>150km)"))
+		formatString: #,##0
+		lineageTag: 409859d3-f200-4ffc-ace6-5abff83f52ec
+
+		annotation VERIFIED = TRUE
+
+	measure 'High-Performance Product Count' = COUNTROWS(FILTER(CompetitiveAnalysis, CompetitiveAnalysis[top_speed_kmph] >= 100))
+		formatString: #,##0
+		lineageTag: 8556d939-e4ac-4b0b-82fa-ff7811b321d8
+
+		annotation VERIFIED = TRUE
+
+	measure 'Products Above Market Average' = COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price]) && PricingAnalysis[price] > [Market Benchmark Average Price]))
+		formatString: #,##0
+		lineageTag: 6f7dd3eb-0844-4c57-88df-1930deed64ed
+
+		annotation VERIFIED = TRUE
+
+	measure 'Products Below Market Average' = COUNTROWS(FILTER(PricingAnalysis, NOT ISBLANK(PricingAnalysis[price]) && PricingAnalysis[price] <= [Market Benchmark Average Price]))
+		formatString: #,##0
+		lineageTag: da8d24d6-a259-4966-bc25-fd7f16c031d9
+
+		annotation VERIFIED = TRUE
+
+	measure 'Market Registration Total [PENDING]' = BLANK()
+		formatString: #,##0
+		lineageTag: 353e6e2a-7ef3-439f-a003-cc83e3d73634
+
+		annotation VERIFIED = FALSE
+
+	measure 'Top State Market Share [PENDING]' = BLANK()
+		formatString: #,##0.0
+		lineageTag: 88079900-6d44-45ce-bfd1-4665993491d7
+
+		annotation VERIFIED = FALSE
+
+	measure 'YoY Market Growth Rate [PENDING]' = BLANK()
+		formatString: #,##0.0
+		lineageTag: d2cd71b1-ce28-440e-afa0-1817fa0cc001
+
+		annotation VERIFIED = FALSE
+
+	measure 'Market Penetration Rate [PENDING]' = BLANK()
+		formatString: #,##0.0
+		lineageTag: 129f990f-667f-482a-8056-67634bb90ff2
+
+		annotation VERIFIED = FALSE
+
+	measure 'OEM Market Share [PENDING]' = BLANK()
+		formatString: #,##0.0
+		lineageTag: a04a3c04-fa0b-4574-b242-11729c0a7c4b
+
+		annotation VERIFIED = FALSE
+
+	measure 'State Adoption Index [PENDING]' = BLANK()
+		formatString: #,##0.0
+		lineageTag: a204ed97-b91b-4bb8-9bc6-c7c701e877b8
+
+		annotation VERIFIED = FALSE
+
+	measure 'Cost Per Acquisition [PENDING]' = BLANK()
+		formatString: #,##0
+		lineageTag: 9ececafd-0d87-496e-9a62-cdc52e4fc78d
+
+		annotation VERIFIED = FALSE
+
+	measure 'Fleet Total Cost of Ownership [PENDING]' = BLANK()
+		formatString: #,##0
+		lineageTag: 44a53091-1bbb-49e2-a331-f05a221fac80
+
+		annotation VERIFIED = FALSE
+
+	measure 'Product Portfolio HHI' =
+			
+			CALCULATE(
+			    MAX(KPIStatus[value]),
+			    KPIStatus[kpi_name] = "product_portfolio_hhi"
+			)
+		lineageTag: e3790efb-3886-4cec-ab59-d268cc6a97c6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column _placeholder
+		dataType: int64
+		isHidden
+		lineageTag: eeb20d7a-6af5-4abe-9d34-6c77ce44257a
+		sourceColumn: _placeholder
+
+	partition _Measures-part1 = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table [_placeholder = Int64.Type], {})
+				in
+				    Source
+

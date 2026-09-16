@@ -1,0 +1,103 @@
+table CompetitiveAnalysis
+	lineageTag: 8f6f9011-2401-4800-a46e-672c151a52eb
+
+	column manufacturer
+		dataType: string
+		lineageTag: 8cd3ef10-9dd9-4733-abc1-8281e5fe2f37
+		sourceColumn: manufacturer
+
+	column product
+		dataType: string
+		lineageTag: 4b85717f-f1ba-4572-a9f9-ac7085aa9e64
+		sourceColumn: product
+
+	column category
+		dataType: string
+		lineageTag: b6b5e816-eec1-47c9-9e1c-7387a9f9fe90
+		sourceColumn: category
+
+	column price
+		dataType: double
+		lineageTag: 79daa8be-ad5e-44e3-9299-d3aea69f56cc
+		sourceColumn: price
+
+	column battery_kwh
+		dataType: double
+		lineageTag: 90a42cdf-ab59-4da4-9fda-9336fd299361
+		sourceColumn: battery_kwh
+
+	column certified_range_km
+		dataType: double
+		lineageTag: e73246f8-a891-4a3c-a010-99994c1e2503
+		sourceColumn: certified_range_km
+
+	column top_speed_kmph
+		dataType: double
+		lineageTag: 2b8811e0-5f0a-43bc-945e-0d2f0205c62e
+		sourceColumn: top_speed_kmph
+
+	column motor_power_kw
+		dataType: double
+		lineageTag: edff42ab-b979-4595-bda0-61fd823e6646
+		sourceColumn: motor_power_kw
+
+	column price_per_km
+		dataType: double
+		lineageTag: bbaa23ac-3947-42aa-9c45-00c3cd4aaeb8
+		sourceColumn: price_per_km
+
+	column price_per_kwh
+		dataType: double
+		lineageTag: 36b20e09-7abe-4785-9dc4-dac27f76d7d8
+		sourceColumn: price_per_kwh
+
+	column manufacturer_rank
+		dataType: int64
+		lineageTag: ee866bef-65d9-4480-b7cf-ed276515aaa7
+		sourceColumn: manufacturer_rank
+
+	column product_rank
+		dataType: int64
+		lineageTag: d8ca2c38-ebd0-43ad-b288-0e7555676f67
+		sourceColumn: product_rank
+
+	column price_efficiency_rank
+		dataType: int64
+		lineageTag: 46120937-e0d1-4b3b-be01-4576fa6a66c8
+		sourceColumn: price_efficiency_rank
+
+	column range_rank
+		dataType: int64
+		lineageTag: 4b3348b8-2b2f-40f4-8595-85efcddc4ef3
+		sourceColumn: range_rank
+
+	column speed_rank
+		dataType: int64
+		lineageTag: e5764828-7bc0-43fd-874a-7f696abc736a
+		sourceColumn: speed_rank
+
+	column mfg_product_count
+		dataType: int64
+		lineageTag: a8a0aaf1-671b-438d-a4b9-57171a84419f
+		sourceColumn: mfg_product_count
+
+	column mfg_portfolio_share_pct
+		dataType: double
+		lineageTag: 1957b4ab-b27a-40b5-a6d9-46877cda0826
+		sourceColumn: mfg_portfolio_share_pct
+
+	column verification_status
+		dataType: string
+		lineageTag: 2688b2dd-f4e7-4d1c-b14c-65e540fab739
+		sourceColumn: verification_status
+
+	partition CompetitiveAnalysis-part1 = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents("C:\\Users\\Tanya Verma\\OneDrive\\Desktop\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_competitive_analysis.csv"),[Delimiter=",", Columns=18, Encoding=65001, QuoteStyle=QuoteStyle.None]),
+				    #"Promoted Headers" = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+				    #"Changed Types" = Table.TransformColumnTypes(#"Promoted Headers",{{"manufacturer", type text}, {"product", type text}, {"category", type text}, {"price", type number}, {"battery_kwh", type number}, {"certified_range_km", type number}, {"top_speed_kmph", type number}, {"motor_power_kw", type number}, {"price_per_km", type number}, {"price_per_kwh", type number}, {"manufacturer_rank", Int64.Type}, {"product_rank", Int64.Type}, {"price_efficiency_rank", Int64.Type}, {"range_rank", Int64.Type}, {"speed_rank", Int64.Type}, {"mfg_product_count", Int64.Type}, {"mfg_portfolio_share_pct", type number}, {"verification_status", type text}})
+				in
+				    #"Changed Types"
+
