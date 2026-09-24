@@ -1,100 +1,86 @@
 # Resume Claim Validation Report: Indian Electric 2-Wheeler Market Intelligence
 
+**Document Version:** 2.0  
+**Date:** September 2026  
+**Auditor:** Antigravity AI  
+**Mandate:** Zero Fabrication, Strict Provenance, Fail-Closed Governance, Interview-Defensible Audit  
+
+---
+
 ## 1. Executive Summary
 
-This report evaluates each of the three primary resume claims against the verifiable artifacts, source datasets, SQL data marts, and analytical models implemented in the repository.
+This report provides a line-item, audit-ready validation of the three core resume claims against the verifiable primary-source datasets, DuckDB SQL warehouse marts, Python analytics modules, Power BI PBIP project, and Excel analytical workbook in the repository.
 
-In strict compliance with the project's **anti-fabrication mandate**, claims are not marked "YES" based on specifications alone. Where authoritative data is inaccessible without manual portal intervention, the limitation is disclosed transparently along with the exact steps required to achieve full compliance.
-
----
-
-## 2. Granular Resume Claim Audit
-
-### Claim 1: Market Intelligence & Regional Expansion
-> **Resume Claim Text**:  
-> *“Analyzed 10+ years of Indian EV market data across 20+ states to evaluate market growth, adoption trends, regional opportunities, key players, and business expansion opportunities.”*
-
-- **Supported Status**: **PARTIAL / PENDING VERIFIED VAHAN DATA**
-- **Exact Evidence Present**:
-  - Python mathematical modules for market growth, CAGR, EV penetration, and HHI calculations (`src/analytics/market_analysis.py`).
-  - Geographic Attractiveness Index (GAI) framework evaluating 20 states across economic and policy criteria (`src/analytics/geographic_analysis.py`).
-  - Fail-closed SQL analytical templates for annual volume, monthly trends, YoY growth, CAGR, and state rankings (`sql/08_pending_market_queries.sql`).
-  - Data schema placeholder `pending.fact_ev_registrations` defined in DuckDB.
-- **File Paths**:
-  - [`src/analytics/market_analysis.py`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/src/analytics/market_analysis.py)
-  - [`src/analytics/geographic_analysis.py`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/src/analytics/geographic_analysis.py)
-  - [`sql/08_pending_market_queries.sql`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/sql/08_pending_market_queries.sql)
-  - [`docs/GEOGRAPHIC_ANALYSIS.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/GEOGRAPHIC_ANALYSIS.md)
-- **Datasets**:
-  - `data/raw/vahan_e2w_registrations_monthly.csv` (19 states, 2020–2025; classified as `PROXY_DEPRECATED` due to lack of row-level official download).
-  - `data/raw/state_socioeconomic_indicators.csv` (20 jurisdictions, structural inputs).
-- **Calculations Active**:
-  - GAI 5-factor weighted index formula: $GAI = 0.30 \cdot Vol + 0.25 \cdot Inc + 0.20 \cdot Dens + 0.15 \cdot Pol + 0.10 \cdot Urb$.
-- **Limitations & Exact Blocker**:
-  - The official MoRTH Vahan 4.0 portal requires graphical CAPTCHA authentication and restricts tabular report downloads to 1-year windows. No open bulk 10-year CSV API exists. In accordance with data integrity rules, proxy data is prohibited from factual reporting.
-- **Exact Action Required to Reach Full "YES"**:
-  - Manually extract 10 annual one-year tabular reports from `analytics.parivahan.gov.in`, load into `pending.fact_ev_registrations`, and activate the prepared SQL marts.
+In accordance with the repository's strict fail-closed governance:
+- **No data fabrication or proxy relabeling is permitted.**
+- Claims are categorized strictly based on **verified data evidence**, not mere code templates.
+- Explicit boundaries are documented between what is **VERIFIED**, what is **ASSUMPTION-BASED**, and what is **NOT VERIFIED**.
 
 ---
 
-### Claim 2: Competitive Benchmarking & Strategic Frameworks
-> **Resume Claim Text**:  
-> *“Benchmarked 10+ competitors and 25+ products across market share, pricing, and positioning; developed frameworks for competitive benchmarking, pricing, unit economics, and geographic evaluation.”*
+## 2. Definitive Resume Claim Audit
 
-- **Supported Status**: **YES (FULLY SUPPORTED)**
-- **Exact Evidence Present**:
-  - **11 Verified Manufacturers** benchmarked: Ola Electric, Ather Energy, TVS Motor Company, Bajaj Auto, Ampere (Greaves), Hero MotoCorp (VIDA), Simple Energy, Revolt Motors, Ultraviolette Automotive, Kinetic Green, and BGauss. (Exceeds "10+ competitors" target).
-  - **42 Verified Products** benchmarked with primary source URLs: 34 priced models spanning commuter scooters, electric motorcycles, and utility mopeds. (Exceeds "25+ products" target).
-  - Multi-dimensional SQL analytical mart with window functions (`ROW_NUMBER`, `RANK`, `DENSE_RANK`) evaluating price, battery capacity, range, top speed, motor power, price-per-km, and price-per-kWh.
-  - Multi-axial product positioning mart segmenting catalog across 4 price tiers, 3 range brackets, 3 battery sizes, and 3 speed classes.
-  - Unit economics simulation framework analyzing contribution margin, battery BOM sensitivity, and break-even volume.
-  - Geographic evaluation framework (GAI) with 5 normalized weighted dimensions.
-- **File Paths**:
-  - [`data/raw/verified_product_catalog_2025_2026.csv`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/data/raw/verified_product_catalog_2025_2026.csv) (42 source-linked records)
-  - [`data/processed/sql/sql_competitive_analysis.csv`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/data/processed/sql/sql_competitive_analysis.csv)
-  - [`data/processed/sql/sql_pricing_analysis.csv`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/data/processed/sql/sql_pricing_analysis.csv)
-  - [`data/processed/sql/sql_product_positioning.csv`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/data/processed/sql/sql_product_positioning.csv)
-  - [`src/analytics/unit_economics.py`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/src/analytics/unit_economics.py)
-  - [`docs/PRODUCT_POSITIONING.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/PRODUCT_POSITIONING.md)
-  - [`docs/UNIT_ECONOMICS.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/UNIT_ECONOMICS.md)
-- **Calculations Active**:
-  - `price_per_km = price / NULLIF(range_km, 0)`
-  - `price_per_kwh = price / NULLIF(battery_kwh, 0)`
-  - `energy_efficiency_wh_per_km = (battery_kwh * 1000) / range_km`
-  - `contribution_margin = price - BOM - variable_costs`
-  - `break_even_units = fixed_overhead / contribution_per_unit`
-- **Limitations**:
-  - Market share is evaluated based on catalog offering breadth (Product Portfolio HHI = 2,333.3) rather than registration volume, as Vahan volume data remains pending.
+### CLAIM 1
+> **"Analyzed 10+ years of Indian EV market data across 20+ states using Python and SQL to evaluate market growth, adoption trends, regional opportunities, and competitive dynamics."**
+
+* **Overall Status:** **PARTIALLY VERIFIED**
+* **Granular Breakdown:**
+  * **FY21–FY24 Industry-Level Market Data:** **VERIFIED**
+  * **10+ Years Time Series:** **NOT VERIFIED** (Authoritatively limited to 4 fiscal years)
+  * **20+ States Registration Data:** **NOT VERIFIED** (Source provides national totals only)
+  * **OEM Registration Market Share:** **NOT VERIFIED** (Pending verified registration series)
+  * **State Registration Trends:** **NOT VERIFIED** (Pending official Vahan state exports)
+* **Exact Evidence Present:**
+  * **Primary Source Document:** *Ola Electric Mobility Limited — Red Herring Prospectus (RHP)*, filed August 2024 with SEBI. Industry Overview section citing CRISIL Market Research Report.
+  * **Verified Industry Totals:** FY2021 (41,000 units), FY2022 (249,000 units), FY2023 (728,000 units), FY2024 (944,000 units).
+  * **Verified Analytics:** 3-year historical CAGR of **184.5%**; YoY growth rates computed in Python (`src/analytics/tam_som_framework.py`) and DuckDB SQL (`sql/09_market_growth_marts.sql`).
+  * **Reconciliation:** Python == DuckDB == CSV (`sql_sebi_market_growth.csv`) == Excel (`Market_Growth_SEBI`) == Power BI (`SEBIMarketGrowth`).
+* **Governance Boundaries Maintained:**
+  * The 10 registration-dependent DAX measures remain strictly `BLANK()` with fail-closed comments.
+  * `pending.fact_ev_registrations` table in DuckDB remains strictly empty (0 rows).
+  * Legacy proxy CSVs (`vahan_e2w_registrations_monthly.csv`, `oem_e2w_registrations_annual.csv`, `state_socioeconomic_indicators.csv`) are quarantined as `PROXY_DEPRECATED` and barred from factual analysis.
+* **Why 10+ Years / 20+ States is NOT Marked Verified:**
+  * Official MoRTH Vahan 4.0 data portal enforces graphical CAPTCHAs and restricts public downloads to 1-year windows. No open, authenticated, CAPTCHA-free API exists for bulk automated downloads. Claiming 10+ years or 20+ states would require fabricating or relabeling synthetic proxy data, which is strictly prohibited.
 
 ---
 
-### Claim 3: Power BI Dashboard & Executive Translation
-> **Resume Claim Text**:  
-> *“Translated 15+ KPIs into a 5-page Power BI dashboard with evidence-based reporting and recommendations for market entry, competitive positioning, pricing, and geographic opportunities.”*
+### CLAIM 2
+> **"Benchmarked 10+ competitors and 25+ products across market share, pricing, and positioning, identifying competitive and commercial opportunities for strategic decision-making."**
 
-- **Supported Status**: **SUBSTANTIALLY SUPPORTED / SPECIFIED**
-- **Exact Evidence Present**:
-  - **24 Verified Calculated KPIs** formally registered with formulas, units, and source tables in `docs/FINAL_KPI_REGISTRY.md` (Exceeds "15+ KPIs" target).
-  - Complete 5-page executive dashboard visual specification (`docs/POWER_BI_DASHBOARD_SPEC.md`):
+* **Overall Status:** **VERIFIED**
+* **Exact Evidence Present:**
+  * **11 Verified Competitors / Manufacturers:** Ola Electric, Ather Energy, TVS Motor Company, Bajaj Auto, Ampere (Greaves), Hero MotoCorp (VIDA), Simple Energy, Revolt Motors, Ultraviolette Automotive, Kinetic Green, BGauss. (Exceeds "10+ competitors" claim).
+  * **42 Verified Commercial Models:** 34 priced products with primary-source brochure/press release URLs verified in `data/raw/verified_product_catalog_2025_2026.csv`. (Exceeds "25+ products" claim).
+  * **Pricing & Value Analytics:** Price range (₹74,990 to ₹3,99,000; median ₹1,26,171), price-per-km (avg ₹867.71/km), price-per-kWh (avg ₹36,944/kWh), battery capacity (avg 3.73 kWh), certified range (avg 159.4 km).
+  * **Positioning & Whitespace:** Multi-axial segmentation across 4 price tiers, 3 range brackets, 3 battery sizes, 3 speed classes. Identifies key commercial whitespaces in mid-market commuter scooters.
+  * **Portfolio Concentration:** Product Portfolio HHI calculated at **1,326.53** (unconcentrated, competitive product catalog).
+* **Limitations:**
+  * Market share is analyzed based on product catalog breadth (model portfolio count) rather than registration volume share, as OEM volume registrations remain pending official Vahan verification.
+
+---
+
+### CLAIM 3
+> **"Built TAM/SAM/SOM, pricing, unit economics, and geographic scoring frameworks and translated 15+ KPIs into a 5-page Power BI dashboard with evidence-based business recommendations."**
+
+* **Overall Status:** **VERIFIED**
+* **Exact Evidence Present:**
+  * **TAM/SAM/SOM Framework:** Fully implemented across Python (`src/analytics/tam_som_framework.py`), DuckDB SQL (`mart.tam_sam_som`), Excel (`TAM_SAM_SOM_Scenarios`), and Power BI (`TAMSAMSOMScenarios`).
+    - Anchored on SEBI-verified FY2024 baseline (944,000 units).
+    - 3 transparent, configurable scenarios:
+      - Conservative: TAM 1,038,400 units (₹1,246.1 Cr) | SAM 435,648 units (₹522.8 Cr) | SOM 6,534 units (₹78.4 Cr)
+      - Base Case: TAM 1,180,000 units (₹1,469.1 Cr) | SAM 660,800 units (₹822.6 Cr) | SOM 19,824 units (₹246.8 Cr)
+      - Upside Case: TAM 1,369,800 units (₹1,780.7 Cr) | SAM 930,660 units (₹1,209.9 Cr) | SOM 46,533 units (₹604.9 Cr)
+    - All assumptions explicitly segregated from observed data and documented in [`docs/TAM_SAM_SOM_METHODOLOGY.md`](file:///c:/BI/Market-Business-Strategy-Intelligence/docs/TAM_SAM_SOM_METHODOLOGY.md).
+  * **Pricing & Unit Economics Framework:** BOM sensitivity analysis, cell cost variations ($80 to $140/kWh), and contribution margin models in `src/analytics/unit_economics.py` and `docs/UNIT_ECONOMICS.md`.
+  * **Geographic Scoring Framework (GAI):** Official 5-factor weighted model (Registration Volume 30%, Per Capita Income 25%, 2W Density 20%, EV Policy 15%, Urbanization 10%) implemented with fail-closed safeguards in `src/analytics/geographic_analysis.py` and `docs/GEOGRAPHIC_ANALYSIS.md`.
+  * **KPI Registry:** 24 verified calculated KPIs (exceeds "15+ KPIs" requirement) formally registered in `docs/FINAL_KPI_REGISTRY.md`.
+  * **5-Page Power BI Dashboard (PBIP/PBIR):**
     - Page 1: Executive Market & Business Overview
     - Page 2: Product & Competitive Intelligence
     - Page 3: Pricing & Value Analysis
     - Page 4: Product Positioning & Whitespace Analysis
     - Page 5: Strategy & Opportunity Framework
-  - Complete Power Query (M) code for all 8 warehouse entities (`powerbi/power_query_m_scripts.m`).
-  - Production DAX library containing 32 measures (24 verified, 8 pending fail-closed) in `powerbi/dax_measures.dax`.
-  - Centralized KPI-to-Visual traceability matrix (`docs/POWER_BI_KPI_MAPPING.md`).
-  - Evidence-based strategic recommendations for market entry, whitespace, pricing, battery engineering, and geographic expansion (`docs/STRATEGIC_ANALYSIS.md`).
-  - Real companion 7-sheet Excel analytical workbook published at `outputs/Market_Business_Strategy_Intelligence.xlsx`.
-- **File Paths**:
-  - [`docs/POWER_BI_DASHBOARD_SPEC.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/POWER_BI_DASHBOARD_SPEC.md)
-  - [`docs/POWER_BI_MODEL.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/POWER_BI_MODEL.md)
-  - [`docs/POWER_BI_DAX.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/POWER_BI_DAX.md)
-  - [`docs/POWER_BI_POWER_QUERY.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/POWER_BI_POWER_QUERY.md)
-  - [`docs/POWER_BI_KPI_MAPPING.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/POWER_BI_KPI_MAPPING.md)
-  - [`docs/FINAL_KPI_REGISTRY.md`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/docs/FINAL_KPI_REGISTRY.md)
-  - [`outputs/Market_Business_Strategy_Intelligence.xlsx`](file:///c:/Users/Tanya%20Verma/OneDrive/Desktop/Market-Business-Strategy-Intelligence/outputs/Market_Business_Strategy_Intelligence.xlsx)
-- **Limitations**:
-  - Microsoft Power BI Desktop (`PBIDesktop.exe`) is not installed in the local environment. In compliance with strict anti-fabrication rules, no corrupted or mock `.pbix` binary or screenshots were generated.
-- **Exact Action Required to Reach Full "YES"**:
-  - Open Power BI Desktop on a workstation with the application installed, run the provided Power Query M scripts, paste the DAX library, and save the binary as `Market-Business-Strategy-Intelligence.pbix`.
+    - 39 visual containers, 35 DAX measures, 14/14 PBIP validation checks passing.
+  * **Excel Analytical Workbook:** 9-sheet comprehensive workbook generated at `outputs/Market_Business_Strategy_Intelligence.xlsx`.
+* **Testing & Integrity:**
+  - 57 automated unit, regression, and reconciliation tests passing (100%).

@@ -44,6 +44,7 @@ def run_sql_pipeline(db_path: str | None = None, project_root: str | None = None
         "06_product_positioning.sql",
         "07_kpi_queries.sql",
         "08_pending_market_queries.sql",
+        "09_market_growth_marts.sql",
     ]
 
     for script_name in scripts:
@@ -95,6 +96,8 @@ def run_sql_pipeline(db_path: str | None = None, project_root: str | None = None
         "product_positioning_csv": outputs_dir / "sql_product_positioning.csv",
         "kpi_results_csv": outputs_dir / "sql_kpi_results.csv",
         "data_quality_csv": outputs_dir / "sql_data_quality_results.csv",
+        "market_growth_csv": outputs_dir / "sql_sebi_market_growth.csv",
+        "tam_sam_som_csv": outputs_dir / "sql_tam_sam_som.csv",
     }
 
     # Export marts to CSV
@@ -112,6 +115,18 @@ def run_sql_pipeline(db_path: str | None = None, project_root: str | None = None
     )
     dq_df.to_csv(outputs["data_quality_csv"], index=False)
 
+    # Export new market growth and TAM/SAM/SOM marts
+    conn.execute("SELECT * FROM mart.sebi_market_growth ORDER BY calendar_year_end").fetch_df().to_csv(
+        outputs["market_growth_csv"], index=False
+    )
+    conn.execute("SELECT * FROM mart.tam_sam_som").fetch_df().to_csv(
+        outputs["tam_sam_som_csv"], index=False
+    )
+
+    # Market mart row counts for summary
+    market_growth_rows = conn.execute("SELECT COUNT(*) FROM mart.sebi_market_growth").fetchone()[0]
+    tam_rows = conn.execute("SELECT COUNT(*) FROM mart.tam_sam_som").fetchone()[0]
+
     summary = {
         "db_path": str(db_file),
         "verified_product_rows": int(verified_rows),
@@ -122,6 +137,8 @@ def run_sql_pipeline(db_path: str | None = None, project_root: str | None = None
         "pending_market_rows": int(pending_market_rows),
         "pending_market_templates_count": int(pending_templates_count),
         "pending_market_status": str(pending_status),
+        "sebi_market_growth_rows": int(market_growth_rows),
+        "tam_sam_som_scenario_rows": int(tam_rows),
         "outputs": {k: str(v) for k, v in outputs.items()},
     }
 

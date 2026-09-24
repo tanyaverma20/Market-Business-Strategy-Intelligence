@@ -63,11 +63,14 @@ This project does not claim inclusion of verified multi-year Vahan registration 
 | Average Battery Capacity | approximately 3.73 kWh |
 | Average Price per KM | approximately ₹867.71/km |
 | Product Portfolio HHI | approximately 1,326.53 |
+| SEBI-Verified Historical Industry Totals | 4 Fiscal Years (FY21: 41k, FY22: 249k, FY23: 728k, FY24: 944k) |
+| SEBI 3-Year Industry CAGR (FY21-FY24) | 184.5% |
+| TAM / SAM / SOM Sizing Scenarios | 3 (Conservative, Base, Upside) |
 | DAX Measures | 35 |
 | Power BI Pages | 5 |
 | Visual Containers | 39 |
-| Automated Tests | 39 |
-| PBIP Integrity Checks | 14/14 |
+| Automated Tests | 57 passed (100%) |
+| PBIP Integrity Checks | 14/14 passed |
 
 The values above are aligned with the current processed catalog and validated repository outputs.
 
@@ -78,19 +81,22 @@ The values above are aligned with the current processed catalog and validated re
 The repository is intentionally strict about source provenance.
 
 ### Verified data sources
-- Verified OEM product pages and catalog disclosures
-- OEM and manufacturer public product materials
-- ARAI or certified specification disclosures
-- Public regulatory and disclosure materials used where applicable
+- **SEBI Statutory Filings:** *Ola Electric Mobility Limited — Red Herring Prospectus (RHP, August 2024)*, citing CRISIL Market Research Report filed with SEBI. Covers national e2W annual industry totals (FY2021–FY2024).
+- **Verified OEM Product Catalog:** Official OEM product pages, brochures, and press releases for 42 commercial models across 11 manufacturers with row-level source URLs.
+- **ARAI / Certified Disclosures:** Specification disclosures cited by official manufacturer releases.
 
-### Governance boundary
-- Historical Vahan registration data is not represented as verified data in the final analytical outputs.
-- Registration-dependent metrics remain marked as PENDING / fail-closed where applicable.
-- No proxy registration numbers are relabeled as official Vahan data.
-- This is an intentional data-governance decision to preserve provenance and avoid unsupported claims.
+### Governance boundary & Fail-Closed Safeguards
+- Official state-level registration series and granular multi-year Vahan records are **not** publicly exportable via automated CAPTCHA-free APIs. Therefore:
+  - Industry-level market volume (FY21–FY24): **VERIFIED**
+  - 10+ years coverage: **NOT VERIFIED** (authoritatively bounded to 4 fiscal years)
+  - 20+ states registration data: **NOT VERIFIED** (national totals only)
+  - OEM registration market share: **NOT VERIFIED** (pending verified OEM volume series)
+  - State registration trends: **NOT VERIFIED**
+- State-registration-dependent GAI components and the 10 registration-dependent DAX measures remain strictly **BLANK()** and fail-closed.
+- No proxy registration numbers or deprecated proxy files (`vahan_e2w_registrations_monthly.csv`, `oem_e2w_registrations_annual.csv`, `state_socioeconomic_indicators.csv`) are ever relabeled as official data or used in factual rankings.
 
 ### Quarantined data
-Legacy mock or proxy datasets are retained only as non-factual references and are not treated as observed analytics. They remain separated from the verified production pipeline.
+Legacy proxy datasets are retained only with `PROXY_DEPRECATED` classification and are prohibited from factual analysis.
 
 ---
 

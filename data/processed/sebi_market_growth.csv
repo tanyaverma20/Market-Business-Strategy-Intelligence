@@ -1,0 +1,5 @@
+fiscal_year,calendar_year_end,industry_e2w_units,data_classification,yoy_growth_pct,cagr_fy2021_fy2024_pct,source,provenance_status,coverage_note
+FY2021,2021,41000,OBSERVED - SEBI RHP 2024,,184.5,Ola Electric Mobility Limited RHP (August 2024) - SEBI statutory filing,verified_primary_source,National India e2W total; state-level breakdown not available from this source
+FY2022,2022,249000,OBSERVED - SEBI RHP 2024,507.3,184.5,Ola Electric Mobility Limited RHP (August 2024) - SEBI statutory filing,verified_primary_source,National India e2W total; state-level breakdown not available from this source
+FY2023,2023,728000,OBSERVED - SEBI RHP 2024,192.4,184.5,Ola Electric Mobility Limited RHP (August 2024) - SEBI statutory filing,verified_primary_source,National India e2W total; state-level breakdown not available from this source
+FY2024,2024,944000,OBSERVED - SEBI RHP 2024,29.7,184.5,Ola Electric Mobility Limited RHP (August 2024) - SEBI statutory filing,verified_primary_source,National India e2W total; state-level breakdown not available from this source

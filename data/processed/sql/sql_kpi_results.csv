@@ -1,15 +1,15 @@
 kpi_name,value,unit,source,verification_status,calculation_date,methodology
-average_battery_kwh,3.73,kWh,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(battery_capacity_kwh) across models
-average_motor_power_kw,8.02,kW,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(motor_peak_power_kw) across models with verified motor power
-average_price_inr,136349.21,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(ex_showroom_price_inr) across priced models
-average_price_per_km,867.71,INR/km,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(price / range) for priced models with certified range
-average_price_per_kwh,36418.79,INR/kWh,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(price / battery_capacity) for priced models
-average_range_km,159.39,km,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(range_km) across models with verified range
-average_top_speed_kmh,89.17,km/h,verified_product_catalog_2025_2026.csv,verified,2026-09-16,AVG(top_speed_kmh) across models with verified speed
-manufacturer_count,11.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-16,COUNT(DISTINCT manufacturer) across verified products
-max_price_inr,399000.0,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-16,MAX(ex_showroom_price_inr) in verified catalog
-median_price_inr,126170.5,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-16,MEDIAN(ex_showroom_price_inr) across priced models
-min_price_inr,74990.0,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-16,MIN(ex_showroom_price_inr) in verified catalog
-priced_product_count,34.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-16,COUNT(ex_showroom_price_inr) with verified pricing
-product_count,42.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-16,COUNT(*) across verified products
-product_portfolio_hhi,1326.53,index,verified_product_catalog_2025_2026.csv,verified,2026-09-16,SUM(portfolio_share^2) measuring OEM product offering concentration
+average_battery_kwh,3.73,kWh,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(battery_capacity_kwh) across models
+average_motor_power_kw,8.02,kW,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(motor_peak_power_kw) across models with verified motor power
+average_price_inr,136349.21,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(ex_showroom_price_inr) across priced models
+average_price_per_km,867.71,INR/km,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(price / range) for priced models with certified range
+average_price_per_kwh,36418.79,INR/kWh,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(price / battery_capacity) for priced models
+average_range_km,159.39,km,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(range_km) across models with verified range
+average_top_speed_kmh,89.17,km/h,verified_product_catalog_2025_2026.csv,verified,2026-09-24,AVG(top_speed_kmh) across models with verified speed
+manufacturer_count,11.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-24,COUNT(DISTINCT manufacturer) across verified products
+max_price_inr,399000.0,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-24,MAX(ex_showroom_price_inr) in verified catalog
+median_price_inr,126170.5,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-24,MEDIAN(ex_showroom_price_inr) across priced models
+min_price_inr,74990.0,INR,verified_product_catalog_2025_2026.csv,verified,2026-09-24,MIN(ex_showroom_price_inr) in verified catalog
+priced_product_count,34.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-24,COUNT(ex_showroom_price_inr) with verified pricing
+product_count,42.0,count,verified_product_catalog_2025_2026.csv,verified,2026-09-24,COUNT(*) across verified products
+product_portfolio_hhi,1326.53,index,verified_product_catalog_2025_2026.csv,verified,2026-09-24,SUM(portfolio_share^2) measuring OEM product offering concentration

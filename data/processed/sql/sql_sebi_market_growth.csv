@@ -1,0 +1,5 @@
+fiscal_year,calendar_year_end,industry_e2w_units,yoy_growth_pct,cagr_fy2021_fy2024_pct,data_classification,source,provenance_status,coverage_note
+FY2021,2021,41000,,184.5,OBSERVED - SEBI RHP 2024,Ola Electric RHP Aug 2024 - SEBI statutory,verified_primary_source,National India e2W total; state-level not available
+FY2022,2022,249000,507.3,184.5,OBSERVED - SEBI RHP 2024,Ola Electric RHP Aug 2024 - SEBI statutory,verified_primary_source,National India e2W total; state-level not available
+FY2023,2023,728000,192.4,184.5,OBSERVED - SEBI RHP 2024,Ola Electric RHP Aug 2024 - SEBI statutory,verified_primary_source,National India e2W total; state-level not available
+FY2024,2024,944000,29.7,184.5,OBSERVED - SEBI RHP 2024,Ola Electric RHP Aug 2024 - SEBI statutory,verified_primary_source,National India e2W total; state-level not available

@@ -247,3 +247,60 @@ let
     )
 in
     EmptySchema;
+
+
+// =============================================================================
+// Table: SEBIMarketGrowth
+// Source: data/processed/sebi_market_growth.csv
+// Data classification: OBSERVED - SEBI statutory filing (FY2021-FY2024)
+// =============================================================================
+let
+    Source = Csv.Document(
+        File.Contents(ProjectRoot & "/data/processed/sebi_market_growth.csv"),
+        [Delimiter=",", Columns=9, Encoding=65001, QuoteStyle=QuoteStyle.None]
+    ),
+    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    ChangeTypes = Table.TransformColumnTypes(PromotedHeaders, {
+        {"fiscal_year", type text},
+        {"calendar_year_end", Int64.Type},
+        {"industry_e2w_units", Int64.Type},
+        {"yoy_growth_pct", type number},
+        {"cagr_fy2021_fy2024_pct", type number},
+        {"data_classification", type text},
+        {"source", type text},
+        {"provenance_status", type text},
+        {"coverage_note", type text}
+    })
+in
+    ChangeTypes
+
+
+// =============================================================================
+// Table: TAMSAMSOMScenarios
+// Source: data/processed/tam_sam_som_scenarios.csv
+// Data classification: ASSUMPTION anchored to SEBI FY2024 verified baseline
+// =============================================================================
+let
+    Source = Csv.Document(
+        File.Contents(ProjectRoot & "/data/processed/tam_sam_som_scenarios.csv"),
+        [Delimiter=",", Columns=19, Encoding=65001, QuoteStyle=QuoteStyle.None]
+    ),
+    PromotedHeaders = Table.PromoteHeaders(Source, [PromoteAllScalars=true]),
+    ChangeTypes = Table.TransformColumnTypes(PromotedHeaders, {
+        {"scenario", type text},
+        {"description", type text},
+        {"verified_fy2024_industry_units", Int64.Type},
+        {"fy2025_growth_assumption_pct", type number},
+        {"tam_units", Int64.Type},
+        {"tam_revenue_inr_crore", type number},
+        {"sam_units", Int64.Type},
+        {"sam_revenue_inr_crore", type number},
+        {"som_units", Int64.Type},
+        {"som_revenue_inr_crore", type number},
+        {"attainable_share_pct", type number},
+        {"data_classification_tam", type text},
+        {"data_classification_sam", type text},
+        {"data_classification_som", type text}
+    })
+in
+    ChangeTypes

@@ -12,6 +12,7 @@ OUTPUTS_DIR.mkdir(parents=True, exist_ok=True)
 WORKBOOK_PATH = OUTPUTS_DIR / "Market_Business_Strategy_Intelligence.xlsx"
 
 DATA_DIR = PROJECT_ROOT / "data" / "processed" / "sql"
+MARKET_DIR = PROJECT_ROOT / "data" / "processed"
 
 
 def build_excel_workbook():
@@ -22,6 +23,10 @@ def build_excel_workbook():
     kpi_df = pd.read_csv(DATA_DIR / "sql_kpi_results.csv")
     dq_df = pd.read_csv(DATA_DIR / "sql_data_quality_results.csv")
     manifest_df = pd.read_csv(PROJECT_ROOT / "data" / "raw" / "DATASET_MANIFEST.csv")
+
+    # 1b. Load new SEBI-verified market data
+    market_growth_df = pd.read_csv(MARKET_DIR / "sebi_market_growth.csv")
+    tam_som_df = pd.read_csv(MARKET_DIR / "tam_sam_som_scenarios.csv")
 
     # 2. Build Strategic Recommendations DataFrame
     recommendations_data = [
@@ -138,6 +143,8 @@ def build_excel_workbook():
             "Pricing_Analysis": (pricing_df, "Pricing Quartiles & Positioning"),
             "Product_Positioning": (pos_df, "Multi-Axial Segmentation Buckets"),
             "Strategic_Recommendations": (recs_df, "Evidence-Based Strategy"),
+            "Market_Growth_SEBI": (market_growth_df, "SEBI-Verified Market Growth (FY2021-FY2024)"),
+            "TAM_SAM_SOM_Scenarios": (tam_som_df, "TAM/SAM/SOM Sizing Framework (3 Scenarios)"),
             "Source_Register": (manifest_df, "Data Provenance Inventory"),
             "Assumptions_Provenance": (assumptions_df, "Audit & Data Integrity Controls")
         }

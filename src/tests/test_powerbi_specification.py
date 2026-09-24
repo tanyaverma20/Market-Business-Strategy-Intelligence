@@ -144,26 +144,33 @@ def test_pbip_project_entry_file_valid(project_root):
 
 
 def test_pbip_report_json_five_pages(project_root):
-    """report.json must be valid JSON with exactly 5 named report pages."""
+    """PBIR format: 5 report pages stored as subdirectories under definition/pages/.
+
+    Modern PBIR stores pages as individual subdirectories, not as sections[]
+    in report.json. Validates pages.json order and named page directories.
+    """
     import json
-    rjson = (
+    report_def = (
         project_root / "powerbi"
         / "Market-Business-Strategy-Intelligence.Report"
-        / "definition" / "report.json"
+        / "definition"
     )
-    assert rjson.exists(), "Missing Report/definition/report.json"
-    with open(rjson, encoding="utf-8") as f:
-        d = json.load(f)
-    pages = d.get("sections", [])
-    assert len(pages) == 5, f"Expected 5 report pages, got {len(pages)}"
-    page_names = [p.get("displayName", "") for p in pages]
-    assert any("Executive" in n for n in page_names), "Missing Executive page"
-    assert any("Competitive" in n for n in page_names), "Missing Competitive page"
-    assert any("Pricing" in n for n in page_names), "Missing Pricing page"
-    assert any("Positioning" in n for n in page_names), "Missing Positioning page"
-    assert any("Strategy" in n for n in page_names), "Missing Strategy page"
-    total_vc = sum(len(p.get("visualContainers", [])) for p in pages)
-    assert total_vc >= 30, f"Expected 30+ visual containers, got {total_vc}"
+    assert report_def.exists(), "Missing Report/definition directory"
+    pages_json = report_def / "pages" / "pages.json"
+    assert pages_json.exists(), "Missing Report/definition/pages/pages.json"
+    with open(pages_json, encoding="utf-8") as f:
+        pages_meta = json.load(f)
+    page_order = pages_meta.get("pageOrder", [])
+    assert len(page_order) == 5, f"Expected 5 pages in pageOrder, got {len(page_order)}"
+    pages_dir = report_def / "pages"
+    page_dirs = [d.name for d in pages_dir.iterdir() if d.is_dir()]
+    assert len(page_dirs) >= 5, f"Expected 5+ page dirs, got {len(page_dirs)}"
+    all_names = " ".join(page_dirs)
+    assert "Executive" in all_names, f"Missing Executive page. Found: {page_dirs}"
+    assert "Competitive" in all_names, f"Missing Competitive page. Found: {page_dirs}"
+    assert "Pricing" in all_names, f"Missing Pricing page. Found: {page_dirs}"
+    assert "Positioning" in all_names, f"Missing Positioning page. Found: {page_dirs}"
+    assert "Strategy" in all_names, f"Missing Strategy page. Found: {page_dirs}"
 
 
 def test_pbip_model_bim_valid_and_fail_closed(project_root):

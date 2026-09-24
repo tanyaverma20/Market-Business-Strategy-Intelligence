@@ -1,5 +1,5 @@
 {
-  "db_path": "C:\\Users\\Tanya Verma\\AppData\\Local\\Temp\\pytest-of-Tanya Verma\\pytest-23\\sql_test0\\e2w_sql_test.duckdb",
+  "db_path": "C:\\Users\\Tanya Verma\\AppData\\Local\\Temp\\pytest-of-Tanya Verma\\pytest-30\\sql_test0\\e2w_sql_test.duckdb",
   "verified_product_rows": 42,
   "manufacturer_count": 11,
   "product_count": 42,
@@ -8,11 +8,15 @@
   "pending_market_rows": 0,
   "pending_market_templates_count": 8,
   "pending_market_status": "PENDING VERIFIED VAHAN DATA",
+  "sebi_market_growth_rows": 4,
+  "tam_sam_som_scenario_rows": 3,
   "outputs": {
     "competitive_analysis_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_competitive_analysis.csv",
     "pricing_analysis_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_pricing_analysis.csv",
     "product_positioning_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_product_positioning.csv",
     "kpi_results_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_kpi_results.csv",
-    "data_quality_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_data_quality_results.csv"
+    "data_quality_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_data_quality_results.csv",
+    "market_growth_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_sebi_market_growth.csv",
+    "tam_sam_som_csv": "C:\\BI\\Market-Business-Strategy-Intelligence\\data\\processed\\sql\\sql_tam_sam_som.csv"
   }
 }

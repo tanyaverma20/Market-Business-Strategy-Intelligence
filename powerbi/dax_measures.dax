@@ -254,3 +254,81 @@ BLANK()
 Market Intelligence Data Status = 
 "PENDING VERIFIED VAHAN DATA"
 /* Status indicator for executive dashboard headers */
+
+
+// =============================================================================
+// SECTION 6: SEBI-VERIFIED MARKET GROWTH MEASURES
+// Source: Ola Electric Mobility Limited RHP (August 2024) - SEBI statutory filing
+// DATA CLASSIFICATION: OBSERVED (FY2021-FY2024 national totals only)
+// LIMITATION: National India e2W totals; state-level breakdown NOT available.
+// =============================================================================
+
+SEBI Verified FY2024 Industry Units =
+MAX(SEBIMarketGrowth[industry_e2w_units])
+/* OBSERVED from SEBI RHP 2024: FY2024 national India e2W industry total = 944,000 units */
+
+SEBI FY2021 to FY2024 CAGR Pct =
+MAX(SEBIMarketGrowth[cagr_fy2021_fy2024_pct])
+/* OBSERVED: 3-year CAGR (FY2021-FY2024) from SEBI-verified industry totals = ~184.5% */
+
+SEBI FY2022 YoY Growth Pct =
+CALCULATE(
+    MAX(SEBIMarketGrowth[yoy_growth_pct]),
+    SEBIMarketGrowth[fiscal_year] = "FY2022"
+)
+/* OBSERVED: FY2021 to FY2022 YoY growth = 507.3% (41k to 249k units) */
+
+SEBI FY2024 YoY Growth Pct =
+CALCULATE(
+    MAX(SEBIMarketGrowth[yoy_growth_pct]),
+    SEBIMarketGrowth[fiscal_year] = "FY2024"
+)
+/* OBSERVED: FY2023 to FY2024 YoY growth = 29.7% (market decelerating from hyper-growth) */
+
+SEBI Market Data Source Status =
+"VERIFIED - Ola Electric SEBI RHP 2024 (FY2021-FY2024 national totals)"
+/* Source status indicator for dashboard credibility headers */
+
+
+// =============================================================================
+// SECTION 7: TAM / SAM / SOM FRAMEWORK MEASURES (EXPLICITLY ASSUMPTION-LABELLED)
+// Anchor: SEBI-verified FY2024 = 944,000 units (OBSERVED)
+// Growth projections and market share targets are ASSUMPTIONS, not forecasts.
+// =============================================================================
+
+TAM Base Case Units (Assumption) =
+CALCULATE(
+    MAX(TAMSAMSOMScenarios[tam_units]),
+    TAMSAMSOMScenarios[scenario] = "Base Case"
+)
+/* ASSUMPTION: FY2025 TAM = 1,180,000 units at 25% growth from verified FY2024 (944k) */
+
+TAM Base Revenue INR Crore (Assumption) =
+CALCULATE(
+    MAX(TAMSAMSOMScenarios[tam_revenue_inr_crore]),
+    TAMSAMSOMScenarios[scenario] = "Base Case"
+)
+/* ASSUMPTION: Base case TAM revenue (INR Crore) using verified catalog avg price */
+
+SAM Base Case Units (Assumption) =
+CALCULATE(
+    MAX(TAMSAMSOMScenarios[sam_units]),
+    TAMSAMSOMScenarios[scenario] = "Base Case"
+)
+/* ASSUMPTION: SAM = TAM x 70% geographic x 80% mid-market segment */
+
+SOM Base Case Units (Assumption) =
+CALCULATE(
+    MAX(TAMSAMSOMScenarios[som_units]),
+    TAMSAMSOMScenarios[scenario] = "Base Case"
+)
+/* ASSUMPTION: SOM = SAM x 3% attainable market share (Year 3 new entrant) */
+
+TAM Scenario Spread Units =
+CALCULATE(MAX(TAMSAMSOMScenarios[tam_units]), TAMSAMSOMScenarios[scenario] = "Upside Case") -
+CALCULATE(MAX(TAMSAMSOMScenarios[tam_units]), TAMSAMSOMScenarios[scenario] = "Conservative Case")
+/* Spread of TAM range: Upside minus Conservative scenario */
+
+TAM SAM SOM Data Status =
+"ASSUMPTION: Growth projections anchored to SEBI FY2024 verified baseline (944k units)"
+/* Classification label for framework transparency */

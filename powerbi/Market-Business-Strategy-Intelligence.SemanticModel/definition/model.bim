@@ -858,6 +858,159 @@
             }
           }
         ]
+      },
+      {
+        "name": "SEBIMarketGrowth",
+        "columns": [
+          {
+            "name": "fiscal_year",
+            "dataType": "string",
+            "sourceColumn": "fiscal_year"
+          },
+          {
+            "name": "calendar_year_end",
+            "dataType": "int64",
+            "sourceColumn": "calendar_year_end"
+          },
+          {
+            "name": "industry_e2w_units",
+            "dataType": "int64",
+            "sourceColumn": "industry_e2w_units"
+          },
+          {
+            "name": "yoy_growth_pct",
+            "dataType": "double",
+            "sourceColumn": "yoy_growth_pct"
+          },
+          {
+            "name": "cagr_fy2021_fy2024_pct",
+            "dataType": "double",
+            "sourceColumn": "cagr_fy2021_fy2024_pct"
+          },
+          {
+            "name": "data_classification",
+            "dataType": "string",
+            "sourceColumn": "data_classification"
+          },
+          {
+            "name": "source",
+            "dataType": "string",
+            "sourceColumn": "source"
+          },
+          {
+            "name": "provenance_status",
+            "dataType": "string",
+            "sourceColumn": "provenance_status"
+          },
+          {
+            "name": "coverage_note",
+            "dataType": "string",
+            "sourceColumn": "coverage_note"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "DataClassification",
+            "value": "OBSERVED - SEBI statutory filing (FY2021-FY2024)"
+          }
+        ]
+      },
+      {
+        "name": "TAMSAMSOMScenarios",
+        "columns": [
+          {
+            "name": "scenario",
+            "dataType": "string",
+            "sourceColumn": "scenario"
+          },
+          {
+            "name": "description",
+            "dataType": "string",
+            "sourceColumn": "description"
+          },
+          {
+            "name": "verified_fy2024_industry_units",
+            "dataType": "int64",
+            "sourceColumn": "verified_fy2024_industry_units"
+          },
+          {
+            "name": "fy2025_growth_assumption_pct",
+            "dataType": "double",
+            "sourceColumn": "fy2025_growth_assumption_pct"
+          },
+          {
+            "name": "tam_units",
+            "dataType": "int64",
+            "sourceColumn": "tam_units"
+          },
+          {
+            "name": "tam_revenue_inr_crore",
+            "dataType": "double",
+            "sourceColumn": "tam_revenue_inr_crore"
+          },
+          {
+            "name": "sam_units",
+            "dataType": "int64",
+            "sourceColumn": "sam_units"
+          },
+          {
+            "name": "sam_revenue_inr_crore",
+            "dataType": "double",
+            "sourceColumn": "sam_revenue_inr_crore"
+          },
+          {
+            "name": "som_units",
+            "dataType": "int64",
+            "sourceColumn": "som_units"
+          },
+          {
+            "name": "som_revenue_inr_crore",
+            "dataType": "double",
+            "sourceColumn": "som_revenue_inr_crore"
+          },
+          {
+            "name": "attainable_share_pct",
+            "dataType": "double",
+            "sourceColumn": "attainable_share_pct"
+          },
+          {
+            "name": "data_classification_tam",
+            "dataType": "string",
+            "sourceColumn": "data_classification_tam"
+          },
+          {
+            "name": "data_classification_sam",
+            "dataType": "string",
+            "sourceColumn": "data_classification_sam"
+          },
+          {
+            "name": "data_classification_som",
+            "dataType": "string",
+            "sourceColumn": "data_classification_som"
+          }
+        ],
+        "annotations": [
+          {
+            "name": "PBI_NavigationStepName",
+            "value": "Navigation"
+          },
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          },
+          {
+            "name": "DataClassification",
+            "value": "ASSUMPTION - growth projections anchored to SEBI FY2024 baseline"
+          }
+        ]
       }
     ],
     "relationships": [],

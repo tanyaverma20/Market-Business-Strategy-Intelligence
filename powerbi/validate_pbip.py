@@ -1,7 +1,8 @@
 """PBIP Integrity Validation Script"""
 import json, os
 
-repo = r'C:\Users\Tanya Verma\OneDrive\Desktop\Market-Business-Strategy-Intelligence'
+# Determine repo root relative to this script
+repo = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 pbi = os.path.join(repo, 'powerbi')
 
 checks = []
@@ -9,7 +10,7 @@ checks = []
 # Check PBIP entry file
 pbip_file = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.pbip')
 if os.path.exists(pbip_file):
-    with open(pbip_file) as f:
+    with open(pbip_file, encoding='utf-8') as f:
         d = json.load(f)
     checks.append(('PBIP entry file valid', 'version' in d and 'artifacts' in d))
 else:
@@ -18,31 +19,55 @@ else:
 # Check definition.pbir
 pbir = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.Report', 'definition.pbir')
 if os.path.exists(pbir):
-    with open(pbir) as f:
+    with open(pbir, encoding='utf-8') as f:
         d = json.load(f)
     checks.append(('definition.pbir valid', 'datasetReference' in d))
 else:
     checks.append(('definition.pbir exists', False))
 
-# Check report.json
+# Check PBIR pages (modern format) or report.json sections (legacy format)
+pages_json_path = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.Report', 'definition', 'pages', 'pages.json')
+pages_dir = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.Report', 'definition', 'pages')
 rjson = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.Report', 'definition', 'report.json')
-if os.path.exists(rjson):
-    with open(rjson) as f:
+
+page_names = []
+total_visuals = 0
+
+if os.path.exists(pages_json_path) and os.path.isdir(pages_dir):
+    with open(pages_json_path, encoding='utf-8') as f:
+        pj = json.load(f)
+    page_order = pj.get('pageOrder', [])
+    for p_id in page_order:
+        p_dir = os.path.join(pages_dir, p_id)
+        p_json_file = os.path.join(p_dir, 'page.json')
+        if os.path.exists(p_json_file):
+            with open(p_json_file, encoding='utf-8') as pf:
+                pd = json.load(pf)
+            page_names.append(pd.get('displayName', p_id))
+        else:
+            page_names.append(p_id)
+        v_dir = os.path.join(p_dir, 'visuals')
+        if os.path.isdir(v_dir):
+            total_visuals += len([v for v in os.listdir(v_dir) if os.path.isdir(os.path.join(v_dir, v))])
+    checks.append(('report definition has 5 pages', len(page_order) == 5))
+elif os.path.exists(rjson):
+    with open(rjson, encoding='utf-8') as f:
         d = json.load(f)
     pages = d.get('sections', [])
     page_names = [p.get('displayName', '') for p in pages]
-    checks.append(('report.json has 5 pages', len(pages) == 5))
-    checks.append(('Executive page exists', any('Executive' in n for n in page_names)))
-    checks.append(('Competitive page exists', any('Competitive' in n for n in page_names)))
-    checks.append(('Pricing page exists', any('Pricing' in n for n in page_names)))
-    checks.append(('Positioning page exists', any('Positioning' in n for n in page_names)))
-    checks.append(('Strategy page exists', any('Strategy' in n for n in page_names)))
     total_visuals = sum(len(p.get('visualContainers', [])) for p in pages)
-    checks.append(('Report has 30+ visual containers', total_visuals >= 30))
-    print('Pages:', page_names)
-    print('Total visual containers:', total_visuals)
+    checks.append(('report definition has 5 pages', len(pages) == 5))
 else:
-    checks.append(('report.json exists', False))
+    checks.append(('report definition exists', False))
+
+checks.append(('Executive page exists', any('Executive' in n for n in page_names)))
+checks.append(('Competitive page exists', any('Competitive' in n for n in page_names)))
+checks.append(('Pricing page exists', any('Pricing' in n for n in page_names)))
+checks.append(('Positioning page exists', any('Positioning' in n for n in page_names)))
+checks.append(('Strategy page exists', any('Strategy' in n for n in page_names)))
+checks.append(('Report has 30+ visual containers', total_visuals >= 30))
+print('Pages:', page_names)
+print('Total visual containers:', total_visuals)
 
 # Check model.bim
 mbim = os.path.join(pbi, 'Market-Business-Strategy-Intelligence.SemanticModel', 'definition', 'model.bim')

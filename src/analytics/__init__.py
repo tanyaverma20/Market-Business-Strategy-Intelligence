@@ -1,11 +1,19 @@
-"""Analytical modules for verified-only product analytics and pending market frameworks."""
+"""Analytics subpackage for Indian EV market intelligence."""
+from . import (
+    competitive_analysis,
+    geographic_analysis,
+    kpi_engine,
+    market_analysis,
+    positioning_analysis,
+    pricing_analysis,
+    scenario_analysis,
+    strategic_analysis,
+    tam_som_framework,
+    unit_economics,
+)
 
-from .competitive_analysis import *
-from .geographic_analysis import *
-from .kpi_engine import *
-from .market_analysis import *
-from .positioning_analysis import *
-from .pricing_analysis import *
-from .scenario_analysis import *
-from .strategic_analysis import *
-from .unit_economics import *
+__all__ = [
+    "competitive_analysis", "geographic_analysis", "kpi_engine",
+    "market_analysis", "positioning_analysis", "pricing_analysis",
+    "scenario_analysis", "strategic_analysis", "tam_som_framework", "unit_economics",
+]
