@@ -40,7 +40,7 @@ The completed Power BI solution is structured as a modern Fabric PBIP/PBIR repor
 
 ### 1. Executive Market & Business Overview
 
-![Executive Market & Business Overview](docs/dashboard_screenshots/01_executive_market_overview.png)
+![Executive Market & Business Overview](docs/powerbi/screenshots/01_executive_market_overview.png)
 
 * **Manufacturer & Product Coverage**: Displays overall commercial coverage across 11 active OEMs and 42 verified models (34 priced / 8 variant specifications).
 * **Executive KPI Strip**: Benchmark Market Average Price (₹1,36,349), Median Price (₹1,26,170.50), Average Certified Range (159.4 km), Average Battery Capacity (3.73 kWh), and Product Portfolio HHI (1,326.53).
@@ -50,7 +50,7 @@ The completed Power BI solution is structured as a modern Fabric PBIP/PBIR repor
 
 ### 2. Product & Competitive Intelligence
 
-![Product & Competitive Intelligence](docs/dashboard_screenshots/02_product_competitive_intelligence.png)
+![Product & Competitive Intelligence](docs/powerbi/screenshots/02_product_competitive_intelligence.png)
 
 * **Multi-Metric Slicer Strip**: Interactive multi-select filters for OEM (`All 11`), Price Tier, Certified Range Bracket, and Performance Speed Class.
 * **Competitive Specification Matrix**: Granular technical leaderboard tracking price, IDC certified range, battery capacity, top speed, and peak motor power across all commercial offerings.
@@ -59,7 +59,7 @@ The completed Power BI solution is structured as a modern Fabric PBIP/PBIR repor
 
 ### 3. Pricing & Value Analysis
 
-![Pricing & Value Analysis](docs/dashboard_screenshots/03_pricing_value_analysis.png)
+![Pricing & Value Analysis](docs/powerbi/screenshots/03_pricing_value_analysis.png)
 
 * **Pricing Extremes & Quartiles**: Highlights the ₹324k catalog price spread from minimum ₹74,990 (Kinetic Green E-Luna) to maximum ₹3,99,000 (Ultraviolette F77 Mach 2 Recon).
 * **Pricing Quartile Archetypes**:
@@ -71,7 +71,7 @@ The completed Power BI solution is structured as a modern Fabric PBIP/PBIR repor
 
 ### 4. Product Positioning & Whitespace Analysis
 
-![Product Positioning & Whitespace Analysis](docs/dashboard_screenshots/04_product_positioning_whitespace.png)
+![Product Positioning & Whitespace Analysis](docs/powerbi/screenshots/04_product_positioning_whitespace.png)
 
 * **Multi-Axial Catalog Segmentation**:
   * *Price Tiers*: Mid-Market (61.9%), Unpriced (19.0%), Budget (14.3%), Premium (4.8%).
@@ -84,7 +84,7 @@ The completed Power BI solution is structured as a modern Fabric PBIP/PBIR repor
 
 ### 5. Strategy & Opportunity Framework
 
-![Strategy & Opportunity Framework](docs/dashboard_screenshots/05_strategy_opportunity_framework.png)
+![Strategy & Opportunity Framework](docs/powerbi/screenshots/05_strategy_opportunity_framework.png)
 
 * **Competitive Concentration**: Tracks Product Portfolio HHI (1,326.53), confirming an unconcentrated, competitive catalog landscape with 22 models priced below benchmark and 12 above.
 * **TAM / SAM / SOM Scenario Sizing (FY2025)**:
@@ -517,12 +517,13 @@ Market-Business-Strategy-Intelligence/
 │   └── Market_Business_Strategy_Intelligence.xlsx     # 9-sheet formatted commercial Excel workbook
 │
 └── docs/
-    ├── dashboard_screenshots/                         # 5 high-resolution dashboard preview screenshots
-    │   ├── 01_executive_market_overview.png
-    │   ├── 02_product_competitive_intelligence.png
-    │   ├── 03_pricing_value_analysis.png
-    │   ├── 04_product_positioning_whitespace.png
-    │   └── 05_strategy_opportunity_framework.png
+    ├── powerbi/
+    │   └── screenshots/                               # 5 high-resolution dashboard preview screenshots
+    │       ├── 01_executive_market_overview.png
+    │       ├── 02_product_competitive_intelligence.png
+    │       ├── 03_pricing_value_analysis.png
+    │       ├── 04_product_positioning_whitespace.png
+    │       └── 05_strategy_opportunity_framework.png
     ├── TAM_SAM_SOM_METHODOLOGY.md                     # Auditable market sizing methodology
     ├── GEOGRAPHIC_ANALYSIS.md                         # 5-factor GAI framework specification
     ├── FINAL_KPI_REGISTRY.md                          # Registry of 24 verified enterprise KPIs
